@@ -225,25 +225,6 @@
                         {{--<p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>--}}
                     </div>
                     <!-- Grid column -->
-<<<<<<< HEAD
-                </div>
-                    <!-- Grid row-->
-                    {{--<div class="row d-flex white-text m-0">--}}
-                        {{--<!-- Grid column -->--}}
-                        {{--<!-- Grid column -->--}}
-                        {{--<div class="col-md-6 col-lg-7 text-right text-md-right">--}}
-                            {{--<!-- Facebook -->--}}
-                            {{--<a class="fb-ic"><i class="fab fa-facebook-f mr-4"></i></a>--}}
-                            {{--<a><i class="fab fa-vk mr-4"></i></a>--}}
-                            {{--<!-- Google +-->--}}
-                            {{--<a class="gplus-ic"><i class="fab fa-google-plus-g mr-4"></i></a>--}}
-                            {{--<!--Instagram-->--}}
-                            {{--<a class="ins-ic"><i class="fab fa-instagram"></i></a>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-=======
-
->>>>>>> 7ab006a18cd229452bd657e1f18ee0e7ea01321b
                 <!-- Grid row -->
             </div>
             <!-- Footer Links -->

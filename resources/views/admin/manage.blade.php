@@ -1,26 +1,8 @@
 @extends('admin.layout.auth')
 
-<<<<<<< HEAD
-{{--@section('content')--}}
-    {{--<div class="container">--}}
-        {{--<div class="col-md-8 col-md-offset-2">--}}
-            {{--<div class="card">--}}
-                {{--<div class="card-header">{{ trans('login.auth') }}</div>--}}
-
-                {{--<div class="card-body">--}}
-                    {{--Managing managers!--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-{{--@endsection--}}
-
-@extends('admin.layouts.app')
-=======
 @section('js')
     <script type="text/javascript" src="{{ asset('js/contentManagers.js') }}"></script>
 @endsection
->>>>>>> 7ab006a18cd229452bd657e1f18ee0e7ea01321b
 
 @section('content')
     <div class="container">

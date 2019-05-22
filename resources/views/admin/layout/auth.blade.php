@@ -67,14 +67,6 @@
     <div class="p-1" style="background-color:#F7B878; m-1"></div>
 </div>
 
-
-{{--<div id="app">--}}
-{{--<p>Hello my friend</p>--}}
-{{--<main class="py-4">--}}
-{{--@yield('content')--}}
-{{--</main>--}}
-{{--</div>--}}
-
 @yield('content')
 
 </body>
