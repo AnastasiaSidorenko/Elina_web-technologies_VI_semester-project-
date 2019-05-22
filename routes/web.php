@@ -45,6 +45,7 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function(){
     //Route::get('/', ['uses' => 'Admin\HomeController@index'])->name('home');
     Route::get('/managers', 'Admin\AdminController@managers');//->name('manage');
+    Route::get('/destroy/{id}','Admin\AdminController@destroy');
 });
 
 Route::group(['prefix' => 'user'], function () {

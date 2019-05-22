@@ -27,4 +27,9 @@ class AdminController extends Controller
         }
        return redirect('admin/home');
     }
+
+    public function destroy($id){
+        $admin = Admin::find($id);
+        $admin->delete();
+    }
 }
