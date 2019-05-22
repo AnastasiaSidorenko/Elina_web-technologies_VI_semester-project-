@@ -1,0 +1,52 @@
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+.top{
+    background-color:#6E6BAD;
+}
+.top__menu{
+    color:#6E6BAD;
+    display: flex;
+    flex-flow:nowrap;
+    justify-content:center;
+}
+.top__menu li{
+    list-style:none;
+    color:white;
+    padding-right: 1vw;
+}
+.logo caption{
+    font-size: 30vh;
+}
+nav{
+    background-color:#F7B878;
+}
+nav ul{
+    color:white;
+    display: flex;
+    justify-content:center;
+    flex-flow:nowrap;
+}
+nav li{
+    list-style:none;
+    font-size:3.5vh;
+    font-weight: 100;
+    padding-left:7vw;
+    padding-right:7vw;
+}
+.full-height {
+    height: 100vh;
+}
+
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
