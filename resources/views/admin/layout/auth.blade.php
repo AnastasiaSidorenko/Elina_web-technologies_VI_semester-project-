@@ -18,6 +18,15 @@
     <!-- Your custom styles (optional) -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+    <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{{ asset('js/mdb.js') }}"></script>
+    <!-- Managers -->
+    @yield('js')
 
 </head>
 <body>
@@ -68,12 +77,5 @@
 
 @yield('content')
 
-<script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="{{ asset('js/mdb.js') }}"></script>
 </body>
 </html>
