@@ -14,7 +14,7 @@
     {{--</div>--}}
 {{--@endsection--}}
 
-@extends('layouts.app')
+@extends('layout.auth')
 
 @section('content')
     <div class="container">
