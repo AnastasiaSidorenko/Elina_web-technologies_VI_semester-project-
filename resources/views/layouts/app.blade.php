@@ -225,6 +225,7 @@
                         {{--<p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>--}}
                     </div>
                     <!-- Grid column -->
+<<<<<<< HEAD
                 </div>
                     <!-- Grid row-->
                     {{--<div class="row d-flex white-text m-0">--}}
@@ -240,6 +241,9 @@
                             {{--<a class="ins-ic"><i class="fab fa-instagram"></i></a>--}}
                         {{--</div>--}}
                     {{--</div>--}}
+=======
+
+>>>>>>> 7ab006a18cd229452bd657e1f18ee0e7ea01321b
                 <!-- Grid row -->
             </div>
             <!-- Footer Links -->
@@ -248,6 +252,7 @@
                   <a href="/">Sidorenko</a>
              </div>
             <!-- Copyright -->
+            </div>
         </footer>
         <!-- Footer -->
 

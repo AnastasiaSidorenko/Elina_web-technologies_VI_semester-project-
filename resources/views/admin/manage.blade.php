@@ -1,5 +1,6 @@
-{{--@extends('admin.layout.auth')--}}
+@extends('admin.layout.auth')
 
+<<<<<<< HEAD
 {{--@section('content')--}}
     {{--<div class="container">--}}
         {{--<div class="col-md-8 col-md-offset-2">--}}
@@ -15,31 +16,40 @@
 {{--@endsection--}}
 
 @extends('admin.layouts.app')
+=======
+@section('js')
+    <script type="text/javascript" src="{{ asset('js/contentManagers.js') }}"></script>
+@endsection
+>>>>>>> 7ab006a18cd229452bd657e1f18ee0e7ea01321b
 
 @section('content')
     <div class="container">
-        <!--    <div class="row justify-content-left"> -->
-        <div class="col-md-15">
-            <div class="card text-center">
-                <div class="card-body">
-                    <div class="table">
-                        <table border>
+        <div class="row justify-content-center">
+            <div class="col-md-11">
+                <div class="card">
+                    <div class="card-header">{{ trans('admin.content_managers') }}</div>
+                    <div class="card-body text-center">
+                        <table  id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                             <tr>
-                                <th>{{ trans('admin.name') }}</th><th>{{ trans('admin.email') }}</th><th>{{ trans('admin.role') }}</th>
-                            </tr> <!--ряд с ячейками заголовков-->
-                            @foreach ($managers as $manager)
-                                <tr>
-                                    <td>{{ $manager->name}}</td>
-                                    <td>{{ $manager->email }}</td>
-                                    <td>{{ $manager->role }}</td>
-                                </tr> <!--ряд с ячейками тела таблицы-->
-                            @endforeach
+                                <th>ID</th><th>{{ trans('admin.name') }}</th><th>{{ trans('admin.email') }}</th><th>{{ trans('admin.role') }}</th><th>
+                                @foreach($managers as $m)
+                                        {{--@if($m->id!=Auth::user()->id)--}}
+                                        <tr id='TR{{$m->id}}'>
+                                            <td>{{$m->id}}</td>
+                                            <td>{{$m->name}}</td>
+                                            <td>{{$m->email}}</td>
+                                            <td>{{$m->role}}</td>
+                                            <td><button id='{{$m->id}}' onclick='deleteManagers({{$m->id}})'>Удалить</button>
+                                                <button id='{{$m->id}}' onclick='editManagers({{$m->id}})'>Редактировать</button>
+                                            </td>
+                                        </tr>
+                                        {{--   @endif--}}
+                                @endforeach
                         </table>
                     </div>
-                    {{ $managers->links() }}
+                    {{$managers->links()}}
                 </div>
             </div>
         </div>
-        <!-- </div> -->
     </div>
 @endsection
