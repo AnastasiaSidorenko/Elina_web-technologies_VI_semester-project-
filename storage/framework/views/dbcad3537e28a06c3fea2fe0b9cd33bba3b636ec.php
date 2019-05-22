@@ -18,7 +18,13 @@
     <!-- Your custom styles (optional) -->
     <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
 
-
+    <script type="text/javascript" src="<?php echo e(asset('js/jquery-3.3.1.min.js')); ?>"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="<?php echo e(asset('js/popper.min.js')); ?>"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="<?php echo e(asset('js/bootstrap.min.js')); ?>"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="<?php echo e(asset('js/mdb.js')); ?>"></script>
 </head>
  <body>
         <div class="header">
@@ -31,7 +37,7 @@
 
             <div class="header__middle container ml-0 mt-0 mr-0 navbar-expand-lg d-flex">
                 <div class="logo navbar-brand mt-0">
-                    <img class="logo__img d-inline-flex" src="<?php echo e(asset('img/300x245.png')); ?>"></img>
+                    <a href="/"><img class="logo__img d-inline-flex" src="<?php echo e(asset('img/300x245.png')); ?>"></a>
                     <span class="logo__name navbar-brand font-italic d-inline-flex align-bottom">ELINA</span>
                 </div>
 
@@ -169,8 +175,6 @@
 
         <?php echo $__env->yieldContent('content'); ?>
 
-
-
         <footer class="page-footer font-small text-black-50">
             <!-- Footer Links -->
             <div class="container text-center text-md-left mt-5 py-1">
@@ -248,13 +252,6 @@
         </footer>
         <!-- Footer -->
 
-        <script type="text/javascript" src="<?php echo e(asset('js/jquery-3.3.1.min.js')); ?>"></script>
-        <!-- Bootstrap tooltips -->
-        <script type="text/javascript" src="<?php echo e(asset('js/popper.min.js')); ?>"></script>
-        <!-- Bootstrap core JavaScript -->
-        <script type="text/javascript" src="<?php echo e(asset('js/bootstrap.min.js')); ?>"></script>
-        <!-- MDB core JavaScript -->
-        <script type="text/javascript" src="<?php echo e(asset('js/mdb.js')); ?>"></script>
     </body>
 </html>
 
