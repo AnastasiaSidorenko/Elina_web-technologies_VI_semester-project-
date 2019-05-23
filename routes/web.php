@@ -31,6 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function(){//a
     Route::get('/destroy/{id}','Admin\AdminController@destroy');
     Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'AdminAuth\RegisterController@register');
+    Route::post('/updateManager', 'Admin\AdminController@updateManager');
 });
 
 Route::group(['prefix' => 'user'], function () {

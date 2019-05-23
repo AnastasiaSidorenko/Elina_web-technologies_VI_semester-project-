@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <span>{{ trans('admin.content_managers') }}</span>
-                         <a href="/admin/register" class="btn btn-default btn-rounded btn-outline-deep-purple mb-4" >{{ trans('admin.create') }}</a>
+                         <a href="/admin/register" class="btn btn-default btn-rounded btn-outline-deep-purple mb-3" >{{ trans('admin.create') }}</a>
                     </div>
                     <div class="card-body text-center">
                         <table  id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
@@ -23,11 +23,11 @@
                                             <td>{{$m->id}}</td>
                                             <td>{{$m->name}}</td>
                                             <td>{{$m->email}}</td>
-                                            <td id="TdEdit">{{$m->role}}</td>
+                                            <td id="TdEdit">
+                                                <div id="role" class="edit" data-id="{{$m->id}}" contenteditable>{{$m->role}}</div>
+                                            </td>
                                             <td><button id='{{$m->id}}' onclick='deleteManagers({{$m->id}})'>{{ trans('admin.delete') }}</button></td>
-                                            {{--<td><button id='{{$m->id}}' onclick='editManagers({{$m->id}})'>Редактировать</button></td>
---}}
-                                        </tr>
+                                            </tr>
                                         {{--   @endif--}}
                                 @endforeach
                         </table>
