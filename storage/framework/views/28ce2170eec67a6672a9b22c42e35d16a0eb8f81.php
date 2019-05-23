@@ -55,9 +55,9 @@
 
                                     </button>
 
-                                    
-                                    
-                                    
+                                    <a class="btn btn-link" href="<?php echo e(url('/user/password/reset')); ?>">
+                                    Forgot Your Password?
+                                    </a>
                                 </div>
                             </div>
                         </form>

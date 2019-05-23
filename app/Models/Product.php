@@ -17,6 +17,7 @@ class Product extends Model
         'ingredients',
         'price',
         'expiration_date',
+        'quantity',
         'id_manufacturer',
         'id_category',
     ];

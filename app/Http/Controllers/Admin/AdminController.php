@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin;
+use App\Models\Product;
 
 class AdminController extends Controller
 {
@@ -27,6 +28,14 @@ class AdminController extends Controller
                return view('admin.manage', ['managers' => $managers]);
         }
        return redirect('admin/home');
+    }
+
+    public function products(){
+        if(Auth::user()->role=='admin' || Auth::user()->role=='manager'){
+            $products =Product::paginate(15);
+            return view('admin.products', ['products' => $products]);
+        }
+        return redirect('admin/home');
     }
 
     public function destroy($id){
