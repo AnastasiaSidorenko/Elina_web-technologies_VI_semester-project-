@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\AdminAuth;
 
-use App\Admin;
+use App\Models\Admin;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -37,7 +39,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('admin.guest');
+        $this->middleware('auth');
     }
 
     /**
@@ -50,6 +52,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
+            'role' => 'required|max:15',
             'email' => 'required|email|max:255|unique:admins',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -66,6 +69,7 @@ class RegisterController extends Controller
         return Admin::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'role' => $data['role'],
             'password' => bcrypt($data['password']),
         ]);
     }
@@ -85,6 +89,16 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Contracts\Auth\StatefulGuard
      */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
+    }
+
     protected function guard()
     {
         return Auth::guard('admin');
