@@ -12,6 +12,9 @@
                 <div class="card">
                     <div class="card-header">
                         <span>{{ trans('admin.products') }}</span>
+                        <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#addArticle">
+                            {{ trans('admin.create') }}
+                        </button>
                         <button id="AddProductForm" class="btn btn-default btn-rounded btn-outline-deep-purple mb-4" onclick='AddProductForm'>{{ trans('admin.create') }}</button>
                     </div>
                     <div class="card-body text-center">
@@ -22,13 +25,30 @@
                                 {{--@if($m->id!=Auth::user()->id)--}}
                                 <tr id='TR{{$p->id}}'>
                                     <td>{{$p->id}}</td>
-                                    <td>{{$p->name}}</td>
-                                    <td>{{$p->email}}</td>
+                                    <td>{{$p->name_en}}</td>
+                                    <td>{{$p->name_ru}}</td>
+                                    <td>{{$p->price}}</td>
+                                    <td>{{$p->expiration_date}}</td>
+                                    <td>{{$p->quantity}}</td>
+
                                     <td id="TdEdit">{{$p->role}}</td>
                                     <td><button id='{{$p->id}}' onclick='deleteManagers({{p->id}})'>{{ trans('admin.delete') }}</button></td>
                                     {{--<td><button id='{{$m->id}}' onclick='editManagers({{$m->id}})'>Редактировать</button></td>
 --}}
                                 </tr>
+                                'id',
+                                'name_en',
+                                'name_ru',
+                                'description_en',
+                                'description_ru',
+                                'suggested_use_en',
+                                'suggested_use_ru',
+                                'ingredients',
+                                'price',
+                                'expiration_date',
+                                'quantity',
+                                'id_manufacturer',
+                                'id_category',
                                 {{--   @endif--}}
                             @endforeach
                         </table>

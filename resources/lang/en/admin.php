@@ -13,5 +13,5 @@ return [
     'role' => 'Role',
     'create' => 'Create',
     'delete' => 'Delete',
-    'add_section' => 'Add Section'
+    'add_product' => 'Add product',
     ];

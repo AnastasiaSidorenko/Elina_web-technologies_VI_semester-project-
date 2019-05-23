@@ -29,6 +29,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function(){//a
     //Route::get('/', ['uses' => 'Admin\HomeController@index'])->name('home');
     Route::get('/managers', 'Admin\AdminController@managers');//->name('manage');
     Route::get('/destroy/{id}','Admin\AdminController@destroy');
+
+    Route::resource('/products', 'ProductController',['only' => ['index', 'store', 'show', 'destroy']]);
+
     Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'AdminAuth\RegisterController@register');
 });
