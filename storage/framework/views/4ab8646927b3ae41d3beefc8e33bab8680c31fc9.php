@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <title><?php echo $__env->yieldContent('title'); ?></title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
@@ -61,10 +62,17 @@
     <div class="header__middle container ml-0 mt-0 mr-0 navbar-expand-lg d-flex">
         <div class="logo navbar-brand mt-0">
             <a href="/admin/home"><img class="logo__img d-inline-flex" src="<?php echo e(asset('img/200.png')); ?>"></a>
-            <span class="logo__name navbar-brand font-italic d-inline-flex align-bottom">ELINA</span>
+            <a href="/admin/home"><span class="logo__name navbar-brand font-italic d-inline-flex align-bottom">ELINA</span></a>
         </div>
     </div>
-    <div class="p-1" style="background-color:#F7B878; m-1"></div>
+    
+    <div class="main-menu__toggler admin__menu d-flex justify-content-around align-items-center">
+        <a href="managers"><?php echo e(trans('admin.content_managers')); ?></a>
+        <a href="products"><?php echo e(trans('admin.products')); ?></a>
+        <a href="news"><?php echo e(trans('admin.news')); ?></a>
+        <a href="orders"><?php echo e(trans('admin.orders')); ?></a>
+        <a href="manufacturers"><?php echo e(trans('admin.manufacturers')); ?></a>
+    </div>
 </div>
 
 <?php echo $__env->yieldContent('content'); ?>

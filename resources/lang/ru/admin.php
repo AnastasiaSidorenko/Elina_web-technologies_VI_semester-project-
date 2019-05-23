@@ -13,5 +13,8 @@ return [
     'role' => 'Роль',
     'create' => 'Создать',
     'delete' => 'Удалить',
-    'add_product' => 'Add product',
+    'save' => 'Сохранить',
+    'close' => 'Закрыть',
+    'add_product' => 'Добавить товар',
+    'adding_manufacturer' => 'Добавление производителя',
     ];

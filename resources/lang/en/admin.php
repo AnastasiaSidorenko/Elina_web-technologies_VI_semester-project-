@@ -13,5 +13,8 @@ return [
     'role' => 'Role',
     'create' => 'Create',
     'delete' => 'Delete',
+    'save' => 'Save',
+    'close' => 'Close',
     'add_product' => 'Add product',
+    'adding_manufacturer' => 'Adding manufacturer',
     ];

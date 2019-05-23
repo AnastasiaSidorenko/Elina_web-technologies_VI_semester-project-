@@ -28,9 +28,15 @@ Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showRes
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function(){//auth:admin чтобы авторизация отображалась на других страницах
     //Route::get('/', ['uses' => 'Admin\HomeController@index'])->name('home');
     Route::get('/managers', 'Admin\AdminController@managers');//->name('manage');
-    Route::get('/destroy/{id}','Admin\AdminController@destroy');
+    Route::get('/destroy_manager/{id}','Admin\AdminController@destroy_manager');
+    Route::post('/updateManager', 'Admin\AdminController@update');
+    /*Route::resource('/products', 'ProductController',['only' => ['index', 'store', 'show', 'destroy']]);
 
-    Route::resource('/products', 'ProductController',['only' => ['index', 'store', 'show', 'destroy']]);
+   Route::resource('/manufacturers', 'ManufacturerController',['only' => ['index', 'store', 'show', 'destroy']]);*/
+    Route::get('/manufacturers', 'Admin\ManufacturerController@manufacturers');//->name('manage');
+    Route::post('/manufacturers/store', 'Admin\ManufacturerController@store');
+    Route::get('/destroy_manuf/{id}','Admin\ManufacturerController@destroy');
+    Route::post('/updateManuf','Admin\ManufacturerController@update');
 
     Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'AdminAuth\RegisterController@register');

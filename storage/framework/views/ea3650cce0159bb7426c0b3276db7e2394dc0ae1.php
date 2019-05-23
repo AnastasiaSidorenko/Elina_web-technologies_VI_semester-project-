@@ -9,24 +9,25 @@
                 <div class="card">
                     <div class="card-header">
                         <span><?php echo e(trans('admin.content_managers')); ?></span>
-                         <a href="/admin/register" class="btn btn-default btn-rounded btn-outline-deep-purple mb-4" ><?php echo e(trans('admin.create')); ?></a>
+                        <button type="button" onclick="location.href='/admin/register'" class="btn btn-amber pull-right" ><?php echo e(trans('admin.create')); ?></button>
                     </div>
                     <div class="card-body text-center">
                         <table  id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                             <tr>
                                 <th>ID</th><th><?php echo e(trans('admin.name')); ?></th><th><?php echo e(trans('admin.email')); ?></th><th><?php echo e(trans('admin.role')); ?></th><th width="10%"></th></tr>
-                                <?php $__currentLoopData = $managers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $m): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        
-                                        <tr id='TR<?php echo e($m->id); ?>'>
-                                            <td><?php echo e($m->id); ?></td>
-                                            <td><?php echo e($m->name); ?></td>
-                                            <td><?php echo e($m->email); ?></td>
-                                            <td id="TdEdit"><?php echo e($m->role); ?></td>
-                                            <td><button id='<?php echo e($m->id); ?>' onclick='deleteManagers(<?php echo e($m->id); ?>)'><?php echo e(trans('admin.delete')); ?></button></td>
-                                            
-                                        </tr>
-                                        
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $managers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $m): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                
+                                <tr id='TR<?php echo e($m->id); ?>'>
+                                    <td><?php echo e($m->id); ?></td>
+                                    <td><?php echo e($m->name); ?></td>
+                                    <td><?php echo e($m->email); ?></td>
+                                    <td id="TdEdit">
+                                        <div id="role" class="edit" data-id="<?php echo e($m->id); ?>" contenteditable><?php echo e($m->role); ?></div>
+                                    </td>
+                                    <td><button id='<?php echo e($m->id); ?>' onclick='deleteManagers(<?php echo e($m->id); ?>)'><i class="fas fa-trash-alt"></i></button></td>
+                                </tr>
+                                
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </table>
                     </div>
                     <?php echo e($managers->links()); ?>

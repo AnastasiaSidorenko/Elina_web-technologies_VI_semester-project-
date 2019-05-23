@@ -20,10 +20,10 @@ class ProductController extends Controller
     }
     public function index()
     {
-        $products = DB::table('products')
-            ->join('categories', 'products.id', '=', 'manufacturers.user_id')
-            ->select('users.*', 'category.name_en','category.name_ru')
-            ->get();
+//        $products = DB::table('products')
+//            ->join('categories', 'products.id', '=', 'manufacturers.user_id')
+//            ->select('users.*', 'category.name_en','category.name_ru')
+//            ->get();
         $products = Product::paginate(30);
         return view('admin.products', ['products' => $products]);
     }
