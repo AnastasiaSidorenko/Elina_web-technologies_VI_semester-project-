@@ -58,7 +58,7 @@
                 </div>
     <div class="header__middle container ml-0 mt-0 mr-0 navbar-expand-lg d-flex">
         <div class="logo navbar-brand mt-0">
-            <img class="logo__img d-inline-flex" src="{{ asset('img/200.png') }}">
+            <a href="/admin/home"><img class="logo__img d-inline-flex" src="{{ asset('img/200.png') }}"></a>
             <span class="logo__name navbar-brand font-italic d-inline-flex align-bottom">ELINA</span>
         </div>
     </div>

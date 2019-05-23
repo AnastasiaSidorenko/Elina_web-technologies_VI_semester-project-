@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('suggested_use_en',250);
             $table->string('suggested_use_ru',250);
             $table->date('expiration_date');
+            $table->integer('quantity');
             $table->bigInteger('id_category')->unsigned()->nullable();
             $table->bigInteger('id_manufacturer')->unsigned();
             $table->foreign('id_category')->references('id')->on('categories')

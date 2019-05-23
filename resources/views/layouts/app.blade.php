@@ -184,7 +184,7 @@
                         <!-- Content -->
                         <h6 class="text-uppercase font-weight-bold">Elina</h6>
                         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur
+                        <p style="color:white">Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur
                             adipisicing elit.</p>
                     </div>
                     <!-- Grid column -->
@@ -219,9 +219,9 @@
                         <h6 class="text-uppercase font-weight-bold">{{ trans('footer.contact') }}</h6>
                         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                         <p><a href="{{ url('/how_to_find_us') }}">{{ trans('top&middle_menu.how_to_find_us') }}</a></p>
-                        <p><i class="fas fa-home mr-3"></i>г. Севастополь ул.Университетская д.1 оф.255, Россия</p>
-                        <p><i class="fas fa-envelope mr-3"></i> info@example.com</p>
-                        <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                        <p style="color:white"><i class="fas fa-home mr-3"></i>г. Севастополь ул.Университетская д.1 оф.255, Россия</p>
+                        <p style="color:white"><i class="fas fa-envelope mr-3"></i> info@example.com</p>
+                        <p style="color:white"><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
                         {{--<p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>--}}
                     </div>
                     <!-- Grid column -->
