@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\AdminAuth;
 
-use App\Admin;
+use App\Models\Admin;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -37,7 +39,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('admin.guest');
+        $this->middleware('auth');
     }
 
     /**
@@ -51,6 +53,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:admins',
+            'role' => 'required|max:15',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -66,6 +69,7 @@ class RegisterController extends Controller
         return Admin::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'role' => $data['role'],
             'password' => bcrypt($data['password']),
         ]);
     }
@@ -77,7 +81,10 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('admin.auth.register');
+        if(Auth::user()->role=='admin') {
+            return view('admin.auth.register');
+        }
+        else return redirect('admin/home');
     }
 
     /**
@@ -85,6 +92,18 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Contracts\Auth\StatefulGuard
      */
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        //The auto login code has been removed from here.
+
+        return redirect($this->redirectPath());
+    }
+
     protected function guard()
     {
         return Auth::guard('admin');

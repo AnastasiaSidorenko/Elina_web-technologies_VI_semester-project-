@@ -6,5 +6,6 @@ return [
     'name' => 'Имя',
     'email' => 'Email',
     'role' => 'Роль',
-
+    'create' => 'Создать',
+    'delete' => 'Удалить',
     ];

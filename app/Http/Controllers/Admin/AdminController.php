@@ -29,7 +29,10 @@ class AdminController extends Controller
     }
 
     public function destroy($id){
-        $admin = Admin::find($id);
-        $admin->delete();
+        if(Auth::user()->role=='admin'){
+            $admin = Admin::find($id);
+            $admin->delete();
+        }
+        else return redirect('admin/home');
     }
 }

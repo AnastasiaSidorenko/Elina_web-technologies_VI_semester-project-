@@ -31,8 +31,6 @@
 </head>
 <body>
 <div class="header">
-
-
         <div class="d-flex flex-column top-header-admin">
             <div class="language-switcher d-flex justify-content-start">
                 <a class="ml-1" href="/setlocale/ru">RU</a>
