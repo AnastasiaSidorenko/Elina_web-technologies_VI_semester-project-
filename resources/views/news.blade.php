@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Main page')
+@section('title','News page')
 
 @section('content')
     {{--<div class="container">--}}
@@ -38,16 +38,19 @@
 
                                 <!-- Title -->
                                 <h4 class="card-title">{{$item->$title}}</h4>
+                                <p class="font-weight-bold dark-grey-text text-right">{{$item->date}}</p>
                                 <hr>
                                 <!-- Text -->
                                 <p class="card-text news__text-preview">{{$item->$body}}</p>
                                 <!-- Link -->
-                                <a href="#!" class="text-deep-purple d-flex justify-content-end"><h5>{{ trans('site.read_more') }} <i class="fas fa-angle-double-right"></i></h5></a>
+                                <a href="/news/{{$item->id}}" class="text-deep-purple d-flex justify-content-end"><h5>{{ trans('site.read_more') }} <i class="fas fa-angle-double-right"></i></h5></a>
 
                             </div>
                         </div>
                 @endforeach
                 </div>
+            {{$news->links()}}
+
             {{--</div>--}}
         {{--</div>--}}
         {{--</div>--}}

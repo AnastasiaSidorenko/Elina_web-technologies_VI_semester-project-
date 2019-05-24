@@ -18,4 +18,9 @@ class NewsController extends Controller
        // $news = News->sortByDesc('created_at')::paginate(4);
         return view('news', ['news' => $news]);
     }
+
+    public function news_item($id){
+        $news = News::findOrFail($id);
+        return view('news_item',['news_item' => $news]);
+    }
 }
