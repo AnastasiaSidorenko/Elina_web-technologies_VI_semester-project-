@@ -45,7 +45,6 @@ class AdminController extends Controller
         else return redirect('admin/home');
     }
 
-
     public function update(Request $request){
         if(Auth::user()->role=='admin'){
             if($request->ajax())

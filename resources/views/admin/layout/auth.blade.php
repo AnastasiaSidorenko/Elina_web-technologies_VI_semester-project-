@@ -9,7 +9,7 @@
     <title>@yield('title')</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 {{--<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">--}}
 
 <!-- Bootstrap core CSS -->
@@ -26,6 +26,12 @@
     <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="{{ asset('js/mdb.js') }}"></script>
+
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
     <!-- Managers -->
     @yield('js')
 
@@ -72,7 +78,7 @@
         <a href="manufacturers">{{ trans('admin.manufacturers') }}</a>
     </div>
 </div>
-
+@include('common.errors')
 @yield('content')
 
 </body>
