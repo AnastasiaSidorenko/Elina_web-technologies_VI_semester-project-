@@ -111,3 +111,16 @@ a:link,a:visited,a:active,a:hover{
     padding-bottom:0.7vw;
     width:100vw;
 }
+.news__text-preview{
+    text-overflow: ellipsis; /* will make [...] at the end */
+    /*width: 35vw; !* change to your preferences *!*/
+    white-space: nowrap; /* paragraph to one line */
+    overflow:hidden; /* older browsers */
+}
+.news__item{
+    width: 47.5%;
+}
+.news__preview-image{
+    height:50vh;
+    width:auto;
+}

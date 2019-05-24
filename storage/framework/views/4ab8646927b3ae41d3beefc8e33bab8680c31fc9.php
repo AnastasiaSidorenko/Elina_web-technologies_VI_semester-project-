@@ -9,7 +9,7 @@
     <title><?php echo $__env->yieldContent('title'); ?></title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
 
 <!-- Bootstrap core CSS -->
@@ -26,6 +26,12 @@
     <script type="text/javascript" src="<?php echo e(asset('js/bootstrap.min.js')); ?>"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="<?php echo e(asset('js/mdb.js')); ?>"></script>
+
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
     <!-- Managers -->
     <?php echo $__env->yieldContent('js'); ?>
 
@@ -74,7 +80,7 @@
         <a href="manufacturers"><?php echo e(trans('admin.manufacturers')); ?></a>
     </div>
 </div>
-
+<?php echo $__env->make('common.errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->yieldContent('content'); ?>
 
 </body>
