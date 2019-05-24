@@ -8,11 +8,11 @@ class News extends Model
 {
     protected $fillable = [
         'id',
-        'date_',
         'title_en',
         'title_ru',
         'body_en',
         'body_ru',
+        'date',
         'image',
     ];
     protected $table = 'news';

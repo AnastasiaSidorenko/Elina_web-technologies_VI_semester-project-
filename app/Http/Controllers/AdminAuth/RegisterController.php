@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\AdminAuth;
 
 use App\Models\Admin;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\Request;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -22,16 +22,13 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
     use RegistersUsers;
-
     /**
      * Where to redirect users after login / registration.
      *
      * @var string
      */
     protected $redirectTo = '/admin/home';
-
     /**
      * Create a new controller instance.
      *
@@ -41,7 +38,6 @@ class RegisterController extends Controller
     {
         $this->middleware('auth');
     }
-
     /**
      * Get a validator for an incoming registration request.
      *
@@ -52,12 +48,11 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'role' => 'required|max:15',
             'email' => 'required|email|max:255|unique:admins',
+            'role' => 'required|max:15',
             'password' => 'required|min:6|confirmed',
         ]);
     }
-
     /**
      * Create a new user instance after a valid registration.
      *
@@ -73,7 +68,6 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
-
     /**
      * Show the application registration form.
      *
@@ -81,9 +75,11 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('admin.auth.register');
+        if(Auth::user()->role=='admin') {
+            return view('admin.auth.register');
+        }
+        else return redirect('admin/home');
     }
-
     /**
      * Get the guard to be used during registration.
      *
@@ -92,13 +88,10 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
-
         event(new Registered($user = $this->create($request->all())));
-
-        return $this->registered($request, $user)
-            ?: redirect($this->redirectPath());
+        //The auto login code has been removed from here.
+        return redirect($this->redirectPath());
     }
-
     protected function guard()
     {
         return Auth::guard('admin');

@@ -1,7 +1,7 @@
 function deleteManagers(entry_id){
     $.ajax({
         type: 'GET',
-        url: '/admin/destroy/'+entry_id,
+        url: '/admin/destroy_manager/'+entry_id,
         success: function (data) {
             $("#TR"+entry_id).hide();
         },
@@ -38,8 +38,8 @@ $(function(){
                     console.log(res);
                 },
                 error: function(){
+                    /*$(this).innerText=oldVal;*/
                     alert('Error!');
-                    $(this).text=oldVal;
                 }
             });
         }

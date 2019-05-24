@@ -8,13 +8,13 @@
                 <div class="container">
                     <?php
                     session_start();
-                    if(Session::get('locale')=='en'){
-                        $body='body_'.'en';
-                        $title='title_'.'en';
+                    if(App::getLocale()=='en'){
+                        $body='body_en';
+                        $title='title_en';
                     }
                     else{
-                        $body='body_'.'ru';
-                        $title='title_'.'ru';
+                        $body='body_ru';
+                        $title='title_ru';
                     }
                     ?>
                 @foreach ($news as $item)

@@ -26,9 +26,24 @@ Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showRes
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function(){//auth:admin чтобы авторизация отображалась на других страницах
-    //Route::get('/', ['uses' => 'Admin\HomeController@index'])->name('home');
+
+    //MANAGERS
     Route::get('/managers', 'Admin\AdminController@managers');//->name('manage');
-    Route::get('/destroy/{id}','Admin\AdminController@destroy');
+    Route::get('/destroy_manager/{id}','Admin\AdminController@destroy');
+    Route::post('/updateManager', 'Admin\AdminController@update');
+
+    //MANUFACTIRERS
+    Route::get('/manufacturers', 'Admin\ManufacturerController@manufacturers');
+    Route::post('/manufacturers/store', 'Admin\ManufacturerController@store');
+    Route::get('/destroy_manuf/{id}','Admin\ManufacturerController@destroy');
+    Route::post('/updateManuf','Admin\ManufacturerController@update');
+
+    //NEWS
+    Route::get('/news', 'Admin\NewsController@news');
+    Route::post('/news/store', 'Admin\NewsController@store');
+    Route::get('/destroy_news/{id}','Admin\NewsController@destroy');
+    Route::post('/updateNews','Admin\NewsController@update');
+
     Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'AdminAuth\RegisterController@register');
     Route::post('/updateManager', 'Admin\AdminController@updateManager');

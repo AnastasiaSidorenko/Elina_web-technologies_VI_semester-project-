@@ -40,13 +40,13 @@ class AdminController extends Controller
 
     public function destroy($id){
         if(Auth::user()->role=='admin'){
-            $admin = Admin::find($id);
-            $admin->delete();
+            $entry = Admin::find($id);
+            $entry->delete();
         }
         else return redirect('admin/home');
     }
 
-    public function updateManager(Request $request){
+    public function update(Request $request){
         if(Auth::user()->role=='admin'){
             if($request->ajax())
             {

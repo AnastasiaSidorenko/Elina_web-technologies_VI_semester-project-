@@ -8,6 +8,12 @@
     max-width: unset;
     width:100%;
 }
+
+a:link,a:visited,a:active,a:hover{
+    color:#560004;
+    font-weight:bolder;
+}
+
 /*.main-menu__toggler > a{*/
     /*color: #946088;*/
     /*font-size:3vh;*/
@@ -95,4 +101,13 @@
 }
 .admin-login{
     background-color: #F7B878;
+}
+.list-group-item-warning{
+    display:inline;
+}
+.admin__menu{
+    height:3vw;
+    padding-top:0.7vw;
+    padding-bottom:0.7vw;
+    width:100vw;
 }

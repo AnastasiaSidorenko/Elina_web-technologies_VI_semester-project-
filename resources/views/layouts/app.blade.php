@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
@@ -25,13 +26,21 @@
     <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="{{ asset('js/mdb.js') }}"></script>
+
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
+
 </head>
  <body>
         <div class="header">
             <div class="header__top">
                 <nav class="top-menu top navbar navbar-expand-lg p-0 justify-content-center">
-                    <a class="pr-3" href="{{ url('/news') }}">{{ trans('top&middle_menu.news') }}</a>
-                    <a class="pr-3" href="{{ url('/about_us') }}">{{ trans('top&middle_menu.about_us') }}</a>
+                    <a class="pr-4" href="{{ url('/news') }}">{{ trans('top&middle_menu.news') }}</a>
+                    <a class="pr-4" href="{{ url('/about_us') }}">{{ trans('top&middle_menu.about_us') }}</a>
+                    <a class="pr-4" href="{{ url('/how_to_find_us') }}">{{ trans('top&middle_menu.how_to_find_us') }}</a>
                 </nav>
             </div>
 
@@ -164,13 +173,6 @@
             </div>
         </nav>
 
-    {{--<div id="app">--}}
-        {{--<p>Hello my friend</p>--}}
-        {{--<main class="py-4">--}}
-            {{--@yield('content')--}}
-        {{--</main>--}}
-    {{--</div>--}}
-
         @yield('content')
 
         <footer class="page-footer font-small text-black-50">
@@ -181,10 +183,10 @@
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         <!-- Content -->
-                        <h6 class="text-uppercase font-weight-bold">Company name</h6>
+                        <h6 class="text-uppercase font-weight-bold">Elina</h6>
                         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit.</p>
+
+                        <p style="color: white;">Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     </div>
                     <!-- Grid column -->
                     <!-- Grid column -->
@@ -202,35 +204,36 @@
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <div class="col-md-2 col-lg-3 col-xl-2 mx-auto mb-3">
                         <!-- Links -->
-                        <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+                        <h6 class="text-uppercase font-weight-bold"><nobr>{{ trans('footer.useful_links') }}</nobr></h6>
                         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p><a href="#!">Your Account</a></p>
-                        <p><a href="#!">Become an Affiliate</a></p>
-                        <p><a href="#!">Shipping Rates</a></p>
-                        <p><a href="#!">Help</a></p>
+                        <p><a href="{{ url('/news') }}">{{ trans('top&middle_menu.news') }}</a></p>
+                        <p><a href="#!">{{ trans('footer.your_account') }}</a></p>
+                        <p><a href="https://cosmeticsinfo.org/whats-my-products">{{ trans('footer.ingredients_database') }}</a></p>
                     </div>
                     <!-- Grid column -->
 
                     <!-- Grid column -->
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                         <!-- Links -->
-                        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                        <h6 class="text-uppercase font-weight-bold">{{ trans('footer.contact') }}</h6>
                         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-                        <p><i class="fas fa-envelope mr-3"></i> info@example.com</p>
-                        <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-                        <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                        <p><a href="{{ url('/how_to_find_us') }}">{{ trans('top&middle_menu.how_to_find_us') }}</a></p>
+
+                        <p style="color: white;"><i class="fas fa-home mr-3"></i>г. Севастополь ул.Университетская д.1 оф.255, Россия</p>
+                        <p style="color: white;"><i class="fas fa-envelope mr-3"></i> info@example.com</p>
+                        <p style="color: white;"><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+
+                        {{--<p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>--}}
                     </div>
                     <!-- Grid column -->
-
                 <!-- Grid row -->
             </div>
             <!-- Footer Links -->
             <!-- Copyright -->
-             <div class="footer-copyright text-center py-1">© 2018 Copyright:
-                  <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+             <div class="footer-copyright text-center py-1">© 2019 Copyright:
+                  <a href="/">Sidorenko</a>
              </div>
             <!-- Copyright -->
             </div>

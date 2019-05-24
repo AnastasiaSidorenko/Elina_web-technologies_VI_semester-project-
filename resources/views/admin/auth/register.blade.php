@@ -5,9 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ trans('admin.createManager') }}</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/register') }}">
+
+                <div class="card-header">{{ trans('register.registration') }}</div>
+                <div class="card-body">
+
+                <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/register') }}">
+
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -52,8 +55,26 @@
                             </div>
                         </div>
 
+                    <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
+                        <label for="role" class="col-md-4 control-label">{{ trans('admin.role') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="role" type="text" class="form-control" name="role" value="{{ old('role') }}">
+
+                            @if ($errors->has('role'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('role') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+<<<<<<< HEAD
                             <label for="password" class="col-md-4 control-label">{{ trans('admin.password') }}</label>
+=======
+                            <label for="password" class="col-md-4 control-label">{{ trans('register.password') }}</label>
+>>>>>>> origin/master
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -67,7 +88,11 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+<<<<<<< HEAD
                             <label for="password-confirm" class="col-md-4 control-label">{{ trans('admin.confirm_password') }}</label>
+=======
+                            <label for="password-confirm" class="col-md-4 control-label">{{ trans('register.confirm_password') }}</label>
+>>>>>>> origin/master
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
@@ -80,9 +105,15 @@
                             </div>
                         </div>
 
+<<<<<<< HEAD
                         <div class="form-group mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-deep-purple">
+=======
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-outline-deep-purple">
+>>>>>>> origin/master
                                     {{ trans('admin.create') }}
                                 </button>
                             </div>
