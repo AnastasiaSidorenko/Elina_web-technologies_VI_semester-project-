@@ -1,7 +1,7 @@
-function deleteManuf(entry_id){
+function deleteNews(entry_id){
     $.ajax({
         type: 'GET',
-        url: '/admin/destroy_manuf/'+entry_id,
+        url: '/admin/destroy_news/'+entry_id,
         success: function (data) {
             $("#TR"+entry_id).hide();
         },
@@ -29,7 +29,7 @@ $(function(){
         newVal = $(this).text();
         if(newVal != oldVal){
             $.ajax({
-                url:'/admin/updateManuf',
+                url:'/admin/updateNews',
                 type: 'POST',
                 data: {new_val: newVal, id: id, name: name_column},
                 headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
@@ -49,11 +49,17 @@ $(function(){
 
 $(function() {
     $('#save').on('click', function () {
-        var name = $('#name').val();
+        var title_ru = $('#title_ru').val();
+        var title_en = $('#title_en').val();
+        var body_ru = $('#body_ru').val();
+        var body_en = $('#body_en').val();
+        var d = new Date();
+        var date = d.getDate() + "/" + (d.getMonth()+1) + "/" +  d.getFullYear();
+        var image = $('#image')[0].files[0].name;
         $.ajax({
-            url: '/admin/manufacturers/store',
+            url: '/admin/news/store',
             type: "POST",
-            data: {name: name},
+            data: {title_ru: title_ru, title_en: title_en, body_ru: body_ru, body_en: body_en, date: date, image: image},
             headers: {
                 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
             },
@@ -62,10 +68,19 @@ $(function() {
                 $('#articles-wrap').removeClass('hidden').addClass('show');
                 $('.alert').removeClass('show').addClass('hidden');
                 var str = '<tr id="TR'+data['id']+'"><td>' + data['id'] +
-                    '<td id="TdEdit"><div class="edit" data-id="'+data['id']+'" contenteditable>'+data['name']+'</div></td>'+
+                    '<td id="TdEdit"><div class="edit" data-id="'+data['id']+'" contenteditable>'+data['title_ru']+'</div></td>'+
+                    '<td id="TdEdit"><div class="edit" data-id="'+data['id']+'" contenteditable>'+data['title_en']+'</div></td>'+
+                    '<td id="TdEdit"><div class="edit" data-id="'+data['id']+'" contenteditable>'+data['body_ru']+'</div></td>'+
+                    '<td id="TdEdit"><div class="edit" data-id="'+data['id']+'" contenteditable>'+data['body_en']+'</div></td>'+
+                    '<td id="TdEdit"><div class="edit" data-id="'+data['id']+'" contenteditable>'+data['date']+'</div></td>'+
+                    '<td id="TdEdit"><div class="edit" data-id="'+data['id']+'" contenteditable>'+data['image']+'</div></td>'+
                     '<td><button id=' + data['id'] + ' onclick="deleteManuf(' + data['id'] + ')"><i class="fas fa-trash-alt"></i></button></td></tr>';
                 $('.table > tbody:last').append(str);
-                $('#name').val('');
+                $('#title_ru').val('');
+                $('#title_en').val('');
+                $('#body_ru').val('');
+                $('#body_en').val('');
+                $('#image').val('');
             },
             error: function (msg) {
                 alert('Ошибка');

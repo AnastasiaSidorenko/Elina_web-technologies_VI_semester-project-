@@ -17,4 +17,5 @@ return [
     'close' => 'Close',
     'add_product' => 'Add product',
     'adding_manufacturer' => 'Adding manufacturer',
+    'adding_news' => 'Adding news',
     ];

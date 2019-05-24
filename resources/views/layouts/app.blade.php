@@ -173,13 +173,6 @@
             </div>
         </nav>
 
-    {{--<div id="app">--}}
-        {{--<p>Hello my friend</p>--}}
-        {{--<main class="py-4">--}}
-            {{--@yield('content')--}}
-        {{--</main>--}}
-    {{--</div>--}}
-
         @yield('content')
 
         <footer class="page-footer font-small text-black-50">

@@ -24,7 +24,7 @@
                                 <tr id='TR{{$m->id}}'>
                                     <td>{{$m->id}}</td>
                                     <td id="TdEdit">
-                                        <div id="nameManuf" class="edit" data-id="{{$m->id}}" contenteditable>{{$m->name}}</div>
+                                        <div class="edit" data-id="{{$m->id}}" contenteditable>{{$m->name}}</div>
                                     </td>
                                     <td><button id='{{$m->id}}' onclick='deleteManuf({{$m->id}})'><i class="fas fa-trash-alt"></i></button></td>
                                 </tr>
@@ -37,47 +37,25 @@
             </div>
         </div>
     </div>
-
     <!-- Modal -->
-
     <div class="modal fade" id="addArticle" tabindex="-1" role="dialog" aria-labelledby="addArticleLabel">
-
         <div class="modal-dialog" role="document">
-
             <div class="modal-content">
-
                 <div class="modal-header">
-
                     <h4 class="modal-title" id="addArticleLabel">{{ trans('admin.adding_manufacturer') }}</h4>
-
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
                 </div>
-
                 <div class="modal-body">
-
                     <div class="form-group">
-
                         <label for="name">{{ trans('admin.name') }}</label>
-
                         <input type="text" class="form-control" id="name">
-
                     </div>
-
                 </div>
-
                 <div class="modal-footer">
-
                     <button type="button" class="btn btn-deep-orange" data-dismiss="modal">{{ trans('admin.close') }}</button>
-
                     <button id="save" type="button" class="btn btn-pink">{{ trans('admin.save') }}</button>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 @endsection

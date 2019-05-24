@@ -17,4 +17,5 @@ return [
     'close' => 'Закрыть',
     'add_product' => 'Добавить товар',
     'adding_manufacturer' => 'Добавление производителя',
+    'adding_news' => 'Добавление новости',
     ];

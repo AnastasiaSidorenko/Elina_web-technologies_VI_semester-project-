@@ -15,11 +15,11 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('date');
-            $table->string('title_en');
             $table->string('title_ru');
-            $table->string('body_en');
+            $table->string('title_en');
             $table->string('body_ru');
+            $table->string('body_en');
+            $table->string('date');
             $table->string('image');
             $table->timestamps();
         });
