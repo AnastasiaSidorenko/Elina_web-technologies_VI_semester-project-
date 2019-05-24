@@ -27,6 +27,7 @@ Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showRes
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function(){//auth:admin чтобы авторизация отображалась на других страницах
 
+>>>>>>> origin/master
     //MANAGERS
     Route::get('/managers', 'Admin\AdminController@managers');//->name('manage');
     Route::get('/destroy_manager/{id}','Admin\AdminController@destroy');

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\AdminAuth;
-
 use App\Models\Admin;
 use Validator;
 use App\Http\Controllers\Controller;
