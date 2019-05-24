@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <title><?php echo $__env->yieldContent('title'); ?></title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
@@ -25,13 +26,20 @@
     <script type="text/javascript" src="<?php echo e(asset('js/bootstrap.min.js')); ?>"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="<?php echo e(asset('js/mdb.js')); ?>"></script>
+
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
+
 </head>
  <body>
         <div class="header">
             <div class="header__top">
                 <nav class="top-menu top navbar navbar-expand-lg p-0 justify-content-center">
-                    <a class="pr-4" href="<?php echo e(url('/news')); ?>"><?php echo e(trans('top&middle_menu.news')); ?></a>
                     <a class="pr-4" href="<?php echo e(url('/about_us')); ?>"><?php echo e(trans('top&middle_menu.about_us')); ?></a>
+                    <a class="pr-4" href="<?php echo e(url('/news')); ?>"><?php echo e(trans('top&middle_menu.news')); ?></a>
                     <a class="pr-4" href="<?php echo e(url('/how_to_find_us')); ?>"><?php echo e(trans('top&middle_menu.how_to_find_us')); ?></a>
                 </nav>
             </div>
@@ -167,13 +175,6 @@
             </div>
         </nav>
 
-    
-        
-        
-            
-        
-    
-
         <?php echo $__env->yieldContent('content'); ?>
 
         <footer class="page-footer font-small text-black-50">
@@ -186,8 +187,8 @@
                         <!-- Content -->
                         <h6 class="text-uppercase font-weight-bold">Elina</h6>
                         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p style="color:white">Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit.</p>
+
+                        <p style="color: white;">Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     </div>
                     <!-- Grid column -->
                     <!-- Grid column -->
@@ -221,9 +222,11 @@
                         <h6 class="text-uppercase font-weight-bold"><?php echo e(trans('footer.contact')); ?></h6>
                         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                         <p><a href="<?php echo e(url('/how_to_find_us')); ?>"><?php echo e(trans('top&middle_menu.how_to_find_us')); ?></a></p>
-                        <p style="color:white"><i class="fas fa-home mr-3"></i>г. Севастополь ул.Университетская д.1 оф.255, Россия</p>
-                        <p style="color:white"><i class="fas fa-envelope mr-3"></i> info@example.com</p>
-                        <p style="color:white"><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+
+                        <p style="color: white;"><i class="fas fa-home mr-3"></i>г. Севастополь ул.Университетская д.1 оф.255, Россия</p>
+                        <p style="color: white;"><i class="fas fa-envelope mr-3"></i> info@example.com</p>
+                        <p style="color: white;"><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+
                         
                     </div>
                     <!-- Grid column -->

@@ -2,10 +2,10 @@
 @section('title','Main page')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="container">
+    {{--<div class="container">--}}
+        {{--<div class="row">--}}
+            {{--<div class="col-md-8 col-md-offset-2">--}}
+                {{--<div class="container">--}}
                     <?php
                     session_start();
                     if(App::getLocale()=='en'){
@@ -17,34 +17,39 @@
                         $title='title_ru';
                     }
                     ?>
+
+                <div class="row justify-content-center" style="width:100vw">
                 @foreach ($news as $item)
-                        <div class="card news_item d-flex">
+                    <!-- Card Light -->
+                        <div class="card mt-3 news__item ml-3 mr-2">
+                            {{--style="width:45vw"--}}
+
+                            <!-- Card image -->
+                            <div class="view overlay justify-content-center d-flex">
+
+                                <img class="card-img-top news__preview-image"  src="{{asset('/img/news/'.$item->image.'')}}" alt="news_image">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+
                             <!-- Card content -->
                             <div class="card-body">
 
                                 <!-- Title -->
-                                <h4 class="card-title"><?php
-                                    echo "<p class='card-text'>{{$item->$title}}</p>";
-                                    ?></h4>
+                                <h4 class="card-title">{{$item->$title}}</h4>
                                 <hr>
                                 <!-- Text -->
-                                <?php
-                                echo "<p class='card-text'>{{$item->$body}}</p>";
-                                ?>
-                            </div>
+                                <p class="card-text news__text-preview">{{$item->$body}}</p>
+                                <!-- Link -->
+                                <a href="#!" class="text-deep-purple d-flex justify-content-end"><h5>{{ trans('site.read_more') }} <i class="fas fa-angle-double-right"></i></h5></a>
 
-                            <!-- Card footer -->
-                            <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
-                                <ul class="list-unstyled list-inline font-small">
-                                    <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>{{$item->date}}</li>
-                                </ul>
                             </div>
-
                         </div>
-                        <!-- Card -->
                 @endforeach
-            </div>
-        </div>
-        </div>
-    </div>
+                </div>
+            {{--</div>--}}
+        {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 @endsection

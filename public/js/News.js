@@ -56,10 +56,11 @@ $(function() {
         var d = new Date();
         var date = d.getDate() + "/" + (d.getMonth()+1) + "/" +  d.getFullYear();
         var image = $('#image')[0].files[0].name;
+        var ext  = image.split('.').pop();
         $.ajax({
             url: '/admin/news/store',
             type: "POST",
-            data: {title_ru: title_ru, title_en: title_en, body_ru: body_ru, body_en: body_en, date: date, image: image},
+            data: {title_ru: title_ru, title_en: title_en, body_ru: body_ru, body_en: body_en, date: date, image: image, ext: ext},
             headers: {
                 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
             },
@@ -74,7 +75,7 @@ $(function() {
                     '<td id="TdEdit"><div class="edit" data-id="'+data['id']+'" contenteditable>'+data['body_en']+'</div></td>'+
                     '<td id="TdEdit"><div class="edit" data-id="'+data['id']+'" contenteditable>'+data['date']+'</div></td>'+
                     '<td id="TdEdit"><div class="edit" data-id="'+data['id']+'" contenteditable>'+data['image']+'</div></td>'+
-                    '<td><button id=' + data['id'] + ' onclick="deleteManuf(' + data['id'] + ')"><i class="fas fa-trash-alt"></i></button></td></tr>';
+                    '<td><button id=' + data['id'] + ' onclick="deleteNews(' + data['id'] + ')"><i class="fas fa-trash-alt"></i></button></td></tr>';
                 $('.table > tbody:last').append(str);
                 $('#title_ru').val('');
                 $('#title_en').val('');
