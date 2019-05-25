@@ -5,9 +5,13 @@
 @endsection
 
 @section('content')
+    <?php
+    session_start();
+        $lang=App::getLocale();
+    ?>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <span>{{ trans('admin.products') }}</span>
@@ -15,7 +19,7 @@
                             {{ trans('admin.create') }}
                         </button>
                     </div>
-                    <div class="card-body text-center">
+                    <div class="card-body text-center" style="overflow-x:auto;">
                         <table  id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                             <tr>
                                 <th>ID</th><th>{{ trans('product.name') }} RU</th><th>{{ trans('product.name') }} EN</th>
@@ -61,8 +65,9 @@
                                     </td>
                                     <td>{{$n->image1}}</td>
                                     <td>{{$n->image2}}</td>
-                                    <td>{{$n->categName}}</td>
                                     <td>{{$n->manufName}}</td>
+                                    <?php $categ="categName"."_".$lang;?>
+                                    <td>{{$n->$categ}}</td>
                                     <td><button id='{{$n->id}}' onclick='deleteProduct({{$n->id}})'><i class="fas fa-trash-alt"></i></button></td>
                                 </tr>
                                 {{--   @endif--}}
@@ -74,6 +79,7 @@
             </div>
         </div>
     </div>
+
     <!-- Modal -->
     <div class="modal fade" id="addArticle" tabindex="-1" role="dialog" aria-labelledby="addArticleLabel">
         <div class="modal-dialog" role="document">
@@ -127,19 +133,19 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="price">{{ trans('product.price') }}</label>
-                        <textarea type="text" class="form-control" id="price"></textarea>
+                        <input type="text" class="form-control" id="price">
                     </div>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="expiration_date">{{ trans('product.expiration_date') }}</label>
-                        <textarea type="text" class="form-control" id="expiration_date"></textarea>
+                        <input type="text" class="form-control" id="expiration_date">
                     </div>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="quantity">{{ trans('product.quantity') }}</label>
-                        <textarea type="text" class="form-control" id="quantity"></textarea>
+                        <input type="text" class="form-control" id="quantity">
                     </div>
                 </div>
                 <div class="modal-body">
@@ -154,14 +160,28 @@
                         <input type="file" class="form-control" id="image2">
                     </div>
                 </div>
-
-                <th>{{ trans('product.manufacturer') }}</th><th>{{ trans('product.category') }}</th>
-
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="file">Image</label>
-                        <input type="file" class="form-control" id="image">
-                    </div>
+                    <label for="file">{{ trans('product.manufacturer') }}</label>
+                    <select class="browser-default custom-select" id="manufacturer">
+                        @foreach($manuf as $key=>$value)
+                            <option value="{{$key}}">{{$value}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="modal-body">
+                    <label for="file">{{ trans('product.category') }}</label>
+                            <select class="browser-default custom-select" id="categories">
+                                @if($lang=='ru')
+                                    @foreach($category_ru as $key=>$value)
+                                        <option value="{{$key}}">{{$value}}</option>
+                                    @endforeach
+                                @endif
+                                @if($lang=='en')
+                                    @foreach($category_en as $key=>$value)
+                                        <option value="{{$key}}">{{$value}}</option>
+                                    @endforeach
+                                @endif
+                            </select>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-deep-orange" data-dismiss="modal">{{ trans('admin.close') }}</button>
