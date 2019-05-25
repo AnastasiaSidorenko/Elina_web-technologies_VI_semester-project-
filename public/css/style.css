@@ -121,6 +121,20 @@ a:link,a:visited,a:active,a:hover{
     width: 47.5%;
 }
 .news__preview-image{
-    height:50vh;
+    height:37vh;
     width:auto;
+}
+.news-item__title{
+    font-size:2em;
+}
+.news-item__image{
+    width:100%;
+    height:auto;
+    /*height:100%;*/
+    /*width:auto;*/
+    /*width:43vw;*/
+    /*height:auto;*/
+}
+.news-item__text{
+    font-size:1.4em;
 }

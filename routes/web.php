@@ -3,6 +3,7 @@
 Route::get('/','HomeController@index')->name('home');
 
 Route::get('/news','NewsController@index')->name('news');
+Route::get('/news/{id}','NewsController@news_item');
 Route::get('/about_us','AboutUsController@index')->name('about_us');
 
 Route::get('setlocale/{locale}', function ($locale) {
