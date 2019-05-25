@@ -18,4 +18,9 @@ return [
     'add_product' => 'Add product',
     'adding_manufacturer' => 'Adding manufacturer',
     'adding_news' => 'Adding news',
+    'date' => 'Date',
+    'total_price' => 'Total price',
+    'address' => 'Address',
+    'user' => 'User',
+    'status' => 'Status',
     ];

@@ -27,13 +27,12 @@ Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showRes
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function(){//auth:admin чтобы авторизация отображалась на других страницах
 
->>>>>>> origin/master
     //MANAGERS
     Route::get('/managers', 'Admin\AdminController@managers');//->name('manage');
     Route::get('/destroy_manager/{id}','Admin\AdminController@destroy');
     Route::post('/updateManager', 'Admin\AdminController@update');
 
-    //MANUFACTIRERS
+    //MANUFACTURERS
     Route::get('/manufacturers', 'Admin\ManufacturerController@manufacturers');
     Route::post('/manufacturers/store', 'Admin\ManufacturerController@store');
     Route::get('/destroy_manuf/{id}','Admin\ManufacturerController@destroy');
@@ -44,6 +43,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function(){//a
     Route::post('/news/store', 'Admin\NewsController@store');
     Route::get('/destroy_news/{id}','Admin\NewsController@destroy');
     Route::post('/updateNews','Admin\NewsController@update');
+
+    //Order
+    Route::get('/orders', 'Admin\OrderController@orders');
+    Route::get('/destroy_order/{id}','Admin\OrderController@destroy');
+    Route::post('/updateOrder','Admin\OrderController@update');
+
+    //Product
+    Route::get('/products', 'Admin\ProductController@products');
+    Route::post('/products/store', 'Admin\ProductController@store');
+    Route::get('/destroy_products/{id}','Admin\ProductController@destroy');
+    Route::post('/updateProducts','Admin\ProductController@update');
+
+    //
 
     Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'AdminAuth\RegisterController@register');

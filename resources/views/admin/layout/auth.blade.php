@@ -53,8 +53,6 @@
             </div>
         </div>
                 <div class="d-flex account-panel justify-content-center mt-auto mb-2 admin-login">
-                    {{--<a class="mr-2" href="{{ url('/user/register') }}">{{ trans('top&middle_menu.register') }}</a>--}}
-                    {{--<a class="mr-2" href="{{ url('/user/login') }}">{{ trans('top&middle_menu.login') }}</a>--}}
 
                     @auth
                         <a class="mr-3" href="#">{{trans('top&middle_menu.you_are')}}{{ Auth::user()->name }}</a>
@@ -67,7 +65,6 @@
                             {{ csrf_field() }}
                         </form>
                     @else
-                        <a class="mr-2" href="{{ url('/admin/register') }}">{{ trans('top&middle_menu.register') }}</a>
                         <a class="mr-2" href="{{ url('/admin/login') }}">{{ trans('top&middle_menu.login') }}</a>
                     @endauth
                 </div>
