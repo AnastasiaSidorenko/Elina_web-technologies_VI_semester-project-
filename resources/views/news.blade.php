@@ -46,5 +46,7 @@
                         </div>
                 @endforeach
                 </div>
-            {{$news->links()}}
+                    <div class="d-flex justify-content-center mt-3">
+                    {{$news->links()}}
+            </div>
 @endsection

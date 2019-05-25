@@ -14,4 +14,8 @@
     }
     ?>
 
+    <?php foreach($products as $item)
+        var_dump($item);
+    ?>
+
 @endsection

@@ -15,7 +15,7 @@ class ProductController extends Controller
     {
         $products=Product::paginate(10);
         //$products = News::orderBy('id', 'desc')->paginate(4);
-        return view('products', ['products' => $products]);
+        return view('products', ['products' => $products, 'all' => 'all']);
     }
 
     public function all_section_products($section){
@@ -27,7 +27,7 @@ class ProductController extends Controller
             ->paginate(10);
 //            ->select('product','categories.name as categName', 'categories.*', 'manufacturers.name as manufName', 'manufacturers.*')
 //            ->paginate(10);
-        return view('products',['products' => $section_products,'section'=>$section]);
+        return view('products',['products' => $section_products]);
     }
 
     public function category_products($section){

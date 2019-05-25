@@ -3,6 +3,7 @@
 @section('content')
     <main>
     <div class="row d-flex justify-content-center">
+
     <!--Carousel Wrapper-->
     <div id="home-page__carousel" class="d-inline-flex col-8 carousel slide carousel-fade" data-ride="carousel">
         <!--Indicators-->
@@ -36,16 +37,17 @@
         <!--/.Slides-->
         <!--Controls-->
         <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="carousel-control-prev-icon" aria-hidden="true" style="color: red;height:26%;top:33%;width:86px;"></span>
             <span class="sr-only">Previous</span>
         </a>
         <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="carousel-control-next-icon" aria-hidden="true" style="height:26%;top:33%;width:86px;"></span>
             <span class="sr-only">Next</span>
         </a>
         <!--/.Controls-->
     </div>
     <!--/.Carousel Wrapper-->
+
     </div>
     </main>
 @endsection

@@ -175,7 +175,7 @@
 
         @yield('content')
 
-        <footer class="page-footer font-small text-black-50">
+        <footer class="page-footer font-small text-black-50" style="width:100vw;">
             <!-- Footer Links -->
             <div class="container text-center text-md-left mt-5 py-1">
                 <!-- Grid row -->
