@@ -65,7 +65,7 @@
                                     <td>{{$n->manufName}}</td>
                                     <td><button id='{{$n->id}}' onclick='deleteProduct({{$n->id}})'><i class="fas fa-trash-alt"></i></button></td>
                                 </tr>
-                                {{--   @endif--}} 
+                                {{--   @endif--}}
                             @endforeach
                         </table>
                     </div>
