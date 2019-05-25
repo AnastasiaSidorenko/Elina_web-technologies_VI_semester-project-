@@ -46,7 +46,7 @@
 
             <div class="header__middle container ml-0 mt-0 mr-0 navbar-expand-lg d-flex">
                 <div class="logo navbar-brand mt-0">
-                    <a href="/"><img class="logo__img d-inline-flex" src="{{ asset('img/300x245.png') }}"></a>
+                    <a href="/"><img class="logo__img d-inline-flex" src="{{ asset('img/200.png') }}"></a>
                     <span class="logo__name navbar-brand font-italic d-inline-flex align-bottom">ELINA</span>
                 </div>
 
@@ -93,21 +93,21 @@
                aria-expanded="false">{{ trans('face.face') }}</a>
                     <div class="dropdown-menu dropdown-default submenu dropdown-multicol3">
                         <div class="dropdown-col">
-                            <a class="dropdown-item" href="#">{{ trans('main-menu_subc.all') }}</a>
-                            <a class="dropdown-item" href="#">{{ trans('main-menu_subc.new') }}</a>
-                            <a class="dropdown-item" href="#">{{ trans('main-menu_subc.sale') }}</a>
-                            <a class="dropdown-item" href="#">{{ trans('main-menu_subc.kits') }}</a>
+                            <a class="dropdown-item" href="/products/1">{{ trans('main-menu_subc.all') }}</a>
+                            <a class="dropdown-item" href="/products/1/new">{{ trans('main-menu_subc.new') }}</a>
+                            <a class="dropdown-item" href="/products/1/sale">{{ trans('main-menu_subc.sale') }}</a>
+                            <a class="dropdown-item" href="/products/2/kits">{{ trans('main-menu_subc.kits') }}</a>
                         </div>
                         <div class="dropdown-col">
-                            <a class="dropdown-item" href="#">{{ trans('face.wash') }}</a>
-                            <a class="dropdown-item" href="#">{{ trans('face.toners') }}</a>
-                            <a class="dropdown-item" href="#">{{ trans('face.peels') }}</a>
+                            <a class="dropdown-item" href="/products/category/10">{{ trans('face.wash') }}</a>
+                            <a class="dropdown-item" href="/products/category/11">{{ trans('face.toners') }}</a>
+                            <a class="dropdown-item" href="/products/category/12">{{ trans('face.peels') }}</a>
                         </div>
                         <div class="dropdown-col">
-                            <a class="dropdown-item" href="#">{{ trans('face.face_oils') }}</a>
-                            <a class="dropdown-item" href="#">{{ trans('face.masks') }}</a>
-                            <a class="dropdown-item" href="#">{{ trans('face.sun_care') }}</a>
-                            <a class="dropdown-item" href="#">{{ trans('face.lip_balms') }}</a>
+                            <a class="dropdown-item" href="/products/category/13">{{ trans('face.face_oils') }}</a>
+                            <a class="dropdown-item" href="/products/category/14">{{ trans('face.masks') }}</a>
+                            <a class="dropdown-item" href="/products/category/15">{{ trans('face.sun_care') }}</a>
+                            <a class="dropdown-item" href="/products/category/16">{{ trans('face.lip_balms') }}</a>
                         </div>
                      </div>
             </div>
@@ -116,22 +116,22 @@
                    aria-expanded="false">{{ trans('hair.hair') }}</a>
                 <div class="dropdown-menu dropdown-default submenu dropdown-multicol3">
                     <div class="dropdown-col">
-                        <a class="dropdown-item" href="#">{{ trans('main-menu_subc.all') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('main-menu_subc.new') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('main-menu_subc.sale') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('main-menu_subc.kits') }}</a>
+                        <a class="dropdown-item" href="/products/2">{{ trans('main-menu_subc.all') }}</a>
+                        <a class="dropdown-item" href="/products/2/new">{{ trans('main-menu_subc.new') }}</a>
+                        <a class="dropdown-item" href="/products/2/sale">{{ trans('main-menu_subc.sale') }}</a>
+                        <a class="dropdown-item" href="/products/2/kits">{{ trans('main-menu_subc.kits') }}</a>
                     </div>
                     <div class="dropdown-col">
-                        <a class="dropdown-item" href="#">{{ trans('hair.shampoo') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('hair.conditioner') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('hair.mask') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('hair.scrub') }}</a>
+                        <a class="dropdown-item" href="/products/category/20">{{ trans('hair.shampoo') }}</a>
+                        <a class="dropdown-item" href="/products/category/21">{{ trans('hair.conditioner') }}</a>
+                        <a class="dropdown-item" href="/products/category/22">{{ trans('hair.mask') }}</a>
+                        <a class="dropdown-item" href="/products/category/23">{{ trans('hair.scrub') }}</a>
                     </div>
                     <div class="dropdown-col">
-                        <a class="dropdown-item" href="#">{{ trans('hair.serum') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('hair.gel') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('hair.cream') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('hair.oil') }}</a>
+                        <a class="dropdown-item" href="/products/category/24">{{ trans('hair.serum') }}</a>
+                        <a class="dropdown-item" href="/products/category/25">{{ trans('hair.gel') }}</a>
+                        <a class="dropdown-item" href="/products/category/26">{{ trans('hair.cream') }}</a>
+                        <a class="dropdown-item" href="/products/category/27">{{ trans('hair.oil') }}</a>
                     </div>
                 </div>
             </div>
@@ -140,16 +140,16 @@
                    aria-expanded="false" aria-haspopup="true">{{ trans('body.body') }}</a>
                 <div class="dropdown-menu dropdown-default submenu dropdown-multicol3">
                     <div class="dropdown-col">
-                        <a class="dropdown-item" href="#">{{ trans('main-menu_subc.all') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('main-menu_subc.new') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('main-menu_subc.sale') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('main-menu_subc.kits') }}</a>
+                        <a class="dropdown-item" href="/products/3">{{ trans('main-menu_subc.all') }}</a>
+                        <a class="dropdown-item" href="/products/3/new">{{ trans('main-menu_subc.new') }}</a>
+                        <a class="dropdown-item" href="/products/3/sale">{{ trans('main-menu_subc.sale') }}</a>
+                        <a class="dropdown-item" href="/products/3/kits">{{ trans('main-menu_subc.kits') }}</a>
                     </div>
                     <div class="dropdown-col">
-                        <a class="dropdown-item" href="#">{{ trans('body.wash') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('body.lotions_oils') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('body.hand_wash') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('body.hand') }}</a>
+                        <a class="dropdown-item" href="/products/category/30">{{ trans('body.wash') }}</a>
+                        <a class="dropdown-item" href="/products/category/31">{{ trans('body.lotions_oils') }}</a>
+                        <a class="dropdown-item" href="/products/category/32">{{ trans('body.hand_wash') }}</a>
+                        <a class="dropdown-item" href="/products/category/33">{{ trans('body.hand') }}</a>
                     </div>
                 </div>
             </div>
@@ -158,16 +158,16 @@
                    aria-expanded="false">{{ trans('oils&aromatherapy.oils&aromatherapy') }}</a>
                 <div class="dropdown-menu dropdown-default submenu dropdown-multicol3">
                     <div class="dropdown-col">
-                        <a class="dropdown-item" href="#">{{ trans('main-menu_subc.all') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('main-menu_subc.new') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('main-menu_subc.sale') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('main-menu_subc.kits') }}</a>
+                        <a class="dropdown-item" href="/products/4">{{ trans('main-menu_subc.all') }}</a>
+                        <a class="dropdown-item" href="/products/4/new">{{ trans('main-menu_subc.new') }}</a>
+                        <a class="dropdown-item" href="/products/4/sale">{{ trans('main-menu_subc.sale') }}</a>
+                        <a class="dropdown-item" href="/products/4/kits">{{ trans('main-menu_subc.kits') }}</a>
                     </div>
                     <div class="dropdown-col">
-                        <a class="dropdown-item" href="#">{{ trans('oils&aromatherapy.oils') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('oils&aromatherapy.essential_oils') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('oils&aromatherapy.butters') }}</a>
-                        <a class="dropdown-item" href="#">{{ trans('oils&aromatherapy.mists') }}</a>
+                        <a class="dropdown-item" href="/products/category/40">{{ trans('oils&aromatherapy.oils') }}</a>
+                        <a class="dropdown-item" href="/products/category/41">{{ trans('oils&aromatherapy.essential_oils') }}</a>
+                        <a class="dropdown-item" href="/products/category/42">{{ trans('oils&aromatherapy.butters') }}</a>
+                        <a class="dropdown-item" href="/products/category/43">{{ trans('oils&aromatherapy.mists') }}</a>
                     </div>
                 </div>
             </div>

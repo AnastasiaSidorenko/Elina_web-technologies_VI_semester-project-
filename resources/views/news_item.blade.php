@@ -21,7 +21,7 @@
         </div>
         <div class="pl-2">
             <div class="row">
-                <div class="col-4">
+                <div class="col-4" id="news-item__image">
                     <img class="news-item__image" src="{{asset('/img/news/'.$news_item->image.'')}}" alt="news_image">
                 </div>
                 <div class="news-item__text text-left d-inline col-8"><p>{{$news_item->$body}}</p></div>

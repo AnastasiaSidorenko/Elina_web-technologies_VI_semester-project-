@@ -61,6 +61,7 @@ class DatabaseSeeder extends Seeder
         //КАТЕГОРИИ
         //FACE
         DB::table('categories')->insert([
+            'id' => '10',
             'name_en'=> 'Face wash & cleansers',
             'name_ru'=> 'Средства для умывания',
             'id_section' => '1',
@@ -68,6 +69,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '11',
             'name_en'=> 'Toners',
             'name_ru'=> 'Тоники',
             'id_section' => '1',
@@ -75,6 +77,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '12',
             'name_en'=> 'Peels',
             'name_ru'=> 'Пилинг',
             'id_section' => '1',
@@ -82,6 +85,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '13',
             'name_en'=> 'Face oils',
             'name_ru'=> 'Масла для лица',
             'id_section' => '1',
@@ -89,6 +93,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '14',
             'name_en'=> 'Face masks',
             'name_ru'=> 'Маски для лица',
             'id_section' => '1',
@@ -96,6 +101,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '15',
             'name_en'=> 'Sun care',
             'name_ru'=> 'Защита от солнца',
             'id_section' => '1',
@@ -103,6 +109,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '16',
             'name_en'=> 'Lip balms',
             'name_ru'=> 'Бальзамы для губ',
             'id_section' => '1',
@@ -111,6 +118,7 @@ class DatabaseSeeder extends Seeder
         ]);
         //HAIR
         DB::table('categories')->insert([
+            'id' => '20',
             'name_en'=> 'Shampoo',
             'name_ru'=> 'Шампуни',
             'id_section' => '2',
@@ -118,6 +126,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '21',
             'name_en'=> 'Conditioner',
             'name_ru'=> 'Кондиционеры',
             'id_section' => '2',
@@ -125,6 +134,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '22',
             'name_en'=> 'Mask',
             'name_ru'=> 'Маски',
             'id_section' => '2',
@@ -132,6 +142,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '23',
             'name_en'=> 'Scrub',
             'name_ru'=> 'Скраб',
             'id_section' => '2',
@@ -139,6 +150,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '24',
             'name_en'=> 'Serum',
             'name_ru'=> 'Серум',
             'id_section' => '2',
@@ -146,6 +158,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '25',
             'name_en'=> 'Oil',
             'name_ru'=> 'Масло',
             'id_section' => '2',
@@ -153,6 +166,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '26',
             'name_en'=> 'Cream',
             'name_ru'=> 'Крем',
             'id_section' => '2',
@@ -160,6 +174,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '27',
             'name_en'=> 'Gel',
             'name_ru'=> 'Гель',
             'id_section' => '2',
@@ -168,6 +183,7 @@ class DatabaseSeeder extends Seeder
         ]);
         //BODY
         DB::table('categories')->insert([
+            'id' => '30',
             'name_en'=> 'Body wash & shower gel',
             'name_ru'=> 'Гели для душа',
             'id_section' => '3',
@@ -175,6 +191,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '31',
             'name_en'=> 'Hand wash & soap',
             'name_ru'=> 'Гели для рук',
             'id_section' => '3',
@@ -182,6 +199,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '32',
             'name_en'=> 'Body lotions & body oils',
             'name_ru'=> 'Кремы, лосьоны и масла для тела',
             'id_section' => '3',
@@ -189,6 +207,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '33',
             'name_en'=> 'Hand creams & lotions',
             'name_ru'=> 'Кремы и лосьоны для рук',
             'id_section' => '3',
@@ -197,6 +216,7 @@ class DatabaseSeeder extends Seeder
         ]);
         //OILS & AROMATHERAPY
         DB::table('categories')->insert([
+            'id' => '40',
             'name_en'=> 'Essential oils',
             'name_ru'=> 'Эфирные масла',
             'id_section' => '4',
@@ -204,6 +224,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '41',
             'name_en'=> 'Oils',
             'name_ru'=> 'Масла',
             'id_section' => '4',
@@ -211,6 +232,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '42',
             'name_en'=> 'Butters',
             'name_ru'=> 'Твердые масла',
             'id_section' => '4',
@@ -218,6 +240,7 @@ class DatabaseSeeder extends Seeder
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
         DB::table('categories')->insert([
+            'id' => '43',
             'name_en'=> 'Essential mists, sprays',
             'name_ru'=> 'Мисты, спреи с эфирными маслами',
             'id_section' => '4',

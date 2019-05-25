@@ -33,6 +33,14 @@
         ]); ?>
     </script>
     <!-- Managers -->
+
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
+
+
     <?php echo $__env->yieldContent('js'); ?>
 
 </head>
@@ -45,8 +53,6 @@
             </div>
         </div>
                 <div class="d-flex account-panel justify-content-center mt-auto mb-2 admin-login">
-                    
-                    
 
                     <?php if(auth()->guard()->check()): ?>
                         <a class="mr-3" href="#"><?php echo e(trans('top&middle_menu.you_are')); ?><?php echo e(Auth::user()->name); ?></a>
@@ -61,7 +67,6 @@
 
                         </form>
                     <?php else: ?>
-                        <a class="mr-2" href="<?php echo e(url('/admin/register')); ?>"><?php echo e(trans('top&middle_menu.register')); ?></a>
                         <a class="mr-2" href="<?php echo e(url('/admin/login')); ?>"><?php echo e(trans('top&middle_menu.login')); ?></a>
                     <?php endif; ?>
                 </div>

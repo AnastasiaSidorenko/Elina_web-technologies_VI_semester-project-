@@ -28,7 +28,7 @@ class ProductController extends Controller
             $products = DB::table('products')
                 ->leftJoin('categories', 'categories.id', '=', 'products.id_category')
                 ->leftJoin('manufacturers', 'manufacturers.id', '=', 'products.id_manufacturer')
-                ->select('product','categories.name as categName', 'categories.*', 'manufacturers.name as manufName', 'manufacturers.*')
+                ->select('product')
                 ->paginate(10);
             return view('admin.products', ['products' => $products]);
         }

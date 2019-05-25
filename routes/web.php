@@ -4,6 +4,12 @@ Route::get('/','HomeController@index')->name('home');
 
 Route::get('/news','NewsController@index')->name('news');
 Route::get('/news/{id}','NewsController@news_item');
+
+Route::get('/products','ProductController@products')->name('products');
+Route::get('/products/{section}','ProductController@all_section_products');
+Route::get('/products/category/{category_id}','ProductController@category_products');
+Route::get('/product/{id}','ProductController@product_item');
+
 Route::get('/about_us','AboutUsController@index')->name('about_us');
 
 Route::get('setlocale/{locale}', function ($locale) {

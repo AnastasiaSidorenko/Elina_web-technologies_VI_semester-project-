@@ -2,10 +2,7 @@
 @section('title','News page')
 
 @section('content')
-    {{--<div class="container">--}}
-        {{--<div class="row">--}}
-            {{--<div class="col-md-8 col-md-offset-2">--}}
-                {{--<div class="container">--}}
+
                     <?php
                     session_start();
                     if(App::getLocale()=='en'){
@@ -37,7 +34,7 @@
                             <div class="card-body">
 
                                 <!-- Title -->
-                                <h4 class="card-title">{{$item->$title}}</h4>
+                                <a href="/news/{{$item->id}}"><h4 class="card-title">{{$item->$title}}</h4></a>
                                 <p class="font-weight-bold dark-grey-text text-right">{{$item->date}}</p>
                                 <hr>
                                 <!-- Text -->
@@ -50,9 +47,4 @@
                 @endforeach
                 </div>
             {{$news->links()}}
-
-            {{--</div>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
 @endsection

@@ -130,11 +130,17 @@ a:link,a:visited,a:active,a:hover{
 .news-item__image{
     width:100%;
     height:auto;
-    /*height:100%;*/
-    /*width:auto;*/
-    /*width:43vw;*/
-    /*height:auto;*/
+}
+#news-item__image{
+    border-style:solid;
+    border-width:medium;
+    border-color:#6E6BAD;
 }
 .news-item__text{
     font-size:1.4em;
 }
+/*#home-page__carousel{*/
+    /*border-style:solid;*/
+    /*border-width:thick;*/
+    /*border-color:#6E6BAD;*/
+/*}*/

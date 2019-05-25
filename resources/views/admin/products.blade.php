@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
+    <div class="container" style="width:99vw">
+        <div class="row justify-content-center" style="width:99%">
             <div class="">
                 <div class="card">
                     <div class="card-header">
