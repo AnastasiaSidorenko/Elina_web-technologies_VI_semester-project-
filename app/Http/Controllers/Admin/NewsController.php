@@ -24,7 +24,7 @@ class NewsController extends Controller
     public function news()
     {
         if(Auth::user()->role=='admin'){
-            $news = News::paginate(10);
+            $news = News::paginate();
             return view('admin.news', ['news' => $news]);
         }
         return redirect('admin/home');

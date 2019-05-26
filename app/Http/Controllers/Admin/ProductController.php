@@ -32,7 +32,7 @@ class ProductController extends Controller
                 ->leftJoin('categories', 'categories.id', '=', 'products.id_category')
                 ->leftJoin('manufacturers', 'manufacturers.id', '=', 'products.id_manufacturer')
                 ->select('products.*','categories.name_ru as categName_ru','categories.name_en as categName_en', 'manufacturers.name as manufName')
-                ->paginate(10);
+                ->paginate();
             return view('admin.products', ['products' => $products,'manuf'=>$manuf,'category_en'=>$category_en,'category_ru'=>$category_ru]);
         }
         return redirect('admin/home');

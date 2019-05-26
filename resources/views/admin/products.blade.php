@@ -2,17 +2,17 @@
 
 @section('js')
     <script type="text/javascript" src="{{ asset('js/Products.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
 @endsection
 
 @section('content')
-<<<<<<< HEAD
     <?php
     session_start();
         $lang=App::getLocale();
     ?>
-    <div class="container" style="width:100%">
+    <div class="container">
         <div class="row justify-content-center">
-            <div class="{{--col-md-12--}}" >
+            <div class="col-md-12" >
                 <div class="card">
                     <div class="card-header">
                         <span>{{ trans('admin.products') }}</span>
@@ -20,10 +20,11 @@
                             {{ trans('admin.create') }}
                         </button>
                     </div>
-                    <div class="card-body text-center" style="overflow-x:auto;">
-                        <table  id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                    <div class="card-body text-center" style="overflow-x:auto" >
+                        <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                            <thead>
                             <tr>
-                                <th>ID</th><th>{{ trans('product.name') }} RU</th><th>{{ trans('product.name') }} EN</th>
+                                <th width="5%"></th><th width="5%"></th><th>ID</th><th>{{ trans('product.name') }} RU</th><th>{{ trans('product.name') }} EN</th>
                                 <th>{{ trans('product.description') }} RU</th><th>{{ trans('product.description') }} EN</th>
                                 <th>{{ trans('product.ingredients') }}</th>
                                 <th>{{ trans('product.suggested_use') }} RU</th><th>{{ trans('product.suggested_use') }} EN</th>
@@ -31,10 +32,15 @@
                                 <th>{{ trans('product.quantity') }}</th>
                                 <th>{{ trans('product.image') }}1</th><th>{{ trans('product.image') }}2</th>
                                 <th>{{ trans('product.manufacturer') }}</th><th>{{ trans('product.category') }}</th>
-                                <th width="5%"></th><th width="5%"></th></tr>
+                                </tr>
+                            </thead>
+                            <tbody>
                             @foreach($products as $n)
                                 {{--@if($m->id!=Auth::user()->id)--}}
                                 <tr id='TR{{$n->id}}'>
+                                    <td><button id='{{$n->id}}' onclick='deleteProduct({{$n->id}})'><i class="fas fa-trash-alt"></i></button></td>
+                                    <td><button data-toggle="modal" data-target="#edit" onclick='editProducts({{$n->id}})'><i class="fas fa-edit"></i></button></td>
+
                                     <td>{{$n->id}}</td>
                                     <td id="TR{{$n->id}}TD1">{{$n->name_ru}}</td>
                                     <td id="TR{{$n->id}}TD2">{{$n->name_en}}</td>
@@ -46,16 +52,15 @@
                                     <td id="TR{{$n->id}}TD8">{{$n->price}}</td>
                                     <td id="TR{{$n->id}}TD9">{{$n->expiration_date}}</td>
                                     <td id="TR{{$n->id}}TD10">{{$n->quantity}}</td>
-                                    <td><img height=40px src="{{asset('/img/news/'.$n->image1)}}"></td>
-                                    <td><img height=40px src="{{asset('/img/news/'.$n->image2)}}"></td>
+                                    <td><img height=40px src="{{$n->image1}}"></td>
+                                    <td><img height=40px src="{{$n->image2}}"></td>
                                     <td>{{$n->manufName}}</td>
                                     <?php $categ="categName"."_".$lang;?>
                                     <td>{{$n->$categ}}</td>
-                                    <td><button id='{{$n->id}}' onclick='deleteProduct({{$n->id}})'><i class="fas fa-trash-alt"></i></button></td>
-                                    <td><button data-toggle="modal" data-target="#edit" onclick='editProducts({{$n->id}})'><i class="fas fa-edit"></i></button></td>
-                                </tr>
+                                    </tr>
                                 {{--   @endif--}}
                             @endforeach
+                            </tbody>
                         </table>
                     </div>
                     {{$products->links()}}
@@ -134,14 +139,14 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="file">{{ trans('product.image') }}1</label>
-                        <input type="file" class="form-control" id="image1">
+                        <label for="image1">{{ trans('product.image') }}1</label>
+                        <input type="text" class="form-control" id="image1">
                     </div>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="file">{{ trans('product.image') }}2</label>
-                        <input type="file" class="form-control" id="image2">
+                        <label for="image2">{{ trans('product.image') }}2</label>
+                        <input type="text" class="form-control" id="image2">
                     </div>
                 </div>
                 <div class="modal-body">

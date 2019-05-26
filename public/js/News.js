@@ -33,13 +33,14 @@ $(function() {
                 $('#articles-wrap').removeClass('hidden').addClass('show');
                 $('.alert').removeClass('show').addClass('hidden');
                 var str = '<tr id="TR'+data['id']+'"><td>' + data['id'] +
-                    '<td>'+data['title_ru']+'</td>'+
-                    '<td>'+data['title_en']+'</td>'+
-                    '<td>'+data['body_ru']+'</td>'+
-                    '<td>'+data['body_en']+'</td>'+
+                    '<td id="TR'+data['id']+'TD1">'+data['title_ru']+'</td>'+
+                    '<td id="TR'+data['id']+'TD2">'+data['title_en']+'</td>'+
+                    '<td id="TR'+data['id']+'TD3">'+data['body_ru']+'</td>'+
+                    '<td id="TR'+data['id']+'TD4">'+data['body_en']+'</td>'+
                     '<td>'+data['date']+'</td>'+
                     '<td>'+"<img height=40px src='/img/news/"+data['image']+"'>"+'</td>'+
-                    '<td><button id=' + data['id'] + ' onclick="deleteNews(' + data['id'] + ')"><i class="fas fa-trash-alt"></i></button></td></tr>';
+                    '<td><button id=' + data['id'] + ' onclick="deleteNews(' + data['id'] + ')"><i class="fas fa-trash-alt"></i></button></td></tr>'+
+                    '<td><button data-toggle="modal" data-target="#edit" onclick="editNews(' + data['id'] + ')"><i class="fas fa-edit"></i></button></td>';
                 $('.table > tbody:last').append(str);
                 $('#title_ru').val('');
                 $('#title_en').val('');
@@ -97,4 +98,12 @@ $(function() {
             }
         });
     });
+});
+
+$(document).ready(function () {
+    $('#dtHorizontalVerticalExample').DataTable({
+        "scrollX": true,
+        "scrollY": 400,
+    });
+    $('.dataTables_length').addClass('bs-select');
 });

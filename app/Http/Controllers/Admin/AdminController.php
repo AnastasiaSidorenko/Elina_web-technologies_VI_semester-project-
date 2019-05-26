@@ -24,7 +24,7 @@ class AdminController extends Controller
     public function managers()
     {
        if(Auth::user()->role=='admin'){
-               $managers = Admin::paginate(10);
+               $managers = Admin::paginate();
                return view('admin.manage', ['managers' => $managers]);
         }
        return redirect('admin/home');

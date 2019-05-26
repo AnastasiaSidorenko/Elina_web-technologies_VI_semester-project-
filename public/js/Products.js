@@ -11,6 +11,13 @@ function deleteProduct(entry_id){
     });
 }
 
+$(document).ready(function () {
+    $('#dtHorizontalVerticalExample').DataTable({
+        "scrollX": true,
+        "scrollY": 400,
+    });
+    $('.dataTables_length').addClass('bs-select');
+});
 
 $(function() {
     $('#save').on('click', function () {
@@ -44,23 +51,33 @@ $(function() {
                 $('#articles-wrap').removeClass('hidden').addClass('show');
                 $('.alert').removeClass('show').addClass('hidden');
                 var str = '<tr id="TR'+data['id']+'"><td>' + data['id'] +
-                    '<td id="TdEdit"><div class="name_ru" data-id="'+data['id']+'" contenteditable>'+data['name_ru']+'</div></td>'+
-                    '<td id="TdEdit"><div class="name_en" data-id="'+data['id']+'" contenteditable>'+data['name_en']+'</div></td>'+
-                    '<td id="TdEdit"><div class="description_ru" data-id="'+data['id']+'" contenteditable>'+data['description_ru']+'</div></td>'+
-                    '<td id="TdEdit"><div class="description_en" data-id="'+data['id']+'" contenteditable>'+data['description_en']+'</div></td>'+
-                    '<td id="TdEdit"><div class="ingredients" data-id="'+data['id']+'" contenteditable>'+data['ingredients']+'</div></td>'+
-                    '<td id="TdEdit"><div class="suggested_use_ru" data-id="'+data['id']+'" contenteditable>'+data['suggested_use_ru']+'</div></td>'+
-                    '<td id="TdEdit"><div class="suggested_use_en" data-id="'+data['id']+'" contenteditable>'+data['suggested_use_en']+'</div></td>'+
-                    '<td>'+data['price']+'</td>'+
-                    '<td id="TdEdit"><div class="expiration_date" data-id="'+data['id']+'" contenteditable>'+data['expiration_date']+'</div></td>'+
-                    '<td id="TdEdit"><div class="quantity" data-id="'+data['id']+'" contenteditable>'+data['quantity']+'</div></td>'+
+                    '<td><button id=' + data['id'] + ' onclick="deleteManuf(' + data['id'] + ')"><i class="fas fa-trash-alt"></i></button></td></tr>'+
+                    '<td><button data-toggle="modal" data-target="#edit" onclick="editProducts(' + data['id'] + ')"><i class="fas fa-edit"></i></button></td>'+
+                    '<td id="TR'+data['id']+'TD1">'+data['name_ru']+'</td>'+
+                    '<td id="TR'+data['id']+'TD2">'+data['name_ru']+'</td>'+
+                    '<td id="TR'+data['id']+'TD3">'+data['name_ru']+'</td>'+
+                    '<td id="TR'+data['id']+'TD4">'+data['name_ru']+'</td>'+
+                    '<td id="TR'+data['id']+'TD5">'+data['name_ru']+'</td>'+
+                    '<td id="TR'+data['id']+'TD6">'+data['name_ru']+'</td>'+
+                    '<td id="TR'+data['id']+'TD7">'+data['name_ru']+'</td>'+
+                    '<td id="TR'+data['id']+'TD8">'+data['name_ru']+'</td>'+
+                    '<td id="TR'+data['id']+'TD9">'+data['name_ru']+'</td>'+
+                    '<td id="TR'+data['id']+'TD10">'+data['name_ru']+'</td>'+
                     '<td>'+data['image1']+'</td>'+
                     '<td>'+data['image2']+'</td>'+
                     '<td>'+data['categories']+'</td>'+
-                    '<td>'+data['manufacturers']+'</td>'+
-                    '<td><button id=' + data['id'] + ' onclick="deleteManuf(' + data['id'] + ')"><i class="fas fa-trash-alt"></i></button></td></tr>';
+                    '<td>'+data['manufacturers']+'</td>';
                 $('.table > tbody:last').append(str);
-                $('#name').val('');
+                $('#name_ru').val('');
+                $('#name_en').val('');
+                $('#description_ru').val('');
+                $('#description_en').val('');
+                $('#ingredients').val('');
+                $('#suggested_use_ru').val('');
+                $('#suggested_use_en').val('');
+                $('#price').val('');
+                $('#expiration_date').val('');
+                $('#quantity').val('');
             },
             error: function (msg) {
                 alert('Ошибка');

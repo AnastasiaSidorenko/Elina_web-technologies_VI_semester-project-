@@ -28,7 +28,7 @@ class OrderController extends Controller
             $orders = DB::table('orders')
                 ->leftJoin('users', 'users.id', '=', 'orders.user_id')
                 ->select('orders.*','users.fio as userFIO')
-                ->paginate(10);
+                ->paginate();
             return view('admin.order', ['orders' => $orders]);
         }
         return redirect('admin/home');
