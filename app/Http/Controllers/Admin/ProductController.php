@@ -81,10 +81,19 @@ class ProductController extends Controller
         if(Auth::user()->role=='admin' || Auth::user()->role=='manager'){
             if($request->ajax())
             {
-                $prod = Product::find($request->id);
-                $column=$request->name;
-                $prod->$column = $request->new_val;
-                $prod->save();
+                $entry = Product::find($request->id);
+                $entry->name_en = $request->name_en;
+                $entry->name_ru = $request->name_ru;
+                $entry->description_en = $request->description_en;
+                $entry->description_ru = $request->description_ru;
+                $entry->suggested_use_en = $request->suggested_use_en;
+                $entry->suggested_use_ru = $request->suggested_use_ru;
+                $entry->price = $request->price;
+                $entry->ingredients = $request->ingredients;
+                $entry->expiration_date = $request->expiration_date;
+                $entry->quantity = $request->quantity;
+
+                $entry->save();
             }
         }
         else return redirect('admin/home');
