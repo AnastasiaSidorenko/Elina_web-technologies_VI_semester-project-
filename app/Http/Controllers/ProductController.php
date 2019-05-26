@@ -8,6 +8,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -21,7 +22,7 @@ class ProductController extends Controller
     public function all_section_products($section){
         $section_products = DB::table('products')
             ->leftJoin('categories', 'categories.id', '=', 'products.id_category')
-            ->leftJoin('sections', 'id.section', '=', 'categories.id_section')
+            ->leftJoin('sections', 'sections.id', '=', 'categories.id_section')
             ->where('sections.id', $section)
             ->select('product','sections.name_en','sections.name_ru')
             ->paginate(10);
@@ -33,7 +34,7 @@ class ProductController extends Controller
     public function category_products($section){
         $category_products = DB::table('products')
             ->leftJoin('categories', 'categories.id', '=', 'products.id_category')
-            ->leftJoin('sections', 'id.section', '=', 'categories.id_section')
+            ->leftJoin('sections', 'sections.id', '=', 'categories.id_section')
             ->where('sections.id', $section)
             ->select('product','sections.name_en','sections.name_ru')
             ->paginate(10);
