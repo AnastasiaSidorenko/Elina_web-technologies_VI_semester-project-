@@ -10,5 +10,6 @@ return [
     'quantity' => 'Quantity',
     'manufacturer' => 'Manufacturer',
     'category' => 'Category',
-    'image' => 'Image'
+    'image' => 'Image',
+    'edit' => 'Edit',
 ];
