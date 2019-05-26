@@ -26,8 +26,9 @@ $(function() {
                 $('#articles-wrap').removeClass('hidden').addClass('show');
                 $('.alert').removeClass('show').addClass('hidden');
                 var str = '<tr id="TR'+data['id']+'"><td>' + data['id'] +
-                    '<td id="TdEdit"><div class="edit" data-id="'+data['id']+'" contenteditable>'+data['name']+'</div></td>'+
-                    '<td><button id=' + data['id'] + ' onclick="deleteManuf(' + data['id'] + ')"><i class="fas fa-trash-alt"></i></button></td></tr>';
+                    '<td id="TR'+data['id']+'TD1">'+data['name']+'</div></td>'+
+                    '<td><button id=' + data['id'] + ' onclick="deleteManuf(' + data['id'] + ')"><i class="fas fa-trash-alt"></i></button></td></tr>'+
+                    '<td><button data-toggle="modal" data-target="#edit" onclick="editManuf(' + data['id'] + ')"><i class="fas fa-edit"></i></button></td>';
                 $('.table > tbody:last').append(str);
                 $('#name').val('');
             },
@@ -37,6 +38,15 @@ $(function() {
         });
     });
 });
+
+$(document).ready(function () {
+    $('#dtHorizontalVerticalExample').DataTable({
+        "scrollX": true,
+        "scrollY": 400,
+    });
+    $('.dataTables_length').addClass('bs-select');
+});
+
 
 function editManuf(id){
     var name = $("#TR"+id+"TD1").html();

@@ -2,6 +2,8 @@
 
 @section('js')
     <script type="text/javascript" src="{{ asset('js/Manufacturers.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
 @endsection
 
 @section('content')
@@ -16,10 +18,11 @@
                         </button>
                     </div>
                     <div class="card-body text-center">
-                        <table  id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                            <tr>
+                        <table  id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                            <thead>  <tr>
                                 <th>ID</th><th>{{ trans('admin.name') }}</th><th width="5%"><th width="5%"></th></tr>
-                            @foreach($manufacturers as $m)
+                            </thead>
+                            <tbody>@foreach($manufacturers as $m)
                                 {{--@if($m->id!=Auth::user()->id)--}}
                                 <tr id='TR{{$m->id}}'>
                                     <td>{{$m->id}}</td>
@@ -29,6 +32,7 @@
                                 </tr>
                                 {{--   @endif--}}
                             @endforeach
+                            </tbody>
                         </table>
                     </div>
                     {{$manufacturers->links()}}

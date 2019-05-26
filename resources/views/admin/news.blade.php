@@ -2,6 +2,8 @@
 
 @section('js')
     <script type="text/javascript" src="{{ asset('js/News.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
    {{-- <script src='https://cloud.tinymce.com/5/tinymce.min.js?apiKey=zpf0fw2k9tkz0yfw0m4mzr212elyo1ci8xaast8xsyvlzu7s '></script>
     <script>
         tinymce.init({
@@ -22,10 +24,11 @@
                         </button>
                     </div>
                     <div class="card-body text-center">
-                        <table  id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                            <tr>
+                        <table  id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                            <thead>  <tr>
                                 <th>ID</th><th>{{ trans('news.title') }} RU</th><th>{{ trans('news.title') }} EN</th><th>{{ trans('news.body') }} RU</th><th>{{ trans('news.body') }} EN</th><th>{{ trans('news.date') }}</th><th>{{ trans('news.image') }}</th><th width="5%"><th width="5%"></tr>
-                            @foreach($news as $n)
+                            </thead>
+                            <tbody>@foreach($news as $n)
                                 {{--@if($m->id!=Auth::user()->id)--}}
                                 <tr id='TR{{$n->id}}'>
                                     <td>{{$n->id}}</td>
@@ -40,6 +43,7 @@
                                 </tr>
                                 {{--   @endif--}}
                             @endforeach
+                            </tbody>
                         </table>
                     </div>
                     {{$news->links()}}

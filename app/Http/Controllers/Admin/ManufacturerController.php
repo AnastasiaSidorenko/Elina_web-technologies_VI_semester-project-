@@ -24,7 +24,7 @@ class ManufacturerController extends Controller
     public function manufacturers()
     {
         if(Auth::user()->role=='admin'){
-            $manufacturers = Manufacturer::paginate(10);
+            $manufacturers = Manufacturer::paginate();
             return view('admin.manufacturers', ['manufacturers' => $manufacturers]);
         }
         return redirect('admin/home');
