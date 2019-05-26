@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+<<<<<<< HEAD
     <?php
     session_start();
         $lang=App::getLocale();

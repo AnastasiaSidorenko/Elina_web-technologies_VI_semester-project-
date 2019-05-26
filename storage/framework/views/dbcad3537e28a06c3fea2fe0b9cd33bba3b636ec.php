@@ -46,7 +46,7 @@
 
             <div class="header__middle container ml-0 mt-0 mr-0 navbar-expand-lg d-flex">
                 <div class="logo navbar-brand mt-0">
-                    <a href="/"><img class="logo__img d-inline-flex" src="<?php echo e(asset('img/300x245.png')); ?>"></a>
+                    <a href="/"><img class="logo__img d-inline-flex" src="<?php echo e(asset('img/200.png')); ?>"></a>
                     <span class="logo__name navbar-brand font-italic d-inline-flex align-bottom">ELINA</span>
                 </div>
 
@@ -95,21 +95,21 @@
                aria-expanded="false"><?php echo e(trans('face.face')); ?></a>
                     <div class="dropdown-menu dropdown-default submenu dropdown-multicol3">
                         <div class="dropdown-col">
-                            <a class="dropdown-item" href="#"><?php echo e(trans('main-menu_subc.all')); ?></a>
-                            <a class="dropdown-item" href="#"><?php echo e(trans('main-menu_subc.new')); ?></a>
-                            <a class="dropdown-item" href="#"><?php echo e(trans('main-menu_subc.sale')); ?></a>
-                            <a class="dropdown-item" href="#"><?php echo e(trans('main-menu_subc.kits')); ?></a>
+                            <a class="dropdown-item" href="/products/1"><?php echo e(trans('main-menu_subc.all')); ?></a>
+                            <a class="dropdown-item" href="/products/1/new"><?php echo e(trans('main-menu_subc.new')); ?></a>
+                            <a class="dropdown-item" href="/products/1/sale"><?php echo e(trans('main-menu_subc.sale')); ?></a>
+                            <a class="dropdown-item" href="/products/2/kits"><?php echo e(trans('main-menu_subc.kits')); ?></a>
                         </div>
                         <div class="dropdown-col">
-                            <a class="dropdown-item" href="#"><?php echo e(trans('face.wash')); ?></a>
-                            <a class="dropdown-item" href="#"><?php echo e(trans('face.toners')); ?></a>
-                            <a class="dropdown-item" href="#"><?php echo e(trans('face.peels')); ?></a>
+                            <a class="dropdown-item" href="/products/category/10"><?php echo e(trans('face.wash')); ?></a>
+                            <a class="dropdown-item" href="/products/category/11"><?php echo e(trans('face.toners')); ?></a>
+                            <a class="dropdown-item" href="/products/category/12"><?php echo e(trans('face.peels')); ?></a>
                         </div>
                         <div class="dropdown-col">
-                            <a class="dropdown-item" href="#"><?php echo e(trans('face.face_oils')); ?></a>
-                            <a class="dropdown-item" href="#"><?php echo e(trans('face.masks')); ?></a>
-                            <a class="dropdown-item" href="#"><?php echo e(trans('face.sun_care')); ?></a>
-                            <a class="dropdown-item" href="#"><?php echo e(trans('face.lip_balms')); ?></a>
+                            <a class="dropdown-item" href="/products/category/13"><?php echo e(trans('face.face_oils')); ?></a>
+                            <a class="dropdown-item" href="/products/category/14"><?php echo e(trans('face.masks')); ?></a>
+                            <a class="dropdown-item" href="/products/category/15"><?php echo e(trans('face.sun_care')); ?></a>
+                            <a class="dropdown-item" href="/products/category/16"><?php echo e(trans('face.lip_balms')); ?></a>
                         </div>
                      </div>
             </div>
@@ -118,22 +118,22 @@
                    aria-expanded="false"><?php echo e(trans('hair.hair')); ?></a>
                 <div class="dropdown-menu dropdown-default submenu dropdown-multicol3">
                     <div class="dropdown-col">
-                        <a class="dropdown-item" href="#"><?php echo e(trans('main-menu_subc.all')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('main-menu_subc.new')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('main-menu_subc.sale')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('main-menu_subc.kits')); ?></a>
+                        <a class="dropdown-item" href="/products/2"><?php echo e(trans('main-menu_subc.all')); ?></a>
+                        <a class="dropdown-item" href="/products/2/new"><?php echo e(trans('main-menu_subc.new')); ?></a>
+                        <a class="dropdown-item" href="/products/2/sale"><?php echo e(trans('main-menu_subc.sale')); ?></a>
+                        <a class="dropdown-item" href="/products/2/kits"><?php echo e(trans('main-menu_subc.kits')); ?></a>
                     </div>
                     <div class="dropdown-col">
-                        <a class="dropdown-item" href="#"><?php echo e(trans('hair.shampoo')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('hair.conditioner')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('hair.mask')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('hair.scrub')); ?></a>
+                        <a class="dropdown-item" href="/products/category/20"><?php echo e(trans('hair.shampoo')); ?></a>
+                        <a class="dropdown-item" href="/products/category/21"><?php echo e(trans('hair.conditioner')); ?></a>
+                        <a class="dropdown-item" href="/products/category/22"><?php echo e(trans('hair.mask')); ?></a>
+                        <a class="dropdown-item" href="/products/category/23"><?php echo e(trans('hair.scrub')); ?></a>
                     </div>
                     <div class="dropdown-col">
-                        <a class="dropdown-item" href="#"><?php echo e(trans('hair.serum')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('hair.gel')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('hair.cream')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('hair.oil')); ?></a>
+                        <a class="dropdown-item" href="/products/category/24"><?php echo e(trans('hair.serum')); ?></a>
+                        <a class="dropdown-item" href="/products/category/25"><?php echo e(trans('hair.gel')); ?></a>
+                        <a class="dropdown-item" href="/products/category/26"><?php echo e(trans('hair.cream')); ?></a>
+                        <a class="dropdown-item" href="/products/category/27"><?php echo e(trans('hair.oil')); ?></a>
                     </div>
                 </div>
             </div>
@@ -142,16 +142,16 @@
                    aria-expanded="false" aria-haspopup="true"><?php echo e(trans('body.body')); ?></a>
                 <div class="dropdown-menu dropdown-default submenu dropdown-multicol3">
                     <div class="dropdown-col">
-                        <a class="dropdown-item" href="#"><?php echo e(trans('main-menu_subc.all')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('main-menu_subc.new')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('main-menu_subc.sale')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('main-menu_subc.kits')); ?></a>
+                        <a class="dropdown-item" href="/products/3"><?php echo e(trans('main-menu_subc.all')); ?></a>
+                        <a class="dropdown-item" href="/products/3/new"><?php echo e(trans('main-menu_subc.new')); ?></a>
+                        <a class="dropdown-item" href="/products/3/sale"><?php echo e(trans('main-menu_subc.sale')); ?></a>
+                        <a class="dropdown-item" href="/products/3/kits"><?php echo e(trans('main-menu_subc.kits')); ?></a>
                     </div>
                     <div class="dropdown-col">
-                        <a class="dropdown-item" href="#"><?php echo e(trans('body.wash')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('body.lotions_oils')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('body.hand_wash')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('body.hand')); ?></a>
+                        <a class="dropdown-item" href="/products/category/30"><?php echo e(trans('body.wash')); ?></a>
+                        <a class="dropdown-item" href="/products/category/31"><?php echo e(trans('body.lotions_oils')); ?></a>
+                        <a class="dropdown-item" href="/products/category/32"><?php echo e(trans('body.hand_wash')); ?></a>
+                        <a class="dropdown-item" href="/products/category/33"><?php echo e(trans('body.hand')); ?></a>
                     </div>
                 </div>
             </div>
@@ -160,16 +160,16 @@
                    aria-expanded="false"><?php echo e(trans('oils&aromatherapy.oils&aromatherapy')); ?></a>
                 <div class="dropdown-menu dropdown-default submenu dropdown-multicol3">
                     <div class="dropdown-col">
-                        <a class="dropdown-item" href="#"><?php echo e(trans('main-menu_subc.all')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('main-menu_subc.new')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('main-menu_subc.sale')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('main-menu_subc.kits')); ?></a>
+                        <a class="dropdown-item" href="/products/4"><?php echo e(trans('main-menu_subc.all')); ?></a>
+                        <a class="dropdown-item" href="/products/4/new"><?php echo e(trans('main-menu_subc.new')); ?></a>
+                        <a class="dropdown-item" href="/products/4/sale"><?php echo e(trans('main-menu_subc.sale')); ?></a>
+                        <a class="dropdown-item" href="/products/4/kits"><?php echo e(trans('main-menu_subc.kits')); ?></a>
                     </div>
                     <div class="dropdown-col">
-                        <a class="dropdown-item" href="#"><?php echo e(trans('oils&aromatherapy.oils')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('oils&aromatherapy.essential_oils')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('oils&aromatherapy.butters')); ?></a>
-                        <a class="dropdown-item" href="#"><?php echo e(trans('oils&aromatherapy.mists')); ?></a>
+                        <a class="dropdown-item" href="/products/category/40"><?php echo e(trans('oils&aromatherapy.oils')); ?></a>
+                        <a class="dropdown-item" href="/products/category/41"><?php echo e(trans('oils&aromatherapy.essential_oils')); ?></a>
+                        <a class="dropdown-item" href="/products/category/42"><?php echo e(trans('oils&aromatherapy.butters')); ?></a>
+                        <a class="dropdown-item" href="/products/category/43"><?php echo e(trans('oils&aromatherapy.mists')); ?></a>
                     </div>
                 </div>
             </div>
@@ -177,7 +177,7 @@
 
         <?php echo $__env->yieldContent('content'); ?>
 
-        <footer class="page-footer font-small text-black-50">
+        <footer class="page-footer font-small text-black-50" style="width:100vw;">
             <!-- Footer Links -->
             <div class="container text-center text-md-left mt-5 py-1">
                 <!-- Grid row -->
