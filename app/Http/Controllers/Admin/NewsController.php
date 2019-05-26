@@ -24,7 +24,7 @@ class NewsController extends Controller
     public function news()
     {
         if(Auth::user()->role=='admin'){
-            $news = News::paginate(10);
+            $news = News::paginate();
             return view('admin.news', ['news' => $news]);
         }
         return redirect('admin/home');
@@ -41,13 +41,6 @@ class NewsController extends Controller
 
     public function store(Request $request){
         if(Auth::user()->role=='admin' || Auth::user()->role=='manager'){
-          /*  $request->validate([
-                'title_ru'              =>  'required',
-                'title_en'              =>  'required',
-                'body_ru'              =>  'required',
-                'body_en'              =>  'required',
-                'profile_image'     =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
-            ]);*/
 
             if($request->ajax()) {
 
@@ -65,10 +58,12 @@ class NewsController extends Controller
         if(Auth::user()->role=='admin' || Auth::user()->role=='manager'){
             if($request->ajax())
             {
-                $manuf = News::find($request->id);
-                $column=$request->name;
-                $manuf->$column = $request->new_val;
-                $manuf->save();
+                $entry = News::find($request->id);
+                $entry->title_ru = $request->title_ru;
+                $entry->title_en = $request->title_en;
+                $entry->body_ru = $request->body_ru;
+                $entry->body_en = $request->body_en;
+                $entry->save();
             }
         }
         else return redirect('admin/home');

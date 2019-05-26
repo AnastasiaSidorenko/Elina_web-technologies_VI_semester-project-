@@ -24,18 +24,10 @@ class AdminController extends Controller
     public function managers()
     {
        if(Auth::user()->role=='admin'){
-               $managers = Admin::paginate(4);
+               $managers = Admin::paginate();
                return view('admin.manage', ['managers' => $managers]);
         }
        return redirect('admin/home');
-    }
-
-    public function products(){
-        if(Auth::user()->role=='admin' || Auth::user()->role=='manager'){
-            $products =Product::paginate(15);
-            return view('admin.products', ['products' => $products]);
-        }
-        return redirect('admin/home');
     }
 
     public function destroy($id){
@@ -46,14 +38,14 @@ class AdminController extends Controller
         else return redirect('admin/home');
     }
 
-    public function update(Request $request){
+    public function updateManager(Request $request){
         if(Auth::user()->role=='admin'){
             if($request->ajax())
             {
-                $admin = Admin::find($request->id);
-                $column=$request->name;
-                $admin->$column = $request->new_val;
-                $admin->save();
+                $entry = Admin::find($request->id);
+                $entry->name = $request->name;
+                $entry->role = $request->role;
+                $entry->save();
             }
         }
         else return redirect('admin/home');

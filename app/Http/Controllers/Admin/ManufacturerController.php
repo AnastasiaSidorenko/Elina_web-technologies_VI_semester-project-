@@ -24,16 +24,10 @@ class ManufacturerController extends Controller
     public function manufacturers()
     {
         if(Auth::user()->role=='admin'){
-            $manufacturers = Manufacturer::paginate(10);
+            $manufacturers = Manufacturer::paginate();
             return view('admin.manufacturers', ['manufacturers' => $manufacturers]);
         }
         return redirect('admin/home');
-//        $products = DB::table('products')
-//            ->join('categories', 'products.id', '=', 'manufacturers.user_id')
-//            ->select('users.*', 'category.name_en','category.name_ru')
-//            ->get();
-//        $products = Product::paginate(30);
-//        return view('admin.products', ['products' => $products]);
     }
 
 
@@ -62,10 +56,9 @@ class ManufacturerController extends Controller
         if(Auth::user()->role=='admin'){
             if($request->ajax())
             {
-                $manuf = Manufacturer::find($request->id);
-                $column=$request->name;
-                $manuf->$column = $request->new_val;
-                $manuf->save();
+                $entry = Manufacturer::find($request->id);
+                $entry->name = $request->name;
+                $entry->save();
             }
         }
         else return redirect('admin/home');

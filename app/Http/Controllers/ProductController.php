@@ -20,7 +20,7 @@ class ProductController extends Controller
     }
 
     public function all_section_products($section){
-        $section_products = DB::table('products')
+        $section_products = DB ::table('products')
             ->leftJoin('categories', 'categories.id', '=', 'products.id_category')
             ->leftJoin('sections', 'sections.id', '=', 'categories.id_section')
             ->where('sections.id', $section)

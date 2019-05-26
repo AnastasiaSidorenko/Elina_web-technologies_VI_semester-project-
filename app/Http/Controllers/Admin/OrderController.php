@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
+use Illuminate\Support\Facades\DB;
 
 
 class OrderController extends Controller
@@ -24,7 +25,10 @@ class OrderController extends Controller
     public function orders()
     {
         if(Auth::user()->role=='admin'){
-            $orders = Order::paginate(5);
+            $orders = DB::table('orders')
+                ->leftJoin('users', 'users.id', '=', 'orders.user_id')
+                ->select('orders.*','users.fio as userFIO')
+                ->paginate();
             return view('admin.order', ['orders' => $orders]);
         }
         return redirect('admin/home');
@@ -57,10 +61,9 @@ class OrderController extends Controller
         if(Auth::user()->role=='admin' || Auth::user()->role=='manager'){
             if($request->ajax())
             {
-                $order = Order::find($request->id);
-                $column=$request->name;
-                $order->$column = $request->new_val;
-                $order->save();
+                $entry = Order::find($request->id);
+                $entry->status = $request->status;
+                $entry->save();
             }
         }
         else return redirect('admin/home');
