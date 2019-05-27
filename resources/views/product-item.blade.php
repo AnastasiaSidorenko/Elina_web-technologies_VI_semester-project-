@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('title','Elina product')
+@section('js')
+    <script type="text/javascript" src="{{ asset('js/ProductItem.js') }}"></script>
+@endsection
 
 @section('content')
     <?php
@@ -58,14 +61,18 @@
                 <p>{{ trans('product.expiration_date') }} {{$product_item->expiration_date}}</p>
                 <div class="product-item__p&c rgba-grey-light">
                     @if($product_item->quantity > 0)
-                        <p>{{ trans("product.quantity") }} <button>-</button> 1 <button>+</button>
-                        <button type="button" class="btn deep-purple">{{ trans('product.add_to_cart') }}</button>
+                        <p>{{ trans("product.quantity") }} <button id="minus" onclick="Minus({{$product_item->quantity}})">-</button><span id="countProduct"> 1 </span><button id="plus" onclick="Plus({{$product_item->quantity}})">+</button>
+                            @auth
+                                <button id="addInCart" onclick="AddInCart({{$product_item->id}},{{$userID}})" type="button" class="btn deep-purple">{{ trans('product.add_to_cart') }}</button>
+                            @else
+                                <button type="submit" onclick="location.href='/user/login'" class="btn deep-purple">{{ trans('product.add_to_cart') }}</button>
+                            @endauth
                         </p>
                     @endif
                 {{--<p>{{ trans('product.quantity') }} <button>-</button> 1 <button>+</button>--}}
                     {{--<button type="button" class="btn deep-purple">{{ trans('product.add_to_cart') }}</button>--}}
                 {{--</p>--}}
-                <h5>{{ trans('product.price') }}: <span>{{$product_item->price}} </span><span>{{ trans('product.RUB') }}</span></h5>
+                <h5>{{ trans('product.price') }}: <span>{{$product_item->price}} </span><span>{{ trans('product.RUB') }}</span><p id="allRight" style="color:red"></p></h5>
             </div>
             </div>
         </div>

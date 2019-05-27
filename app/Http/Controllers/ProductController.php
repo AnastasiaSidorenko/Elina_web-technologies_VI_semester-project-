@@ -8,6 +8,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -56,6 +57,9 @@ class ProductController extends Controller
         if(($product_item->count())==0){
             redirect('home');
         }
+        if(Auth::user())
+            $userID=Auth::user()->id;
+        else $userID=0;
         //var_dump($product_item[0]);
         /*$reviews = DB::table('feedback_on_products')
             ->where('feedback_on_products.id_product', $id)
@@ -65,6 +69,6 @@ class ProductController extends Controller
             ->leftJoin('feedback_on_products', 'feedback_on_products.id_product', '=', 'products.id')
             ->select('user.fio','feedbacks.*');
         $reviews_quantity = $reviews->count();*/
-        return view('product-item',['product_item' => $product_item[0]/*'reviews'=> $reviews, 'reviews_quantity'=>$reviews_quantity*/]);
+        return view('product-item',['product_item' => $product_item[0],'userID'=>$userID/*'reviews'=> $reviews, 'reviews_quantity'=>$reviews_quantity*/]);
     }
 }
