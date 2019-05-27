@@ -32,6 +32,7 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    @yield('js')
 
 </head>
  <body>

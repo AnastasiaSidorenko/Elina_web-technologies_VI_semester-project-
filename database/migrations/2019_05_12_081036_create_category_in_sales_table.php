@@ -14,8 +14,9 @@ class CreateCategoryInSalesTable extends Migration
     public function up()
     {
         Schema::create('category_in_sales', function (Blueprint $table) {
-            $table->bigInteger('id_category')->unsigned();
-            $table->bigInteger('id_sale')->unsigned();
+            $table->bigIncrements('id');
+            $table->bigInteger('id_category')->unsigned()->unique();
+            $table->bigInteger('id_sale')->unsigned()->unique();
             $table->foreign('id_category')->references('id')->on('categories')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
