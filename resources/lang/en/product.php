@@ -18,4 +18,5 @@ return [
     'in_stock' => 'In Stock',
     'out_of_stock' => 'Out of Stock',
     'edit' => 'Edit',
+    'sort_by' => 'Sort by ',
 ];

@@ -181,3 +181,12 @@ a:link,a:visited,a:active,a:hover{
 .carousel-indicators > li.active {
     background: #6E6BAD;
 }
+.show_product{
+    height: 3.9em;
+    line-height: 1.3;
+    overflow: hidden;
+    text-align: left;
+    font-weight: 400;
+    display: inline-block;
+    font-size: 1em;"
+}

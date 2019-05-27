@@ -13,7 +13,7 @@ Route::post('/product_in_cart/store', 'CartController@store');
 
 
 
-Route::get('/try',function(){return view('product-item');});
+Route::get('/try',function(){return view('products');});
 
 Route::get('/about_us','AboutUsController@index')->name('about_us');
 
