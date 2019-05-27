@@ -491,7 +491,7 @@ class DatabaseSeeder extends Seeder
             'image1'=>'https://s3.images-iherb.com/wsb/wsb47405/y/13.jpg',
             'image2'=>'https://s3.images-iherb.com/wsb/wsb47405/y/14.jpg',
             'id_manufacturer'=>'5',
-            'id_category'=>'14',//Toners
+            'id_category'=>'15',//Toners
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
@@ -517,7 +517,7 @@ Organic Creme Brulee: Olive Oil*, Beeswax*, Flavor*, Sunflower Oil*, Non-GMO Vit
             'image1'=>'https://s3.images-iherb.com/mbe/mbe00962/y/3.jpg',
             'image2'=>'https://s3.images-iherb.com/mbe/mbe00962/y/4.jpg',
             'id_manufacturer'=>'4',
-            'id_category'=>'13',//Toners
+            'id_category'=>'16',//Toners
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);

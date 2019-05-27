@@ -25,7 +25,7 @@
 
    <div class="product-item">
     <div class="product-item__title ml-1 mt-2">
-        <p style="font-size:1.3em;" class="px-2 text-left"><a href="/products/"></a>{{$product_item->$section_name}}
+        <p style="font-size:1.3em;" class="px-2 text-left"><a href="/products/{{$product_item->$cat_id}}">{{$product_item->$section_name}}</a>
             <i style="color:rebeccapurple" class="fas fa-chevron-right"></i>
             <a href="/products/category/{{$product_item->category_id}}">{{$product_item->$category}}</a>
             <i style="color:rebeccapurple" class="fas fa-chevron-right"></i>
@@ -59,7 +59,7 @@
                 <div class="product-item__p&c rgba-grey-light">
                     @if($product_item->quantity > 0)
                         <p>{{ trans("product.quantity") }} <button>-</button> 1 <button>+</button>
-                        <button type="button" class="btn deep-purple">{{ trans('product.add_to_cart') }}</button>
+                        <button type="button" class="deep-purple">{{ trans('product.add_to_cart') }}</button>
                         </p>
                     @endif
                 {{--<p>{{ trans('product.quantity') }} <button>-</button> 1 <button>+</button>--}}

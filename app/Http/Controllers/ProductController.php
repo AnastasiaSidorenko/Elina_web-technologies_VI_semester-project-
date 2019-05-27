@@ -8,13 +8,14 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Http\Controllers\Redirect;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
     public function products()
     {
-        $products=Product::paginate(10);
+        $products=Product::paginate(8);
         //$products = News::orderBy('id', 'desc')->paginate(4);
         return view('products', ['products' => $products, 'all' => 'all']);
     }
@@ -24,22 +25,37 @@ class ProductController extends Controller
             ->leftJoin('categories', 'categories.id', '=', 'products.id_category')
             ->leftJoin('sections', 'sections.id', '=', 'categories.id_section')
             ->where('sections.id', $section)
-            ->select('product','sections.name_en','sections.name_ru')
-            ->paginate(10);
-//            ->select('product','categories.name as categName', 'categories.*', 'manufacturers.name as manufName', 'manufacturers.*')
-//            ->paginate(10);
-        return view('products',['products' => $section_products,'section'=> $section]);
+            ->leftJoin('manufacturers', 'products.id_manufacturer', '=', 'manufacturers.id')
+            ->select('products.*','sections.name_en','sections.name_ru',
+                'manufacturers.name as manufacturer_name', 'sections.id as section_id',
+                'categories.name_en as category_name_en', 'categories.name_ru as category_name_ru',
+                'sections.name_en as section_name_en', 'sections.name_ru as section_name_ru',
+                'categories.id as category_id','products.name_en as name_en','products.name_ru as name_ru')
+            ->paginate(8);
+        if(!isset($section_products[0])){
+            abort(404);
+            exit;
+        }
+        return view('products',['products' => $section_products,'in_section'=> $section]);
     }
 
     public function category_products($category){
         $category_products = DB::table('products')
             ->leftJoin('categories', 'categories.id', '=', 'products.id_category')
-            ->where('category.id', $category)
-            ->select('product','categories.name_en','categories.name_ru')
-            ->paginate(10);
+            ->where('categories.id', $category)
+            ->leftJoin('manufacturers', 'products.id_manufacturer', '=', 'manufacturers.id')
+            ->leftJoin('sections', 'sections.id', '=', 'categories.id_section')
+            ->select('products.*','manufacturers.name as manufacturer_name','categories.name_en as category_name_en',
+                'categories.name_ru as category_name_ru','sections.name_en as section_name_en',
+                'sections.name_ru as section_name_ru', 'sections.id as section_id', 'categories.id as category_id')
+            ->paginate(8);
 //            ->select('product','categories.name as categName', 'categories.*', 'manufacturers.name as manufName', 'manufacturers.*')
 //            ->paginate(10);
-        return view('products',['products' => $category_products,'category' => $category]);
+        if(!isset($category_products[0])){
+            abort(404);
+            exit;
+        }
+        return view('products',['products' => $category_products,'in_category' => $category]);
     }
 
     public function product_item($id){
@@ -53,8 +69,9 @@ class ProductController extends Controller
                 'categories.name_ru as category_name_ru','sections.name_en as section_name_en',
                 'sections.name_ru as section_name_ru', 'sections.id as section_id', 'categories.id as category_id')
                 ->get(1);
-        if(($product_item->count())==0){
-            redirect('home');
+        if(!isset($product_item[0])){
+            abort(404);
+            exit;
         }
         //var_dump($product_item[0]);
         /*$reviews = DB::table('feedback_on_products')
