@@ -9,6 +9,7 @@
     <title><?php echo $__env->yieldContent('title'); ?></title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <link href="<?php echo e(asset('css/addons/datatables.min.css')); ?>" rel="stylesheet">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
 

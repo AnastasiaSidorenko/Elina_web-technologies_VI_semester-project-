@@ -46,16 +46,25 @@ class ProductController extends Controller
         //Соединение с FEEDBACKS !! Вывод отзывов
         $product_item = DB::table('products')
             ->where('products.id', $id)
-            ->leftJoin('Manufacturers', 'Products.id_manufacturer', '=', 'Manufacturer.id')
-            ->select('Products.*','Manufacturer.name');
-        $reviews = DB::table('Feedback_on_products')
-            ->where('Feedback_on_products.id_product', $id)
+            ->leftJoin('manufacturers', 'products.id_manufacturer', '=', 'manufacturers.id')
+            ->leftJoin('categories', 'categories.id', '=', 'products.id_category')
+            ->leftJoin('sections', 'sections.id', '=', 'categories.id_section')
+            ->select('products.*','manufacturers.name as manufacturer_name','categories.name_en as category_name_en',
+                'categories.name_ru as category_name_ru','sections.name_en as section_name_en',
+                'sections.name_ru as section_name_ru', 'sections.id as section_id', 'categories.id as category_id')
+                ->get(1);
+        if(($product_item->count())==0){
+            redirect('home');
+        }
+        //var_dump($product_item[0]);
+        /*$reviews = DB::table('feedback_on_products')
+            ->where('feedback_on_products.id_product', $id)
             ->leftJoin('feedback', 'Feedback_on_products.id_feedback', '=', 'Feedbacks.id')
-            ->leftJoin('User_feedbacks', 'Feedbacks.id', '=', 'User_feedbacks.id_feedback')
-            ->leftJoin('User', 'User_feedbacks.user_id', '=', 'User.id')
+            ->leftJoin('user_feedbacks', 'feedbacks.id', '=', 'user_feedbacks.id_feedback')
+            ->leftJoin('user', 'user_feedbacks.user_id', '=', 'user.id')
             ->leftJoin('feedback_on_products', 'feedback_on_products.id_product', '=', 'products.id')
-            ->select('User.fio','Feedbacks.*');;
-        $reviews_quantity = $reviews->count();
-        return view('product_item',['product_item' => $product_item,'reviews'=> $reviews, 'reviews_quantity'=>$reviews_quantity]);
+            ->select('user.fio','feedbacks.*');
+        $reviews_quantity = $reviews->count();*/
+        return view('product-item',['product_item' => $product_item[0]/*'reviews'=> $reviews, 'reviews_quantity'=>$reviews_quantity*/]);
     }
 }
