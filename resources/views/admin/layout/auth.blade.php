@@ -33,13 +33,6 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-    <!-- Managers -->
-
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
 
 
     @yield('js')
@@ -82,6 +75,7 @@
         <a href="news">{{ trans('admin.news') }}</a>
         <a href="orders">{{ trans('admin.orders') }}</a>
         <a href="manufacturers">{{ trans('admin.manufacturers') }}</a>
+        <a href="aboutUs">{{ trans('admin.aboutUs') }}</a>
     </div>
 </div>
 @include('common.errors')

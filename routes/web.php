@@ -11,7 +11,7 @@ Route::get('/products/{section}/new','ProductController@section_new_products');
 Route::get('/products/category/{category_id}','ProductController@category_products');
 Route::get('/product/{id}','ProductController@product_item');
 Route::post('/product_in_cart/store', 'CartController@store');
-
+Route::get('/how_to_find_us', 'FindUsController@index');
 
 
 Route::get('/about_us','AboutUsController@index')->name('about_us');

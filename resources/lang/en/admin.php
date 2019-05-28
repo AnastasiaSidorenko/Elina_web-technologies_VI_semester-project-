@@ -23,4 +23,5 @@ return [
     'address' => 'Address',
     'user' => 'User',
     'status' => 'Status',
+    'aboutUs'=>'About us',
     ];

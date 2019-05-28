@@ -189,22 +189,8 @@
                         <h6 class="text-uppercase font-weight-bold">Elina</h6>
                         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
 
-                        <p style="color: white;">Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p style="color: white;">{{trans('top&middle_menu.shop')}}</p>
                     </div>
-                    <!-- Grid column -->
-                    <!-- Grid column -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                        <!-- Links -->
-                        <h6 class="text-uppercase font-weight-bold">Products</h6>
-                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p><a href="#!">MDBootstrap</a></p>
-                        <p><a href="#!">MDWordPress</a></p>
-                        <p><a href="#!">BrandFlow</a></p>
-                        <p><a href="#!">Bootstrap Angular</a></p>
-
-                    </div>
-                    <!-- Grid column -->
 
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg-3 col-xl-2 mx-auto mb-3">
@@ -235,8 +221,7 @@
             </div>
             <!-- Footer Links -->
             <!-- Copyright -->
-             <div class="footer-copyright text-center py-1">© 2019 Copyright:
-                  <a href="/">Sidorenko</a>
+             <div class="text-center py-1" style="color: white;">© 2019 Copyright: Sidorenko
              </div>
             <!-- Copyright -->
             </div>
