@@ -7,13 +7,12 @@ Route::get('/news/{id}','NewsController@news_item');
 
 Route::get('/products','ProductController@products')->name('products');
 Route::get('/products/{section}','ProductController@all_section_products');
+Route::get('/products/{section}/new','ProductController@section_new_products');
 Route::get('/products/category/{category_id}','ProductController@category_products');
 Route::get('/product/{id}','ProductController@product_item');
 Route::post('/product_in_cart/store', 'CartController@store');
 Route::get('/how_to_find_us', 'FindUsController@index');
 
-
-Route::get('/try',function(){return view('products');});
 
 Route::get('/about_us','AboutUsController@index')->name('about_us');
 
@@ -78,6 +77,8 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/login', 'UserAuth\LoginController@showLoginForm')->name('login');
     Route::post('/login', 'UserAuth\LoginController@login');
     Route::post('/logout', 'UserAuth\LoginController@logout')->name('logout');
+
+    Route::get('/account/{id}','AccountController@index');
 
     Route::get('/register', 'UserAuth\RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'UserAuth\RegisterController@register');

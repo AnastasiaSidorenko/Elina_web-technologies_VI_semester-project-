@@ -32,6 +32,7 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    <?php echo $__env->yieldContent('js'); ?>
 
 </head>
  <body>
@@ -80,7 +81,9 @@
                             <a class="mr-2" href="<?php echo e(url('/user/login')); ?>"><?php echo e(trans('top&middle_menu.login')); ?></a>
                     <?php endif; ?>
 
-                        <a class="mr-2" href="#"><?php echo e(trans('top&middle_menu.my_account')); ?></a>
+                        <?php if(auth()->guard()->check()): ?>
+                        <a class="mr-2" href="account/<?php echo e(Auth::user()->id); ?>"><?php echo e(trans('top&middle_menu.my_account')); ?></a>
+                        <?php endif; ?>
                         
                         <i class="fas fa-shopping-cart mr-2"></i>
                     </div>

@@ -19,4 +19,8 @@ return [
     'out_of_stock' => 'Out of Stock',
     'edit' => 'Edit',
     'sort_by' => 'Sort by ',
+    'price:cheap' => 'Price: Cheapest',
+    'price:expensive' => 'Price: Most exspensive',
+    'no_new_products' => 'No new products now',
+    'newest' => 'Newest'
 ];

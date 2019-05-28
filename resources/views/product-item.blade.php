@@ -92,6 +92,10 @@
             <h4>{{ trans('product.ingredients') }}</h4>
             <p>{{$product_item->ingredients}}</p>
         </div>
+        <div class="product-item__reviews">
+            <h4>{{ trans('product.reviews') }}</h4>
+            <p>{{$product_item->ingredients}}</p>
+        </div>
     </div>
 </div>
 

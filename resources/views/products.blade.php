@@ -1,9 +1,15 @@
 @extends('layouts.app')
 @section('title','Elina products')
+<<<<<<< HEAD
 @section('js')
     <script type="text/javascript" src="{{ asset('js/ProductItem.js') }}"></script>
 @endsection
 
+=======
+{{--@section('js')--}}
+    {{--<script type="text/javascript" src="{{ asset('js/Products_Sorts.js') }}"></script>--}}
+{{--@endsection--}}
+>>>>>>> origin/master
 @section('content')
     <?php
     session_start();
@@ -22,6 +28,7 @@
     $manuf_name = 'manufacturer_name';
     ?>
 
+    @if(isset($products[0]))
     @if(isset($in_section))
         <div class="product-item__title ml-1 mt-2">
             <p style="font-size:1.3em;" class="px-2 text-left"><a href="/products/{{$products[0]->$cat_id}}">{{$products[0]->$section_name}}</a>
@@ -35,11 +42,13 @@
     @endif
     <div>
     <div class="rgba-grey-light p-1 mb-2 d-flex justify-content-end">
-        <span>{{ trans('product.sort_by') }} </span>
-        <select class="px-2 mx-2">
-            <option>{{ trans('product.price') }}</option>
-            <option>{{ trans('product.price') }}</option>
-        </select>
+        {{--<span>{{ trans('product.sort_by') }} </span>--}}
+        {{--<select id="selectSort" class="dropdown-sort px-2 mx-2" onChange="makeSort();">--}}
+            {{--<option value="Default"></option>--}}
+            {{--<option value="Cheapest">{{ trans('product.price:cheap') }}</option>--}}
+            {{--<option value="Exspensive">{{ trans('product.price:exspensive') }}</option>--}}
+            {{--<option value="Newest">{{ trans('product.newest') }}</option>--}}
+        {{--</select>--}}
     </div>
 
     <div class="products col-11">
@@ -69,4 +78,7 @@
             {{$products->links()}}
         </div>
     </div>
+    @else
+        <h5 class="text-center">{{trans('product.no_new_products')}}</h5>
+    @endif
 @endsection
