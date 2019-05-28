@@ -79,7 +79,9 @@
                             <a class="mr-2" href="{{ url('/user/login') }}">{{ trans('top&middle_menu.login') }}</a>
                     @endauth
 
-                        <a class="mr-2" href="#">{{ trans('top&middle_menu.my_account') }}</a>
+                        @auth
+                        <a class="mr-2" href="account/{{Auth::user()->id}}">{{ trans('top&middle_menu.my_account') }}</a>
+                        @endauth
                         {{--<i class="far fa-heart mr-2"></i>--}}
                         <i class="fas fa-shopping-cart mr-2"></i>
                     </div>

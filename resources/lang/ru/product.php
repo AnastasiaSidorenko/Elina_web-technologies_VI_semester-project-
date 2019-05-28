@@ -19,4 +19,8 @@ return [
     'out_of_stock' => 'Нет в наличии',
     'edit' => 'Редактирование',
     'sort_by' => 'Сортировать по ',
+    'price:cheap' => 'Цена: Дешёвые',
+    'price:exspensive' => 'Цена: Дорогие',
+    'no_new_products' => 'Нет новинок',
+    'newest' => 'Новинкам',
 ];
