@@ -10,7 +10,7 @@ Route::get('/products/{section}','ProductController@all_section_products');
 Route::get('/products/category/{category_id}','ProductController@category_products');
 Route::get('/product/{id}','ProductController@product_item');
 Route::post('/product_in_cart/store', 'CartController@store');
-
+Route::get('/how_to_find_us', 'FindUsController@index');
 
 
 Route::get('/try',function(){return view('products');});

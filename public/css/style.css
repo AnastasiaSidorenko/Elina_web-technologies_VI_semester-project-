@@ -190,3 +190,7 @@ a:link,a:visited,a:active,a:hover{
     display: inline-block;
     font-size: 1em;"
 }
+
+.image-center{
+    text-align: center;
+}

@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('title','Elina products')
+@section('js')
+    <script type="text/javascript" src="{{ asset('js/ProductItem.js') }}"></script>
+@endsection
 
 @section('content')
     <?php
@@ -51,9 +54,11 @@
                        <br><div class="d-inline-flex align-self-bottom">
                         <span>{{$product->price}} {{ trans('product.RUB') }}</span>
                     </div>
-                        <p><button href="#" class="btn btn-info btn-lg mb-auto d-inline-flex align-self-end">
-                            <span class="glyphicon glyphicon-shopping-cart"></span>{{ trans('product.add_to_cart') }}
-                        </button>
+                        @auth
+                            <button id="addInCart" onclick="AddInCart({{$product_item->id}},{{$userID}})" type="button" class="btn btn btn-lg mb-auto d-inline-flex align-self-end deep-purple">{{ trans('product.add_to_cart') }}</button>
+                        @else
+                            <button type="submit" onclick="location.href='/user/login'" class="btn btn-lg mb-auto d-inline-flex align-self-end deep-purple">{{ trans('product.add_to_cart') }}</button>
+                        @endauth
                 </div>
             @endforeach
             </div>

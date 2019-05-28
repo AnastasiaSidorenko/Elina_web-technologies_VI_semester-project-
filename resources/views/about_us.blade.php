@@ -1,18 +1,11 @@
 @extends('layouts.app')
-@section('title','Main page')
+@section('title','About us')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Dashboard</div>
-
-                    <div class="panel-body">
-                        You are logged in as User!
-                    </div>
-                </div>
-            </div>
+    <div id="divContent">
+        <h1 class="text-center mt-3 mb-3">{{ trans('about_us.title') }}</h1>
+        <div class="image-center">
+            <img src="http://fancy-beauty.com/wp-content/uploads/2018/04/DSC9705.jpg" alt="products">
         </div>
     </div>
 @endsection
