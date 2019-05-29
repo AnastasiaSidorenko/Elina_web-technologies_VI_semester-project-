@@ -38,27 +38,31 @@ class CartController extends Controller
         }
     }
 
-   public function cart($id){
-       if($id==Auth::user()->id) {
-           $cart_products = Product_in_cart::where('user_id', $id)
-               ->leftJoin('products','products.id','=','id_product')
-               ->leftJoin('manufacturers','products.id_manufacturer','=','manufacturers.id')
-               ->select('products.*','products.quantity as product_quantity','product_in_carts.*','manufacturers.name')
-               ->get();
-           $total_sum=0;
-           foreach($cart_products as $item){
-               $total_sum += $item->price * $item->quantity;
-           }
 
-//           $cart_products = DB ::table('product_in_carts')
-//               ->where('user_id', $id)
-//               ->get();
-            $quantity =  Product_in_cart::where('user_id','=',$id)->count();
-            return view('user.cart',['cart_products' => $cart_products, 'quantity' => $quantity,'total_sum' => $total_sum]);
+    public function cart($id)
+    {
+        if ($id == Auth::user()->id) {
+
+            $cart_products = Product_in_cart::where('user_id', $id)
+                ->leftJoin('products', 'products.id', '=', 'id_product')
+                ->leftJoin('manufacturers', 'products.id_manufacturer', '=', 'manufacturers.id')
+                ->select('products.*', 'products.quantity as product_quantity', 'product_in_carts.*', 'manufacturers.name')
+                ->paginate();
+            $total_sum = 0;
+
+            foreach ($cart_products as $item) {
+                if ($item->quantity > $item->product_quantity) {
+                    $item->quantity = $item->product_quantity;
+                    $item->save();
+                }
+
+            }
+
+            foreach ($cart_products as $item) {
+                $total_sum += $item->price * $item->quantity;
+            }
         }
-        else return redirect('/user/home');
     }
-
     public function delete_cart_item(Request $request)
     {
         if ($request->ajax()) {

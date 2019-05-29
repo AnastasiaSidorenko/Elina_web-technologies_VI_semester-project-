@@ -8,7 +8,7 @@
 @section('content')
 
     <?php
-    session_start();
+
     if(App::getLocale()=='en'){
         $name='name_en';
     }
@@ -23,23 +23,30 @@
         <div class="rgba-grey-light card-header"><h4>{{ trans('user.cart') }} ({{$quantity}})</h4>
         </div>
         @if($quantity>0)
-            <div class="cart__items-header row">
-                <div class="col-xs-14 col-sm-14 col-md-12">{{ trans('user.products') }}</div>
-                <div class="col-xs-3 col-sm-4 col-md-6 text-center">{{ trans('user.price') }}</div>
-                <div class="col-xs-3 col-sm-3 col-md-3 text-center">{{ trans('user.qty') }}</div>
-                <div class="col-xs-3 col-sm-3 col-md-3 text-right">{{ trans('user.total') }}</div>
+
+            <div class="card-body text-center">
+                <table  id="dtHorizontalVerticalExample" class="table table-striped table-sm" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                        <th width="10%"></th><th width="40%">{{ trans('user.products') }}</th><th>{{ trans('user.price') }}</th><th>{{ trans('user.qty') }}</th><th>{{ trans('user.total') }}</th></tr>
+                    </thead>
+                    <tbody>@foreach($cart_products as $item)
+                        {{--@if($m->id!=Auth::user()->id)--}}
+                        <tr id='TR{{$item->id}}'>
+                            <td><img height=50px src="{{$item->image1}}"></td>
+                            <td class="text-left">{{$item->$name}}</td>
+                            <td id="price{{$item->id}}">{{ $item->price }}</td>
+                            <td><button id="minus{{$item->id}}" onclick="Minus({{$item->product_quantity}},{{$item->id}})">-</button><span id="countProduct{{$item->id}}">  {{ $item->quantity }} </span><button id="plus{{$item->id}}" onclick="Plus({{$item->product_quantity}},{{$item->id}})">+</button></td>
+                            <td id="total_sum{{$item->id}}">{{ $item->price*$item->quantity }}</td>
+                            </tr>
+                        {{--   @endif--}}
+                    @endforeach
+                    </tbody>
+                </table>
+
             </div>
-                @foreach($cart_products as $item)
-            <div class="cart__items row">
-                <div class="show-product col-xs-14 col-sm-14 col-md-12">{{$item->$manuf_name}},{{$item->$name}}</div>
-                <div class="col-xs-3 col-sm-4 col-md-6 text-center">{{ $item->price }}</div>
-                <div class="col-xs-3 col-sm-3 col-md-3 text-center">{{ $item->quantity }}</div>
-                <div class="col-xs-3 col-sm-3 col-md-3 text-right">
-                    {{--{{ $item->$cart_item_total }}--}}
-                </div>
-            </div>
-                @endforeach
-        <div class="cart__sum text-right">
+            {{$cart_products->links()}}
+            <div class="cart__sum text-right">
             <p>{{ trans('user.total_sum') }} :
                 {{$total_sum}} {{ trans('product.RUB') }}
             </div>
