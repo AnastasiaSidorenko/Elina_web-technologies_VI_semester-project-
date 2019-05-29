@@ -80,10 +80,12 @@
                     @endauth
 
                         @auth
-                        <a class="mr-2" href="/user/account/{{Auth::user()->id}}">{{ trans('top&middle_menu.my_account') }}</a>
+                            <a class="mr-2" href="/user/account/{{Auth::user()->id}}">{{ trans('top&middle_menu.my_account') }}</a>
+                            <a href="/user/cart/{{Auth::user()->id}}"><i class="fas fa-shopping-cart mr-2"></i></a>
+                        @else
+                            <a href="/user/login"><i class="fas fa-shopping-cart mr-2"></i></a>
                         @endauth
-                        {{--<i class="far fa-heart mr-2"></i>--}}
-                        <a href="cart/{{Auth::user()->id}}"><i class="fas fa-shopping-cart mr-2"></i></a>
+
                     </div>
                 </div>
             </div>
@@ -98,9 +100,9 @@
                         <div class="dropdown-col">
                             <a class="dropdown-item" href="/products/1">{{ trans('main-menu_subc.all') }}</a>
                             <a class="dropdown-item" href="/products/1/new">{{ trans('main-menu_subc.new') }}</a>
-                            <a class="dropdown-item" href="/products/1/sale">{{ trans('main-menu_subc.sale') }}</a>
+                            {{--<a class="dropdown-item" href="/products/1/sale">{{ trans('main-menu_subc.sale') }}</a>
                             <a class="dropdown-item" href="/products/2/kits">{{ trans('main-menu_subc.kits') }}</a>
-                        </div>
+                        --}}</div>
                         <div class="dropdown-col">
                             <a class="dropdown-item" href="/products/category/10">{{ trans('face.wash') }}</a>
                             <a class="dropdown-item" href="/products/category/11">{{ trans('face.toners') }}</a>
@@ -121,9 +123,9 @@
                     <div class="dropdown-col">
                         <a class="dropdown-item" href="/products/2">{{ trans('main-menu_subc.all') }}</a>
                         <a class="dropdown-item" href="/products/2/new">{{ trans('main-menu_subc.new') }}</a>
-                        <a class="dropdown-item" href="/products/2/sale">{{ trans('main-menu_subc.sale') }}</a>
+                        {{--<a class="dropdown-item" href="/products/2/sale">{{ trans('main-menu_subc.sale') }}</a>
                         <a class="dropdown-item" href="/products/2/kits">{{ trans('main-menu_subc.kits') }}</a>
-                    </div>
+                    --}}</div>
                     <div class="dropdown-col">
                         <a class="dropdown-item" href="/products/category/20">{{ trans('hair.shampoo') }}</a>
                         <a class="dropdown-item" href="/products/category/21">{{ trans('hair.conditioner') }}</a>
@@ -145,9 +147,9 @@
                     <div class="dropdown-col">
                         <a class="dropdown-item" href="/products/3">{{ trans('main-menu_subc.all') }}</a>
                         <a class="dropdown-item" href="/products/3/new">{{ trans('main-menu_subc.new') }}</a>
-                        <a class="dropdown-item" href="/products/3/sale">{{ trans('main-menu_subc.sale') }}</a>
+                        {{--<a class="dropdown-item" href="/products/3/sale">{{ trans('main-menu_subc.sale') }}</a>
                         <a class="dropdown-item" href="/products/3/kits">{{ trans('main-menu_subc.kits') }}</a>
-                    </div>
+                   --}} </div>
                     <div class="dropdown-col">
                         <a class="dropdown-item" href="/products/category/30">{{ trans('body.wash') }}</a>
                         <a class="dropdown-item" href="/products/category/31">{{ trans('body.lotions_oils') }}</a>
@@ -163,9 +165,9 @@
                     <div class="dropdown-col">
                         <a class="dropdown-item" href="/products/4">{{ trans('main-menu_subc.all') }}</a>
                         <a class="dropdown-item" href="/products/4/new">{{ trans('main-menu_subc.new') }}</a>
-                        <a class="dropdown-item" href="/products/4/sale">{{ trans('main-menu_subc.sale') }}</a>
+                       {{-- <a class="dropdown-item" href="/products/4/sale">{{ trans('main-menu_subc.sale') }}</a>
                         <a class="dropdown-item" href="/products/4/kits">{{ trans('main-menu_subc.kits') }}</a>
-                    </div>
+                    --}}</div>
                     <div class="dropdown-col">
                         <a class="dropdown-item" href="/products/category/40">{{ trans('oils&aromatherapy.oils') }}</a>
                         <a class="dropdown-item" href="/products/category/41">{{ trans('oils&aromatherapy.essential_oils') }}</a>
