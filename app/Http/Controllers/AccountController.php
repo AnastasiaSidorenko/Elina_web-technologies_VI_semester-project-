@@ -22,7 +22,7 @@ class AccountController extends Controller
         if($id==Auth::user()->id) {
             $user = User::findOrFail($id);
 
-            return view('user.user_account', ['user' => $user]);
+            return view('user.user_account', ['user' => $user,]);
         }
         else return redirect('/user/home');
     }

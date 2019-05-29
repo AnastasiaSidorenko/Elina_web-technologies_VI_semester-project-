@@ -23,6 +23,7 @@
         <div class="rgba-grey-light card-header"><h4>{{ trans('user.cart') }} ({{$quantity}})</h4>
         </div>
         @if($quantity>0)
+
             <div class="card-body text-center">
                 <table  id="dtHorizontalVerticalExample" class="table table-striped table-sm" cellspacing="0" width="100%">
                     <thead>
@@ -42,6 +43,7 @@
                     @endforeach
                     </tbody>
                 </table>
+
             </div>
             {{$cart_products->links()}}
             <div class="cart__sum text-right">
