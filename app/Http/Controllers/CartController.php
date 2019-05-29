@@ -39,30 +39,46 @@ class CartController extends Controller
     }
 
 
-    public function cart($id)
-    {
-        if ($id == Auth::user()->id) {
+    public function cart($id){
+        if($id==Auth::user()->id) {
 
             $cart_products = Product_in_cart::where('user_id', $id)
-                ->leftJoin('products', 'products.id', '=', 'id_product')
-                ->leftJoin('manufacturers', 'products.id_manufacturer', '=', 'manufacturers.id')
-                ->select('products.*', 'products.quantity as product_quantity', 'product_in_carts.*', 'manufacturers.name')
+                ->leftJoin('products','products.id','=','id_product')
+                ->leftJoin('manufacturers','products.id_manufacturer','=','manufacturers.id')
+                ->select('products.*','products.quantity as product_quantity','product_in_carts.*','manufacturers.name')
                 ->paginate();
-            $total_sum = 0;
+            $total_sum=0;
 
-            foreach ($cart_products as $item) {
-                if ($item->quantity > $item->product_quantity) {
-                    $item->quantity = $item->product_quantity;
+            foreach($cart_products as $item){
+                if($item->quantity > $item->product_quantity){
+                    $item->quantity=$item->product_quantity;
                     $item->save();
                 }
 
             }
 
-            foreach ($cart_products as $item) {
+            foreach($cart_products as $item){
                 $total_sum += $item->price * $item->quantity;
             }
+            $quantity =  Product_in_cart::where('user_id','=',$id)->count();
+            return view('user.cart',['cart_products' => $cart_products, 'quantity' => $quantity,'total_sum' => $total_sum]);
         }
+        else return redirect('/user/home');
     }
+
+    public static function totalSum($id){
+        $cart_products = Product_in_cart::where('user_id', $id)
+            ->leftJoin('products','products.id','=','id_product')
+            ->leftJoin('manufacturers','products.id_manufacturer','=','manufacturers.id')
+            ->select('products.*','products.quantity as product_quantity','product_in_carts.*','manufacturers.name')
+            ->paginate();
+        $total_sum=0;
+        foreach($cart_products as $item){
+            $total_sum += $item->price * $item->quantity;
+        }
+        return $total_sum;
+    }
+
     public function delete_cart_item(Request $request)
     {
         if ($request->ajax()) {
@@ -72,31 +88,22 @@ class CartController extends Controller
 
     public function plus_cart_item(Request $request){
         if($request->ajax()) {
-            // $user_id = Auth::user()->id;
-            // if ($user_id) {
             $cart_product = Product_in_cart::where('user_id', $request->user_id)
-                ->where('id_product', $request->id_product)->first();
-            $product = Product::find($request->id_product);
-            if ($cart_product->quantity < $product->quantity) {
+                ->where('id_product', $request->product_id)->first();
                 $cart_product->quantity += 1;
                 $cart_product->save();
-            }
+                $data=CartController::totalSum($request->user_id);
+                return $data;
         }
     }
     public function minus_cart_item(Request $request){
         if($request->ajax()) {
-            // $user_id = Auth::user()->id;
-            // if ($user_id) {
             $cart_product = Product_in_cart::where('user_id', $request->user_id)
-                ->where('id_product', $request->id_product)->first();
-            $product = Product::find($request->id_product);
-            if ($cart_product->quantity > 1) {
-                $cart_product->quantity -= 1;
-                $cart_product->save();
-            }
-            if($cart_product->quantity){
-                $cart_product->delete();
-            }
+                ->where('id_product', $request->product_id)->first();
+            $cart_product->quantity -= 1;
+            $cart_product->save();
+            $data=CartController::totalSum($request->user_id);
+            return $data;
         }
     }
 
