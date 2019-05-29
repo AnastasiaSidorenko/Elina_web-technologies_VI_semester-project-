@@ -67,7 +67,7 @@ class CartController extends Controller
         $user_id = Auth::user()->id;
         if($user_id) {
             $product = Product_in_cart::where('user_id',$user_id)->where('id_product',$product_id)->get();
-            $quantity =
+            $quantity = $product->quantity;
         }
     }
     public function minus_cart_item(){
