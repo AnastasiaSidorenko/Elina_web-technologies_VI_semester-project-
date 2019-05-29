@@ -1,15 +1,9 @@
 @extends('layouts.app')
 @section('title','Elina products')
-<<<<<<< HEAD
 @section('js')
     <script type="text/javascript" src="{{ asset('js/ProductItem.js') }}"></script>
 @endsection
 
-=======
-{{--@section('js')--}}
-    {{--<script type="text/javascript" src="{{ asset('js/Products_Sorts.js') }}"></script>--}}
-{{--@endsection--}}
->>>>>>> origin/master
 @section('content')
     <?php
     session_start();
@@ -64,7 +58,8 @@
                         <span>{{$product->price}} {{ trans('product.RUB') }}</span>
                     </div>
                         @auth
-                            <button id="addInCart" onclick="AddInCart({{$product_item->id}},{{$userID}})" type="button" class="btn btn btn-lg mb-auto d-inline-flex align-self-end deep-purple">{{ trans('product.add_to_cart') }}</button>
+                            <button id="addInCart" onclick="AddInCart({{$product->id}},{{Auth::user()->id}})" type="button" class="btn btn btn-lg mb-auto d-inline-flex align-self-end deep-purple">{{ trans('product.add_to_cart') }}</button>
+                            <span id="countProduct" hidden> 1 </span>
                         @else
                             <button type="submit" onclick="location.href='/user/login'" class="btn btn-lg mb-auto d-inline-flex align-self-end deep-purple">{{ trans('product.add_to_cart') }}</button>
                         @endauth

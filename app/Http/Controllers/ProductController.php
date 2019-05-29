@@ -32,9 +32,10 @@ class ProductController extends Controller
 
     public function products()
     {
+
         $products=Product::paginate(8);
         //$products = News::orderBy('id', 'desc')->paginate(4);
-        return view('products', ['products' => $products, 'all' => 'all']);
+        return view('products', ['products' => $products]);
     }
 
     public function all_section_products($section){
