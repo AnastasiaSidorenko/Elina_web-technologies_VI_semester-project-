@@ -22,7 +22,7 @@ class OrderController extends Controller
         $this->middleware('admin');
     }
 
-    public function orders()
+    public function index()
     {
         if(Auth::user()->role=='admin'){
             $orders = DB::table('orders')
@@ -34,6 +34,19 @@ class OrderController extends Controller
         return redirect('admin/home');
     }
 
+    public function order($id){
+        if(Auth::user()->role=='admin' || Auth::user()->role=='manager'){
+            $entry = Order::find($id);
+            $orders = DB::table('orders')
+                ->leftJoin('product_in_orders', 'product_in_orders.id_order', '=', 'orders.id')
+                ->leftJoin('users', 'users.id', '=', 'orders.user_id')
+                ->leftJoin('products', 'products.id', '=', 'product_in_order.id_product')
+                ->select('orders.*')
+                ->paginate();
+            return view('admin.order_output', ['orders' => $orders,'id'=>$id]);
+        }
+        else return back();
+    }
 
     public function destroy($id){
         if(Auth::user()->role=='admin' || Auth::user()->role=='manager'){
@@ -49,7 +62,7 @@ class OrderController extends Controller
 
                 $res = Order::create(array('date' => $request->date,'total_price' => $request->total_price,'address' => $request->address,'user_id' => $request->user_id));
 
-                $data = ['id' => $res->id, 'date' => $request->date,'total_price' => $request->total_price,'address' => $request->address,'user_id' => $request->user_id,'status' => 'не выполнен'];
+                $data = ['id' => $res->id, 'date' => $request->date,'total_price' => $request->total_price,'address' => $request->address,'user_id' => $request->user_id,'status' => '0'];
 
                 return $data;
             }

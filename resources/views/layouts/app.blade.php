@@ -41,7 +41,7 @@
                 <nav class="top-menu top navbar navbar-expand-lg p-0 justify-content-center">
                     <a class="pr-4" href="{{ url('/about_us') }}">{{ trans('top&middle_menu.about_us') }}</a>
                     <a class="pr-4" href="{{ url('/news') }}">{{ trans('top&middle_menu.news') }}</a>
-                    <a class="pr-4" href="{{ url('/how_to_find_us') }}">{{ trans('top&middle_menu.how_to_find_us') }}</a>
+                    <a class="pr-4" href="{{ url('/how_to_find_us') }}"t>{{ trans('top&middle_menu.how_to_find_us') }}</a>
                 </nav>
             </div>
 

@@ -4,12 +4,7 @@
     <script type="text/javascript" src="{{ asset('js/News.js') }}"></script>
 
     <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
-   {{-- <script src='https://cloud.tinymce.com/5/tinymce.min.js?apiKey=zpf0fw2k9tkz0yfw0m4mzr212elyo1ci8xaast8xsyvlzu7s '></script>
-    <script>
-        tinymce.init({
-            selector: '#title_ru'
-        });
-    </script>--}}
+
 @endsection
 
 @section('content')
