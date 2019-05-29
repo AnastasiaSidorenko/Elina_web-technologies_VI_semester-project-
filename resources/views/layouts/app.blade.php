@@ -80,10 +80,10 @@
                     @endauth
 
                         @auth
-                        <a class="mr-2" href="account/{{Auth::user()->id}}">{{ trans('top&middle_menu.my_account') }}</a>
+                        <a class="mr-2" href="/user/account/{{Auth::user()->id}}">{{ trans('top&middle_menu.my_account') }}</a>
                         @endauth
                         {{--<i class="far fa-heart mr-2"></i>--}}
-                        <i class="fas fa-shopping-cart mr-2"></i>
+                        <a href="cart/{{Auth::user()->id}}"><i class="fas fa-shopping-cart mr-2"></i></a>
                     </div>
                 </div>
             </div>

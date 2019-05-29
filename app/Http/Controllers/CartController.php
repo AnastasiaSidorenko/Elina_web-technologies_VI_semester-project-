@@ -20,6 +20,10 @@ class CartController extends Controller
         //$products = News::orderBy('id', 'desc')->paginate(4);
         return view('products', ['products' => $products, 'all' => 'all']);
     }*/
+    public function __construct()
+    {
+        $this->middleware('user');
+    }
 
    public function store(Request $request){
        if($request->ajax()) {
@@ -32,5 +36,20 @@ class CartController extends Controller
            else Product_in_cart::create(array('id_product'=>$request->id_product,'user_id'=>$request->id_user, 'quantity'=>$request->quantity));
 
        }
+   }
+
+   public function cart($id){
+       if($id==Auth::user()->id) {
+           $cart_products = DB ::table('product_in_carts')
+               ->where('user_id', $id)
+               ->get();
+           $quantity = $cart_products->count();
+           return view('user.cart',['cart' => $cart_products, 'quantity' => $quantity]);
+       }
+       else return redirect('/user/home');
+   }
+
+   public function reviews(){
+
    }
 }
