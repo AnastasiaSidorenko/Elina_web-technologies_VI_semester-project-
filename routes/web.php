@@ -80,6 +80,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/logout', 'UserAuth\LoginController@logout')->name('logout');
 
     Route::get('/account/{id}','AccountController@index');
+    Route::get('/cart/{id}','CartController@cart');
 
     Route::get('/register', 'UserAuth\RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'UserAuth\RegisterController@register');

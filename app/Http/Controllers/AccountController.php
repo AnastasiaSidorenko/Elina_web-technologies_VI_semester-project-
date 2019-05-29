@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
@@ -18,7 +19,11 @@ class AccountController extends Controller
     }
 
     public function index($id){
-        $user = User::findOrFail($id);
-        return view('user.user_account',['user' => $user]);
+        if($id==Auth::user()->id) {
+            $user = User::findOrFail($id);
+
+            return view('user.user_account', ['user' => $user]);
+        }
+        else return redirect('/user/home');
     }
 }
