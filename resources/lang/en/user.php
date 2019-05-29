@@ -10,4 +10,5 @@ return [
     'orders' => 'Orders',
     'see_all' => 'See all',
     'cart' => 'Cart',
+    'total_sum' => 'Total Sum',
     ];
