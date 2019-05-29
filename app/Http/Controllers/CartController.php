@@ -40,11 +40,18 @@ class CartController extends Controller
 
    public function cart($id){
        if($id==Auth::user()->id) {
-           $cart_products = DB ::table('product_in_carts')
-               ->where('user_id', $id)
+           $cart_products = Product_in_cart::where('user_id', $id)
+               ->leftJoin('products','products.id','=','id_product')
                ->get();
-           $quantity = $cart_products->count();
-           return view('user.cart',['cart' => $cart_products, 'quantity' => $quantity]);
+           $total_sum=0;
+           foreach($cart_products as $item){
+               $total_sum += $item->price * $item->quantity;
+           }
+//           $cart_products = DB ::table('product_in_carts')
+//               ->where('user_id', $id)
+//               ->get();
+           $quantity =  Product_in_cart::where('user_id','=',$id)->count();
+           return view('user.cart',['cart' => $cart_products, 'quantity' => $quantity,'total_sum' => $total_sum]);
        }
        else return redirect('/user/home');
    }
