@@ -60,7 +60,6 @@
                         @auth
                             <button id="addInCart" onclick="AddInCart({{$product->id}},{{Auth::user()->id}})" type="button" class="btn btn btn-lg mb-auto d-inline-flex align-self-end deep-purple">{{ trans('product.add_to_cart') }}</button>
                             <span id="countProduct" hidden> 1 </span>
-                            //lala
                         @else
                             <button type="submit" onclick="location.href='/user/login'" class="btn btn-lg mb-auto d-inline-flex align-self-end deep-purple">{{ trans('product.add_to_cart') }}</button>
                         @endauth
