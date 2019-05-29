@@ -25,18 +25,18 @@ class CartController extends Controller
         $this->middleware('user');
     }
 
-   public function store(Request $request){
-       if($request->ajax()) {
-           $user=Product_in_cart::where('user_id',$request->id_user)->where('id_product',$request->id_product)->first();
-           $product=Product::find($request->id_product);
-           if($user){
-                   $user->quantity+=$request->quantity;
-                   $user->save();
-           }
-           else Product_in_cart::create(array('id_product'=>$request->id_product,'user_id'=>$request->id_user, 'quantity'=>$request->quantity));
+    public function store(Request $request){
+        if($request->ajax()) {
+            $user=Product_in_cart::where('user_id',$request->id_user)->where('id_product',$request->id_product)->first();
+            $product=Product::find($request->id_product);
+            if($user){
+                $user->quantity+=$request->quantity;
+                $user->save();
+            }
+            else Product_in_cart::create(array('id_product'=>$request->id_product,'user_id'=>$request->id_user, 'quantity'=>$request->quantity));
 
-       }
-   }
+        }
+    }
 
    public function cart($id){
        if($id==Auth::user()->id) {
@@ -49,37 +49,62 @@ class CartController extends Controller
            foreach($cart_products as $item){
                $total_sum += $item->price * $item->quantity;
            }
+
 //           $cart_products = DB ::table('product_in_carts')
 //               ->where('user_id', $id)
 //               ->get();
-           $quantity =  Product_in_cart::where('user_id','=',$id)->count();
-           return view('user.cart',['cart_products' => $cart_products, 'quantity' => $quantity,'total_sum' => $total_sum]);
-       }
-       else return redirect('/user/home');
-   }
+            $quantity =  Product_in_cart::where('user_id','=',$id)->count();
+            return view('user.cart',['cart_products' => $cart_products, 'quantity' => $quantity,'total_sum' => $total_sum]);
+        }
+        else return redirect('/user/home');
+    }
 
-   public function delete_cart_item($product_id){
-        $user_id = Auth::user()->id;
-       if($user_id) {
-           Product_in_cart::where('user_id',$user_id)->where('id_product',$product_id)->delete();
-       }
-   }
-
-    public function plus_cart_item($product_id){
-        $user_id = Auth::user()->id;
-        if($user_id) {
-            $product = Product_in_cart::where('user_id',$user_id)->where('id_product',$product_id)->get();
-            $quantity = $product->quantity;
+    public function delete_cart_item(Request $request)
+    {
+        if ($request->ajax()) {
+            Product_in_cart::where('user_id', $request->user_id)->where('id_product', $request->product_id)->delete();
         }
     }
-    public function minus_cart_item(){
+
+    public function plus_cart_item(Request $request){
+        if($request->ajax()) {
+            // $user_id = Auth::user()->id;
+            // if ($user_id) {
+            $cart_product = Product_in_cart::where('user_id', $request->user_id)
+                ->where('id_product', $request->id_product)->first();
+            $product = Product::find($request->id_product);
+            if ($cart_product->quantity < $product->quantity) {
+                $cart_product->quantity += 1;
+                $cart_product->save();
+            }
+        }
+    }
+    public function minus_cart_item(Request $request){
+        if($request->ajax()) {
+            // $user_id = Auth::user()->id;
+            // if ($user_id) {
+            $cart_product = Product_in_cart::where('user_id', $request->user_id)
+                ->where('id_product', $request->id_product)->first();
+            $product = Product::find($request->id_product);
+            if ($cart_product->quantity > 1) {
+                $cart_product->quantity -= 1;
+                $cart_product->save();
+            }
+            if($cart_product->quantity){
+                $cart_product->delete();
+            }
+        }
+    }
+
+    public function remove_all_cart_items(Request $request){
+        if($request->user_id == Auth::user()->id){
+            $carts_product = Product_in_cart::where('user_id', $request->user_id)->delete();
+        }
+    }
+
+
+    public function reviews(){
 
     }
-    public function remove_all_cart_items(){
 
-    }
-
-   public function reviews(){
-
-   }
 }

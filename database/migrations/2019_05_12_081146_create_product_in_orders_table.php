@@ -16,14 +16,15 @@ class CreateProductInOrdersTable extends Migration
         Schema::create('product_in_orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('quantity');
-            $table->bigInteger('id_order')->unsigned()->unique();
-            $table->bigInteger('id_product')->unsigned()->unique();
+            $table->bigInteger('id_order')->unsigned();
+            $table->bigInteger('id_product')->unsigned();
             $table->foreign('id_order')->references('id')->on('orders')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->foreign('id_product')->references('id')->on('products')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            $table->unique(array('id_order', 'id_product'));
             $table->timestamps();
         });
     }

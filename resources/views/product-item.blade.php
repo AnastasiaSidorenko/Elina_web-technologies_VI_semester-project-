@@ -71,7 +71,7 @@
                 {{--<p>{{ trans('product.quantity') }} <button>-</button> 1 <button>+</button>--}}
                     {{--<button type="button" class="btn deep-purple">{{ trans('product.add_to_cart') }}</button>--}}
                 {{--</p>--}}
-                <h5>{{ trans('product.price') }}: <span>{{$product_item->price}} </span><span>{{ trans('product.RUB') }}</span><p id="allRight" style="color:red"></p></h5>
+                <h5>{{ trans('product.price') }}: <span>{{$product_item->price}} </span><span>{{ trans('product.RUB') }}</span><span id="allRight{{$product_item->$id}}" style="color:red"></span></h5>
             </div>
             </div>
         </div>

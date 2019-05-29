@@ -14,6 +14,7 @@ class CreateUserFeedbacksTable extends Migration
     public function up()
     {
         Schema::create('user_feedbacks', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('id_feedback')->unsigned();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('id_feedback')->references('id')->on('feedbacks')
@@ -22,7 +23,7 @@ class CreateUserFeedbacksTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->primary(array('id_feedback', 'user_id'));
+            $table->unique(array('id_feedback', 'user_id'));
             $table->timestamps();
         });
     }
