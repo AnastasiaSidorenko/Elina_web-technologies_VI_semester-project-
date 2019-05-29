@@ -81,6 +81,7 @@ Route::group(['prefix' => 'user'], function () {
 
     Route::get('/account/{id}','AccountController@index');
     Route::get('/cart/{id}','CartController@cart');
+    Route:;get('/account/{id}/orders', 'AccountController@orders');
 
     Route::get('/register', 'UserAuth\RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'UserAuth\RegisterController@register');

@@ -21,8 +21,8 @@ class AccountController extends Controller
     public function index($id){
         if($id==Auth::user()->id) {
             $user = User::findOrFail($id);
-
-            return view('user.user_account', ['user' => $user,]);
+            $orders = Order::where('user_id','=',$id)->orderBy('created_at', 'desc')->get(2);
+            return view('user.user_account', ['user' => $user, 'orders' => $orders]);
         }
         else return redirect('/user/home');
     }

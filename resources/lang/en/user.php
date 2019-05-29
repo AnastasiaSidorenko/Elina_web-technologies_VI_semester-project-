@@ -14,5 +14,7 @@ return [
     'products' => 'Products',
     'price' => 'Price',
     'qty' => 'Quantity',
-    'total' => 'Total'
+    'total' => 'Total',
+    'no_orders' => 'No orders yet',
+
     ];

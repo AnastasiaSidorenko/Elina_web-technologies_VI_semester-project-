@@ -61,8 +61,13 @@ class CartController extends Controller
             foreach ($cart_products as $item) {
                 $total_sum += $item->price * $item->quantity;
             }
+
+            $quantity = Product_in_cart::where('user_id','=',$id)->count();
+            return view('user.cart',['cart_products' => $cart_products, 'quantity' => $quantity,'total_sum' => $total_sum]);
         }
+        else return redirect('/user/home');
     }
+
     public function delete_cart_item(Request $request)
     {
         if ($request->ajax()) {

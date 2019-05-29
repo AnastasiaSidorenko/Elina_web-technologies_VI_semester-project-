@@ -40,7 +40,7 @@ class OrderController extends Controller
             $orders = DB::table('orders')
                 ->leftJoin('product_in_orders', 'product_in_orders.id_order', '=', 'orders.id')
                 ->leftJoin('users', 'users.id', '=', 'orders.user_id')
-                ->leftJoin('products', 'products.id', '=', 'product_in_order.id_product')
+                ->leftJoin('products', 'products.id', '=', 'product_in_orders.id_product')
                 ->select('orders.*')
                 ->paginate();
             return view('admin.order_output', ['orders' => $orders,'id'=>$id]);
