@@ -25,7 +25,7 @@ function Plus(quantity){
 
 function AddInCart(id_product,id_user){
     var countProduct=$("#countProduct");
-    var span=$("#allRight");
+    var span=$("#allRight"+id_product);
     var quant = countProduct.html();
     $.ajax({
         url: '/product_in_cart/store',
