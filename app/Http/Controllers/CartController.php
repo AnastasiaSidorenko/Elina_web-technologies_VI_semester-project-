@@ -42,6 +42,7 @@ class CartController extends Controller
        if($id==Auth::user()->id) {
            $cart_products = Product_in_cart::where('user_id', $id)
                ->leftJoin('products','products.id','=','id_product')
+               ->select('products.*','products.quantity as product_quantity','product_in_carts.*')
                ->get();
            $total_sum=0;
            foreach($cart_products as $item){
@@ -67,7 +68,7 @@ class CartController extends Controller
         $user_id = Auth::user()->id;
         if($user_id) {
             $product = Product_in_cart::where('user_id',$user_id)->where('id_product',$product_id)->get();
-            $quantity =
+            /*$quantity =*/
         }
     }
     public function minus_cart_item(){

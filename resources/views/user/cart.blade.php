@@ -1,5 +1,10 @@
 @extends('layouts.app')
+@section('js')
+    <script type="text/javascript" src="{{ asset('js/Cart.js') }}"></script>
 
+    <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
+
+@endsection
 @section('content')
 
     <?php
@@ -24,15 +29,17 @@
                 <div class="col-xs-3 col-sm-3 col-md-3 text-right">{{ trans('user.total') }}</div>
             </div>
                 @foreach($cart_products as $item)
+
             <div class="cart__items row">
-                <div class="col-xs-14 col-sm-14 col-md-12">{{$cart_products->$name}}</div>
-                <div class="col-xs-3 col-sm-4 col-md-6 text-center">{{ $cart_products->$price}}</div>
-                <div class="col-xs-3 col-sm-3 col-md-3 text-center">{{ $cart_products->$cart_item_quantity }}</div>
-                <div class="col-xs-3 col-sm-3 col-md-3 text-right">{{ $cart_products->$cart_item_total }}</div>
+                <div class="col-xs-14 col-sm-14 col-md-12">{{$item->$name}}</div>
+                <div class="col-xs-3 col-sm-4 col-md-6 text-center">{{ $item->$price}}</div>
+                <div class="col-xs-3 col-sm-3 col-md-3 text-center">{{ $item->$cart_item_quantity }}</div>
+                <div class="col-xs-3 col-sm-3 col-md-3 text-right">{{ $item->$cart_item_total }}</div>
+
             </div>
                 @endforeach
         <div class="cart__sum text-right">
-            <p>{{ trans('user.total_sum') }} :
+            <p>{{ trans('user.total_sum') }} :</p>
                 {{$total_sum}} {{ trans('product.RUB') }}
         </div>
         @endif
