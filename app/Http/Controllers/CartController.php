@@ -40,12 +40,22 @@ class CartController extends Controller
 
     public function cart($id){
         if($id==Auth::user()->id) {
+
             $cart_products = Product_in_cart::where('user_id', $id)
                 ->leftJoin('products','products.id','=','id_product')
                 ->leftJoin('manufacturers','products.id_manufacturer','=','manufacturers.id')
                 ->select('products.*','products.quantity as product_quantity','product_in_carts.*','manufacturers.name')
-                ->get();
+                ->paginate();
             $total_sum=0;
+
+            foreach($cart_products as $item){
+                if($item->quantity > $item->product_quantity){
+                    $item->quantity=$item->product_quantity;
+                    $item->save();
+                }
+
+            }
+
             foreach($cart_products as $item){
                 $total_sum += $item->price * $item->quantity;
             }

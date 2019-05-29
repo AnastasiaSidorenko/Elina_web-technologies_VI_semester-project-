@@ -13,6 +13,6 @@ return [
     'total_sum' => 'Total Sum',
     'products' => 'Products',
     'price' => 'Price',
-    'qty' => 'Qty',
+    'qty' => 'Quantity',
     'total' => 'Total'
     ];
