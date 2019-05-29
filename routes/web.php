@@ -56,7 +56,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function(){//a
     Route::post('/updateNews','Admin\NewsController@update');
 
     //Order
-    Route::get('/orders', 'Admin\OrderController@orders');
+    Route::get('/orders', 'Admin\OrderController@index');
+    Route::get('/orders/{id}', 'Admin\OrderController@order');
     Route::get('/destroy_order/{id}','Admin\OrderController@destroy');
     Route::post('/updateOrder','Admin\OrderController@update');
 

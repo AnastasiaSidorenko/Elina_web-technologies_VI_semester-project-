@@ -23,7 +23,6 @@ class CreateCategoryInSalesTable extends Migration
             $table->foreign('id_sale')->references('id')->on('sales')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->primary(array('id_category', 'id_sale'));
             $table->timestamps();
         });
     }

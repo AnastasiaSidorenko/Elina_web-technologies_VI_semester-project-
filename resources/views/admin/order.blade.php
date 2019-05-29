@@ -21,7 +21,7 @@
                             <tbody>@foreach($orders as $m)
                                 {{--@if($m->id!=Auth::user()->id)--}}
                                 <tr id='TR{{$m->id}}'>
-                                    <td>{{$m->id}}</td>
+                                    <td><a href="/{{$m->id}}" target="_blank">{{$m->id}}</a></td>
                                     <td>{{$m->date}}</td>
                                     <td>{{$m->total_price}}</td>
                                     <td>{{$m->address}}</td>
@@ -56,9 +56,9 @@
                 <div class="modal-body">
                     <label for="status_edit">{{ trans('admin.status') }}</label>
                     <select class="browser-default custom-select" id="status_edit">
-                        <option value="готов к обработке">готов к обработке</option>
-                        <option value="доставлен">доставлен</option>
-                        <option value="отклонен">отклонен</option>
+                        <option value="0">готов к обработке</option>
+                        <option value="1">доставлен</option>
+                        <option value="2">отклонен</option>
                     </select>
                 </div>
                 <div class="modal-footer justify-content-between">
