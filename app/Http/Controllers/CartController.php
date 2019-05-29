@@ -51,10 +51,28 @@ class CartController extends Controller
 //               ->where('user_id', $id)
 //               ->get();
            $quantity =  Product_in_cart::where('user_id','=',$id)->count();
-           return view('user.cart',['cart' => $cart_products, 'quantity' => $quantity,'total_sum' => $total_sum]);
+           return view('user.cart',['cart_products' => $cart_products, 'quantity' => $quantity,'total_sum' => $total_sum]);
        }
        else return redirect('/user/home');
    }
+
+   public function delete_cart_item($product_id){
+        $user_id = Auth::user()->id;
+       if($user_id) {
+           Product_in_cart::where('user_id',$user_id)->where('id_product',$product_id)->delete();
+       }
+   }
+
+    public function plus_cart_item($product_id){
+        $user_id = Auth::user()->id;
+        if($user_id) {
+            $product = Product_in_cart::where('user_id',$user_id)->where('id_product',$product_id)->get();
+            $quantity =
+        }
+    }
+    public function minus_cart_item(){
+
+    }
 
    public function reviews(){
 

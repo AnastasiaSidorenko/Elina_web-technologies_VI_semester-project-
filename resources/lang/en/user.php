@@ -11,4 +11,8 @@ return [
     'see_all' => 'See all',
     'cart' => 'Cart',
     'total_sum' => 'Total Sum',
+    'products' => 'Products',
+    'price' => 'Price',
+    'qty' => 'Qty',
+    'total' => 'Total'
     ];
