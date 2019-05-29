@@ -15,14 +15,15 @@ class CreateCategoryInSalesTable extends Migration
     {
         Schema::create('category_in_sales', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('id_category')->unsigned()->unique();
-            $table->bigInteger('id_sale')->unsigned()->unique();
+            $table->bigInteger('id_category')->unsigned();
+            $table->bigInteger('id_sale')->unsigned();
             $table->foreign('id_category')->references('id')->on('categories')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->foreign('id_sale')->references('id')->on('sales')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            $table->unique(array('id_category', 'id_sale'));
             $table->timestamps();
         });
     }

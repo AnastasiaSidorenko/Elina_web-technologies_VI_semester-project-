@@ -55,7 +55,7 @@
                     <div class="show_product"><p><a href="/product/{{$product->id}}">{{$product->$manuf_name}},{{$product->$name}}</a>
                     </div>
                        <br><div class="d-inline-flex align-self-bottom">
-                        <span>{{$product->price}} {{ trans('product.RUB') }}</span>
+                        <span>{{$product->price}} {{ trans('product.RUB') }}</span><span class="ml-3" id="allRight{{$product->id}}" style="color:red"></span>
                     </div>
                         @auth
                             <button id="addInCart" onclick="AddInCart({{$product->id}},{{Auth::user()->id}})" type="button" class="btn btn btn-lg mb-auto d-inline-flex align-self-end deep-purple">{{ trans('product.add_to_cart') }}</button>
