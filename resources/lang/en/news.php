@@ -6,4 +6,5 @@ return [
     'date' => 'Date',
     'image' => 'Image',
     'edit' => 'Edit',
+    'news' => 'News',
 ];

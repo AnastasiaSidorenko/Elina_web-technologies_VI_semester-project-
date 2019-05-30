@@ -15,10 +15,11 @@
                     }
                     ?>
 
+                    <div class="text-center mt-2 mb-3"><h2>{{ trans('news.news') }}</h2></div>
                 <div class="row justify-content-center" style="width:100vw">
                 @foreach ($news as $item)
                     <!-- Card Light -->
-                        <div class="card mt-3 news__item ml-3 mr-2">
+                        <div class="card news__item ml-3 mr-2">
                             {{--style="width:45vw"--}}
 
                             <!-- Card image -->
