@@ -21,7 +21,7 @@
                             <tbody>@foreach($orders as $m)
                                 {{--@if($m->id!=Auth::user()->id)--}}
                                 @if($m->status==2)
-                                    <tr id='TR{{$m->id}}' style="background:grey;">
+                                    <tr id='TR{{$m->id}}' style="background:rgba(119,136,153,0.7);">
                                         <td><a href="/admin/orders/{{$m->id}}" target="_blank">{{$m->id}}</a></td>
                                         <td>{{$m->date}}</td>
                                         <td>{{$m->total_price}}</td>

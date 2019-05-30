@@ -80,6 +80,9 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/logout', 'UserAuth\LoginController@logout')->name('logout');
 
     Route::get('/account/{id}','AccountController@index');
+    Route::get('/account/{id}/orders','AccountController@orders_output');
+    Route::get('/account/{id}/orders/{id_order}','AccountController@orders');
+    Route::get('/account/{id}/reviews','AccountController@reviews');
     Route::get('/cart/{id}','CartController@cart');
     Route::post('/delete_cart_item','CartController@delete_cart_item');
     Route::post('/minus_cart_item','CartController@minus_cart_item');

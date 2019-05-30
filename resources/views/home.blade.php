@@ -4,7 +4,7 @@
     <main>
     <div class="row d-flex justify-content-center">
 
-    <!--Carousel Wrapper-->
+    {{--<!--Carousel Wrapper-->
     <div id="home-page__carousel" class="d-inline-flex col-8 carousel slide carousel-fade" data-ride="carousel">
         <!--Indicators-->
         <ol class="carousel-indicators">
@@ -46,7 +46,10 @@
         </a>
         <!--/.Controls-->
     </div>
-    <!--/.Carousel Wrapper-->
+    <!--/.Carousel Wrapper-->--}}
+        <div class="image-center">
+            <img style="height:400px" class="mt-2"  src="https://www.fabulous-stives.co.uk/wp-content/uploads/2018/03/WELCOME-ST-IVES.jpg" alt="image">
+        </div>
 
     </div>
     </main>
