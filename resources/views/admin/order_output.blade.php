@@ -1,4 +1,5 @@
 @extends('admin.layout.auth')
+@section('title',trans('title.order') )
 
 @section('js')
     <script src="{{ asset('js/addons/datatables.min.js') }}"></script>

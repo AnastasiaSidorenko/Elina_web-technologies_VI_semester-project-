@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title',trans('title.order') )
 
 @section('js')
     <script src="{{ asset('js/addons/datatables.min.js') }}"></script>
@@ -28,6 +29,7 @@
                             <tr><th>{{ trans('order.product_name') }}</th><th>{{ trans('order.image') }}</th><th>{{ trans('order.quantity') }}</th><th>{{ trans('order.price') }}</th><th>{{ trans('order.total') }}</th><th></th></tr>
                             </thead>
                             <tbody>
+
                                     @foreach($order as $m)
                                     <tr>
                                         <td>{{$m->$name}}</td>
@@ -38,6 +40,7 @@
                                         <td><a style="color:darkorange" href="/user/product/{{$m->id_product}}/review">{{ trans('product.write a review') }}</a></td>
                                     </tr>
                                     @endforeach
+
                             </tbody>
 
                         @else

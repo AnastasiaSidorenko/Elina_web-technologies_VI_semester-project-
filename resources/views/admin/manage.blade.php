@@ -1,4 +1,5 @@
 @extends('admin.layout.auth')
+@section('title',trans('title.manage') )
 
 @section('js')
     <script src="{{ asset('js/contentManagers.js') }}"></script>

@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 
 class OrderController extends Controller
@@ -32,18 +33,22 @@ class OrderController extends Controller
                 ->paginate();
             return view('admin.order', ['orders' => $orders]);
         }
-        return redirect('admin/home');
+        return Redirect::back();
     }
 
     public function order($id){
         if(Auth::user()->role=='admin' || Auth::user()->role=='manager'){
+<<<<<<< HEAD
+=======
+            //$entry = Order::find($id);
+>>>>>>> 4d60a3e3dea52ed6ec3961cecb9a0da59929dbd0
             $orders = DB::table('product_in_orders')->where('id_order',$id)
                 ->leftJoin('products', 'products.id', '=', 'product_in_orders.id_product')
                 ->select('product_in_orders.*','products.name_ru as name_ru','products.name_ru as name_en','products.image1 as image')
                 ->paginate();
             return view('admin.order_output', ['orders' => $orders,'id'=>$id]);
         }
-        else return back();
+        else return Redirect::back();
     }
 
     public function destroy($id){
@@ -51,7 +56,7 @@ class OrderController extends Controller
             $entry = Order::find($id);
             $entry->delete();
         }
-        else return redirect('admin/home');
+        else return Redirect::back();
     }
 
     public function store(Request $request){
@@ -65,7 +70,7 @@ class OrderController extends Controller
                 return $data;
             }
         }
-        else return redirect('admin/home');
+        else return Redirect::back();
     }
 
     public function update(Request $request){
@@ -88,7 +93,7 @@ class OrderController extends Controller
                 }
             }
         }
-        else return redirect('admin/home');
+        else return Redirect::back();
     }
 
 }

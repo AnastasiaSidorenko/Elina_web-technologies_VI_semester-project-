@@ -39,8 +39,8 @@ $(function() {
                     '<td id="TR'+data['id']+'TD4">'+data['body_en']+'</td>'+
                     '<td>'+data['date']+'</td>'+
                     '<td>'+"<img height=40px src='/img/news/"+data['image']+"'>"+'</td>'+
-                    '<td><button id=' + data['id'] + ' onclick="deleteNews(' + data['id'] + ')"><i class="fas fa-trash-alt"></i></button></td></tr>'+
-                    '<td><button data-toggle="modal" data-target="#edit" onclick="editNews(' + data['id'] + ')"><i class="fas fa-edit"></i></button></td>';
+                    '<td><button id=' + data['id'] + ' onclick="deleteNews(' + data['id'] + ')"><i class="fas fa-trash-alt"></i></button></td>'+
+                    '<td><button data-toggle="modal" data-target="#edit" onclick="editNews(' + data['id'] + ')"><i class="fas fa-edit"></i></button></td></tr>';
                 $('.table > tbody:last').append(str);
                 $('#title_ru').val('');
                 $('#title_en').val('');

@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Manufacturer;
+use Illuminate\Support\Facades\Redirect;
 
 
 class ManufacturerController extends Controller
@@ -27,7 +28,7 @@ class ManufacturerController extends Controller
             $manufacturers = Manufacturer::paginate();
             return view('admin.manufacturers', ['manufacturers' => $manufacturers]);
         }
-        return redirect('admin/home');
+        return Redirect::back();
     }
 
 
@@ -36,7 +37,7 @@ class ManufacturerController extends Controller
             $entry = Manufacturer::find($id);
             $entry->delete();
         }
-        else return redirect('admin/home');
+        else return Redirect::back();
     }
 
     public function store(Request $request){
@@ -49,7 +50,7 @@ class ManufacturerController extends Controller
                 return $data;
             }
         }
-        else return redirect('admin/home');
+        else return Redirect::back();
     }
 
     public function update(Request $request){
@@ -61,7 +62,7 @@ class ManufacturerController extends Controller
                 $entry->save();
             }
         }
-        else return redirect('admin/home');
+        else return Redirect::back();
     }
 
 }

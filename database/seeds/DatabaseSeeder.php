@@ -535,12 +535,21 @@ Organic Creme Brulee: Olive Oil*, Beeswax*, Flavor*, Sunflower Oil*, Non-GMO Vit
         ]);
         DB::table('news')->insert([
             'id' => '2',
-            'title_en'=> 'Here a new brands come. Greet Desert Essence ',
+            'title_en'=> 'Here a new brands come ',
             'title_ru'=> 'Появление нового бренда',
             'body_en'=> "We\'ve got a new contract with Desert Essence suppliers, and next week you will see new product by Desert Essence",
             'body_ru'=> 'Мы заключили контракт с поставщиками средств производителя Desert Essence,и уже на следующей неделе вы увидите новые продукты этого производителя',
             'date' => '25/5/2019',
             'image'=> 'DSC5971.jpg',
+        ]);
+        DB::table('news')->insert([
+            'id' => '3',
+            'title_en'=> 'Brand disappearance',
+            'title_ru'=> 'Исчезновение бренда',
+            'body_en'=> "The contract with the suppliers of the means of the manufacturer Desert Essence has been broken, and you will no longer see the new products of this manufacturer",
+            'body_ru'=> 'Разорван контракт с с поставщиками средств производителя Desert Essence,и вы больше не увидите новых продуктов этого производителя',
+            'date' => '30/5/2019',
+            'image'=> 'DSC5971_2.jpg',
         ]);
 
 

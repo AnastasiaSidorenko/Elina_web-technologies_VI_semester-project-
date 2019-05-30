@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title',trans('title.orders') )
 @section('js')
     <script src="{{ asset('js/Cart.js') }}"></script>
 
@@ -39,7 +40,7 @@
                                         <td>{{$m->total_price}}</td>
                                         <td>отклонен</td>
                                         <td><button type="submit" target="_blank" onclick="window.open('/user/account/{{Auth::user()->id}}/orders/{{$m->id}}')" class="btn deep-purple btn-sm">{{ trans('admin.more') }}</button></td>
-                                        </tr>
+                                    </tr>
                                 @else
                                     <tr>
                                         <td>{{$m->date}}</td>

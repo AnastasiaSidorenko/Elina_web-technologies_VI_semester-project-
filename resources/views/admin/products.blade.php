@@ -1,8 +1,24 @@
 @extends('admin.layout.auth')
+@section('title',trans('title.products') )
 
 @section('js')
+
     <script src="{{ asset('js/Products.js') }}"></script>
     <script src="{{ asset('js/addons/datatables.min.js') }}"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        $( function() {
+            $( "#name" ).tabs();
+            $( "#descr" ).tabs();
+            $( "#suggst" ).tabs();
+            $( "#name2" ).tabs();
+            $( "#descr2" ).tabs();
+            $( "#suggst2" ).tabs();
+        } );
+    </script>
+>>>>>>> 4d60a3e3dea52ed6ec3961cecb9a0da59929dbd0
 @endsection
 
 @section('content')
@@ -70,55 +86,65 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="addArticle" tabindex="-1" role="dialog" aria-labelledby="addArticleLabel">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade " id="addArticle" tabindex="-1" role="dialog" aria-labelledby="addArticleLabel">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="addArticleLabel">{{ trans('admin.add_product') }}</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
+
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="name_ru">{{ trans('product.name') }} RU</label>
-                        <input type="text" class="form-control" id="name_ru">
+                    <div id="name">
+                        <ul>
+                            <li><a href="#name_ru">{{ trans('product.name') }} RU</a></li>
+                            <li><a href="#name_en">{{ trans('product.name') }} EN</a></li>
+                        </ul>
+                        <div id="name_ru">
+                            <input type="text" class="form-control" id="name_ru">
+                        </div>
+                        <div id="name_en">
+                            <input type="text" class="form-control" id="name_en">
+                        </div>
                     </div>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="name_en">{{ trans('product.name') }} EN</label>
-                        <input type="text" class="form-control" id="name_en">
+                    <div id="descr">
+                        <ul>
+                            <li><a href="#description_ru">{{ trans('product.description') }} RU</a></li>
+                            <li><a href="#description_en">{{ trans('product.description') }} EN</a></li>
+                        </ul>
+                        <div id="description_ru">
+                            <textarea type="text" class="form-control" id="description_ru"></textarea>
+                        </div>
+                        <div id="description_en">
+                            <textarea type="text" class="form-control" id="description_en"></textarea>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="description_ru">{{ trans('product.description') }} RU</label>
-                        <textarea type="text" class="form-control" id="description_ru"></textarea>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="description_en">{{ trans('product.description') }} EN</label>
-                        <textarea type="text" class="form-control" id="description_en"></textarea>
-                    </div>
-                </div>
+
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="ingredients">{{ trans('product.ingredients') }}</label>
                         <textarea type="text" class="form-control" id="ingredients"></textarea>
                     </div>
                 </div>
+
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="suggested_use_ru">{{ trans('product.suggested_use') }} RU</label>
-                        <textarea type="text" class="form-control" id="suggested_use_ru"></textarea>
+                    <div id="suggst">
+                        <ul>
+                            <li><a href="#suggested_use_ru">{{ trans('product.suggested_use') }} RU</a></li>
+                            <li><a href="#suggested_use_en">{{ trans('product.suggested_use') }} EN</a></li>
+                        </ul>
+                        <div id="suggested_use_ru">
+                            <textarea type="text" class="form-control" id="suggested_use_ru"></textarea>
+                        </div>
+                        <div id="suggested_use_en">
+                            <textarea type="text" class="form-control" id="suggested_use_en"></textarea>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="suggested_use_en">{{ trans('product.suggested_use') }} EN</label>
-                        <textarea type="text" class="form-control" id="suggested_use_en"></textarea>
-                    </div>
-                </div>
+
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="price">{{ trans('product.price') }}</label>
@@ -182,7 +208,7 @@
 
     <!-- Modal2 -->
     <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="editLabel">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="addArticleLabel">{{ trans('product.edit') }}</h4>
@@ -195,45 +221,53 @@
                     </div>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="name_ru_edit">{{ trans('product.name') }} RU</label>
-                        <input type="text" class="form-control" id="name_ru_edit">
+                    <div id="name2">
+                        <ul>
+                            <li><a href="#name_ru2">{{ trans('product.name') }} RU</a></li>
+                            <li><a href="#name_en2">{{ trans('product.name') }} EN</a></li>
+                        </ul>
+                        <div id="name_ru2">
+                            <input type="text" class="form-control" id="name_ru_edit">
+                        </div>
+                        <div id="name_en2">
+                            <input type="text" class="form-control" id="name_en_edit">
+                        </div>
                     </div>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="name_en_edit">{{ trans('product.name') }} EN</label>
-                        <input type="text" class="form-control" id="name_en_edit">
+                    <div id="descr2">
+                        <ul>
+                            <li><a href="#description_ru2">{{ trans('product.description') }} RU</a></li>
+                            <li><a href="#description_en2">{{ trans('product.description') }} EN</a></li>
+                        </ul>
+                        <div id="description_ru2">
+                            <textarea type="text" class="form-control" id="description_ru_edit"></textarea>
+                        </div>
+                        <div id="description_en2">
+                            <textarea type="text" class="form-control" id="description_en_edit"></textarea>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="description_ru_edit">{{ trans('product.description') }} RU</label>
-                        <textarea type="text" class="form-control" id="description_ru_edit"></textarea>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="description_en_edit">{{ trans('product.description') }} EN</label>
-                        <textarea type="text" class="form-control" id="description_en_edit"></textarea>
-                    </div>
-                </div>
+
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="ingredients_edit">{{ trans('product.ingredients') }}</label>
                         <textarea type="text" class="form-control" id="ingredients_edit"></textarea>
                     </div>
                 </div>
+
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="suggested_use_ru_edit">{{ trans('product.suggested_use') }} RU</label>
-                        <textarea type="text" class="form-control" id="suggested_use_ru_edit"></textarea>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="suggested_use_en_edit">{{ trans('product.suggested_use') }} EN</label>
-                        <textarea type="text" class="form-control" id="suggested_use_en_edit"></textarea>
+                    <div id="suggst2">
+                        <ul>
+                            <li><a href="#suggested_use_ru2">{{ trans('product.suggested_use') }} RU</a></li>
+                            <li><a href="#suggested_use_en2">{{ trans('product.suggested_use') }} EN</a></li>
+                        </ul>
+                        <div id="suggested_use_ru2">
+                            <textarea type="text" class="form-control" id="suggested_use_ru_edit"></textarea>
+                        </div>
+                        <div id="suggested_use_en2">
+                            <textarea type="text" class="form-control" id="suggested_use_en_edit"></textarea>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-body">
