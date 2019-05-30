@@ -41,7 +41,7 @@
                 <nav class="top-menu top navbar navbar-expand-lg p-0 justify-content-center">
                     <a class="pr-4" href="{{ url('/about_us') }}">{{ trans('top&middle_menu.about_us') }}</a>
                     <a class="pr-4" href="{{ url('/news') }}">{{ trans('top&middle_menu.news') }}</a>
-                    <a class="pr-4" href="{{ url('/how_to_find_us') }}"t>{{ trans('top&middle_menu.how_to_find_us') }}</a>
+                    <a class="pr-4" href="{{ url('/how_to_find_us') }}">{{ trans('top&middle_menu.how_to_find_us') }}</a>
                 </nav>
             </div>
 
@@ -212,7 +212,7 @@
                         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                         <p><a href="{{ url('/how_to_find_us') }}">{{ trans('top&middle_menu.how_to_find_us') }}</a></p>
 
-                        <p style="color: white;"><i class="fas fa-home mr-3"></i>г. Севастополь ул.Университетская д.1 оф.255, Россия</p>
+                        <p style="color: white;"><i class="fas fa-home mr-3"></i>{{trans('find_us.city')}}</p>
                         <p style="color: white;"><i class="fas fa-envelope mr-3"></i> info@example.com</p>
                         <p style="color: white;"><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
 
