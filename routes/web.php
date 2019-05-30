@@ -80,8 +80,16 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/logout', 'UserAuth\LoginController@logout')->name('logout');
 
     Route::get('/account/{id}','AccountController@index');
+    Route::get('/account/{id}/orders','AccountController@orders_output');
+    Route::get('/account/{id}/orders/{id_order}','AccountController@orders');
+    Route::get('/account/{id}/reviews','AccountController@reviews');
     Route::get('/cart/{id}','CartController@cart');
-    Route:;get('/account/{id}/orders', 'AccountController@orders');
+
+    Route::post('/delete_cart_item','CartController@delete_cart_item');
+    Route::post('/minus_cart_item','CartController@minus_cart_item');
+    Route::post('/plus_cart_item','CartController@plus_cart_item');
+    Route::post('/send_order','CartController@send_order');
+    Route::post('/remove_all_products_in_cart','CartController@remove_all_products_in_cart');
 
     Route::get('/register', 'UserAuth\RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'UserAuth\RegisterController@register');

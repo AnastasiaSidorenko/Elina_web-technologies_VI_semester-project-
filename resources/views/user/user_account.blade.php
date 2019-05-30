@@ -19,7 +19,7 @@
 
 <div class="container">
     <h3 class="text-center">{{  trans('user.account') }}</h3>
-    <h5>{{  trans('user.account_info') }}</h5>
+    <h4>{{  trans('user.account_info') }}</h4>
     <div class="account_info row">
         <div class="column pr-2">
             <p>{{ trans('user.fio') }}</p>
@@ -35,34 +35,11 @@
     <div class="Orders_reviews">
         <div class="orders__preview">
             <hr>
-            <h6><a href="#">{{ trans('user.orders') }}</a></h6>
-
-            <div class="card-body text-center">
-                <table  id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                    <thead>
-                    <tr><th>{{ trans('order.product_name') }}</th><th>{{ trans('order.image') }}</th><th>{{ trans('order.quantity') }}</th></tr>
-                    </thead>
-                    <tbody>
-                    {{--@if($m->id!=Auth::user()->id)--}}
-                    @foreach($order as $product)
-                        <tr>
-                            <td>{{$product->manuf_name}},{{$m->name}}</td>
-                            <td><img height=40px src="{{$m->image}}"></td>
-                            <td>{{$m->quantity}}</td>
-                            <td>{{$m->quantity}}*{{$m->order_product_price}}</td>
-                        </tr>
-                        {{--   @endif--}}
-                    @endforeach
-                    <p class="text-right">{{ trans('order.total_price') }} {{$m->total_price}}</p>
-                    </tbody>
-                </table>
-            </div>
-
-            <a href="#">{{ trans('user.see_all') }}</a>
+            <h4><a href="/user/account/1/orders">{{ trans('user.orders') }}</a></h4>
         </div>
         <div>
             <hr>
-            <a href="#">{{ trans('user.reviews') }}</a>
+            <h4><a href="/user/account/1/reviews">{{ trans('user.reviews') }}</a></h4>
         </div>
     </div>
 </div>

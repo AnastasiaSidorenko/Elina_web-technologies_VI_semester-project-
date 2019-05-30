@@ -16,20 +16,31 @@
                     <div class="card-body text-center">
                         <table  id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                             <thead>  <tr>
-                                <th>ID</th><th>{{ trans('admin.date') }}</th><th>{{ trans('admin.total_price') }}</th><th>{{ trans('admin.address') }}</th><th>{{ trans('admin.user') }}</th><th>{{ trans('admin.status') }}</th><th width="5%"></th><th width="5%"></th></tr>
+                                <th>ID</th><th>{{ trans('admin.date') }}</th><th>{{ trans('admin.total_price') }}</th><th>{{ trans('admin.address') }}</th><th>{{ trans('admin.user') }}</th><th>{{ trans('admin.status') }}</th><th width="5%"></th></tr>
                             </thead>
                             <tbody>@foreach($orders as $m)
                                 {{--@if($m->id!=Auth::user()->id)--}}
-                                <tr id='TR{{$m->id}}'>
-                                    <td><a href="/{{$m->id}}" target="_blank">{{$m->id}}</a></td>
-                                    <td>{{$m->date}}</td>
-                                    <td>{{$m->total_price}}</td>
-                                    <td>{{$m->address}}</td>
-                                    <td>{{$m->userFIO}}</td>
-                                    <td id="TR{{$m->id}}TD1">{{$m->status}}</td>
-                                    <td><button id='{{$m->id}}' onclick='deleteOrder({{$m->id}})'><i class="fas fa-trash-alt"></i></button></td>
-                                    <td><button data-toggle="modal" data-target="#edit" onclick='editOrder({{$n->id}})'><i class="fas fa-edit"></i></button></td>
-                                </tr>
+                                @if($m->status==2)
+                                    <tr id='TR{{$m->id}}' style="background:rgba(119,136,153,0.7);">
+                                        <td><a href="/admin/orders/{{$m->id}}" target="_blank">{{$m->id}}</a></td>
+                                        <td>{{$m->date}}</td>
+                                        <td>{{$m->total_price}}</td>
+                                        <td>{{$m->address}}</td>
+                                        <td>{{$m->userFIO}}</td>
+                                        <td id="TR{{$m->id}}TD1">{{$m->status}}</td>
+                                        <td><button id='{{$m->id}}' onclick='deleteOrder({{$m->id}})'><i class="fas fa-trash-alt"></i></button></td>
+                                    </tr>
+                                @else
+                                    <tr id='TR{{$m->id}}'>
+                                        <td><a href="/admin/orders/{{$m->id}}" target="_blank">{{$m->id}}</a></td>
+                                        <td>{{$m->date}}</td>
+                                        <td>{{$m->total_price}}</td>
+                                        <td>{{$m->address}}</td>
+                                        <td>{{$m->userFIO}}</td>
+                                        <td id="TR{{$m->id}}TD1">{{$m->status}}</td>
+                                        <td><button data-toggle="modal" data-target="#edit" onclick='editOrder({{$m->id}})'><i class="fas fa-edit"></i></button></td>
+                                    </tr>
+                                @endif
                                 {{--   @endif--}}
                             @endforeach
                             </tbody>

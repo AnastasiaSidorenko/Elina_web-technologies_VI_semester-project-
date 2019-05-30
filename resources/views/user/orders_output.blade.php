@@ -1,4 +1,4 @@
-@extends('admin.layout.auth')
+@extends('layouts.app')
 
 @section('js')
     <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
@@ -18,7 +18,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <span>{{ trans('admin.orders') }} ID={{$id}}</span>
+                        <span>{{ trans('admin.orders') }}</span>
                     </div>
                     <div class="card-body text-center">
                         <table  id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">

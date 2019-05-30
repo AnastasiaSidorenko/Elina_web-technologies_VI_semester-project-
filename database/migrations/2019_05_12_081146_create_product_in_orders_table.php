@@ -16,6 +16,7 @@ class CreateProductInOrdersTable extends Migration
         Schema::create('product_in_orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('quantity');
+            $table->float('price',8,2);
             $table->bigInteger('id_order')->unsigned();
             $table->bigInteger('id_product')->unsigned();
             $table->foreign('id_order')->references('id')->on('orders')

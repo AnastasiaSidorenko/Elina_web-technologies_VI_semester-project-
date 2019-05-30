@@ -24,4 +24,5 @@ return [
     'user' => 'User',
     'status' => 'Status',
     'sale'=>'Sale',
+    'more'=>'more',
     ];

@@ -1,7 +1,7 @@
 function Minus(quantity){
     var countProduct=$("#countProduct");
     var quant = countProduct.html();
-   if(quant>0){
+   if(quant>1){
        $('#plus').disabled = false;
        quant--;
        countProduct.html(" "+quant+" ");

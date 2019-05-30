@@ -17,7 +17,7 @@ class CreateProductInCartsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('id_product')->unsigned();
             $table->bigInteger('user_id')->unsigned();
-            $table->Integer('quantity');
+            $table->integer('quantity');
             $table->foreign('id_product')->references('id')->on('products')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');

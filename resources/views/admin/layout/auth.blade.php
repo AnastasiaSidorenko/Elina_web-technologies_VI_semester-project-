@@ -70,9 +70,11 @@
     </div>
     {{--<div class="p-1" style="background-color:#F7B878; m-1"></div>--}}
     <div class="main-menu__toggler admin__menu d-flex justify-content-around align-items-center">
-        @if(Auth::user()->role=='admin')
+        @auth
+            @if(Auth::user()->role=='admin')
                 <a href="managers">{{ trans('admin.content_managers') }}</a>
-        @endif
+            @endif
+        @endauth
         <a href="products">{{ trans('admin.products') }}</a>
         <a href="news">{{ trans('admin.news') }}</a>
         <a href="orders">{{ trans('admin.orders') }}</a>
