@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title','Elina products')
 @section('js')
-    <script type="text/javascript" src="{{ asset('js/ProductItem.js') }}"></script>
+    <script src="{{ asset('js/ProductItem.js') }}"></script>
 @endsection
 
 @section('content')

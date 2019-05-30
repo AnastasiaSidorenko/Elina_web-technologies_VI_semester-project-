@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('js')
-    <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
+    <script src="{{ asset('js/addons/datatables.min.js') }}"></script>
 @endsection
 
 @section('content')
