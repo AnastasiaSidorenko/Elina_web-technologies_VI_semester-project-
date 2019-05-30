@@ -15,7 +15,7 @@
                                 <label for="name" class="col-md-4 control-label">{{ trans('admin.name') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" autofocus>
+                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
                                     @if ($errors->has('name'))
                                         <span class="help-block">
@@ -29,7 +29,7 @@
                                 <label for="email" class="col-md-4 control-label">{{ trans('admin.email') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
                                     @if ($errors->has('email'))
                                         <span class="help-block">
@@ -43,7 +43,7 @@
                                 <label for="role" class="col-md-4 control-label">{{ trans('admin.role') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="role" type="text" class="form-control" name="role" value="{{ old('role') }}">
+                                    <input id="role" type="text" class="form-control" name="role" value="{{ old('role') }}" required>
 
                                     @if ($errors->has('role'))
                                         <span class="help-block">

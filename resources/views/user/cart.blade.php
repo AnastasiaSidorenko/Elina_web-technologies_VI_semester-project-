@@ -47,10 +47,106 @@
 
             </div>
             {{$cart_products->links()}}
-            <div class="cart__sum text-right">
+            <div class="cart__sum text-right mr-5">
             <p>{{ trans('user.total_sum') }} :
                 <span id="Total">{{$total_sum}}</span> {{ trans('product.RUB') }}
             </div>
-        @endif
+            <button type="button" class="btn btn-purple" data-toggle="modal" data-target="#addCheckout">
+                {{ trans('user.checkout') }}
+            </button>
+            @endif
     </div>
+    <!-- Modal 1-->
+    <div class="modal fade" id="addCheckout" tabindex="-1" role="dialog" aria-labelledby="addArticleLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="addArticleLabel">{{ trans('user.order') }}</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <form class="form-horizontal" role="form" method="POST" action="{{ url('/user/send_order') }}">
+                    {{ csrf_field() }}
+
+                    <div class="modal-body">
+                        <div class="form-group has-feedback">
+                            <label for="city">{{ trans('user.city') }}</label>
+                            <input id="city" type="text" class="form-control" name="city" value="{{ old('city') }}" required autofocus>
+
+                            @if ($errors->has('city'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="modal-body{{ $errors->has('street') ? ' has-error' : '' }}">
+                        <div class="form-group">
+                            <label for="street">{{ trans('user.street') }}</label>
+                            <input id="street" type="text" class="form-control" name="street" value="{{ old('street') }}" required>
+
+                            @if ($errors->has('street'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('street') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="modal-body{{ $errors->has('house') ? ' has-error' : '' }}">
+                        <div class="form-group">
+                            <label for="house">{{ trans('user.house') }}</label>
+                            <input id="house" type="text" class="form-control" name="house" value="{{ old('house') }}" required>
+
+                            @if ($errors->has('house'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('house') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="modal-body{{ $errors->has('apartment') ? ' has-error' : '' }}">
+                        <div class="form-group">
+                            <label for="apartment">{{ trans('user.apartment') }} *({{ trans('user.ifExist') }})</label>
+                            <input id="apartment" type="text" class="form-control" name="apartment" value="{{ old('apartment') }}">
+
+                            @if ($errors->has('apartment'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('apartment') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="modal-body{{ $errors->has('index') ? ' has-error' : '' }}">
+                        <div class="form-group">
+                            <label for="index">{{ trans('user.index') }}</label>
+                            <input id="index" type="text" class="form-control" name="index" value="{{ old('index') }}" required>
+
+                            @if ($errors->has('index'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('index') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-deep-orange" data-dismiss="modal">{{ trans('admin.close') }}</button>
+                        <button id="save" type="submit" class="btn btn-outline-deep-purple">{{ trans('user.toOrder') }}</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    @if(!empty(Session::get('error_code')) && Session::get('error_code') == 5)
+        <script>
+            ModalShow();
+        </script>
+    @elseif(!empty(Session::get('code')) && Session::get('code')==1)
+        <script>
+            RemoveAll({{Auth::user()->id}});
+        </script>
+    @endif
 @endsection

@@ -110,11 +110,11 @@ class ProductController extends Controller
             ->select('products.*','manufacturers.name as manufacturer_name','categories.name_en as category_name_en',
                 'categories.name_ru as category_name_ru','sections.name_en as section_name_en',
                 'sections.name_ru as section_name_ru', 'sections.id as section_id', 'categories.id as category_id')
-                ->get(1);
-        if(!isset($product_item[0])){
+                ->first();
+        if(!isset($product_item)){
             abort(404);
             exit;
-        }
+        };
         if(Auth::user())
             $userID=Auth::user()->id;
         else $userID=0;
@@ -127,6 +127,6 @@ class ProductController extends Controller
             ->leftJoin('feedback_on_products', 'feedback_on_products.id_product', '=', 'products.id')
             ->select('user.fio','feedbacks.*');
         $reviews_quantity = $reviews->count();*/
-        return view('product-item',['product_item' => $product_item[0],'userID'=>$userID/*'reviews'=> $reviews, 'reviews_quantity'=>$reviews_quantity*/]);
+       return view('product-item',['product_item' => $product_item,'userID'=>$userID/*'reviews'=> $reviews, 'reviews_quantity'=>$reviews_quantity*/]);
     }
 }

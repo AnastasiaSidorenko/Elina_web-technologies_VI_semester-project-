@@ -18,11 +18,11 @@ class CreateOrdersTable extends Migration
             $table->date('date');
             $table->float('total_price',8,2);
             $table->string('address');
+            $table->integer('status');
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('set null')
                 ->onUpdate('cascade');
-            $table->Integer('status');
             $table->timestamps();
         });
     }

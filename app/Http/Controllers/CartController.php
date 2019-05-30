@@ -7,10 +7,15 @@
  */
 namespace App\Http\Controllers;
 use App\Models\Product;
+use App\Models\Order;
+use App\Models\Product_in_order;
 use Illuminate\Http\Request;
 use App\Models\Product_in_cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+
 
 class CartController extends Controller
 {
@@ -107,12 +112,43 @@ class CartController extends Controller
         }
     }
 
-    public function remove_all_cart_items(Request $request){
+    public function remove_all_products_in_cart(Request $request){
         if($request->user_id == Auth::user()->id){
-            $carts_product = Product_in_cart::where('user_id', $request->user_id)->delete();
+            Product_in_cart::where('user_id', $request->user_id)->delete();
         }
     }
 
+    public function send_order(Request $request){
+        $validator=Validator::make($request->all(),[
+            'city' => 'required|max:30',
+            'index'=> 'required|max:6|min:6',
+            'street'=>'required|max:40',
+            'house'=> 'required|max:4',
+            'apartment'=>'nullable',
+        ]);
+        if ($validator->fails()){
+            return Redirect::back()->with('error_code', 5)->withErrors($validator)->withInput();
+        }
+
+        $cart_products = Product_in_cart::where('user_id', Auth::user()->id)
+            ->leftJoin('products','products.id','=','id_product')
+            ->leftJoin('manufacturers','products.id_manufacturer','=','manufacturers.id')
+            ->select('products.*','products.quantity as product_quantity','product_in_carts.*','manufacturers.name')
+            ->paginate();
+        $total_sum=0;
+        foreach($cart_products as $item){
+            $total_sum += $item->price * $item->quantity;
+        }
+        $address=$request->city.";".$request->street.";".$request->house.";".$request->apartment.";".$request->index.";";
+        $order=Order::create(array('date'=> date("Y-m-d H:i:s") ,'total_price'=>$total_sum,'address'=>$address,'user_id'=>Auth::user()->id, 'status'=>'0'));
+        foreach($cart_products as $item){
+            $product=Product::where('id',$item->id_product)->first();
+            $product->quantity-=$item->quantity;
+            $product->save();
+            Product_in_order::create(array( 'quantity'=>$item->quantity,'id_order'=>$order->id,'id_product'=>$item->id_product,'price'=>$item->price));
+        }
+        return Redirect::back()->with('code', 1);
+    }
 
     public function reviews(){
 

@@ -80,3 +80,27 @@ function Plus(quantity,id,product_id,user_id){
         $('#plus'+id).disabled = true;
     }
 }
+
+function ModalShow(){
+    $(function() {
+        $('#addCheckout').modal('show');
+    });
+}
+
+function RemoveAll($user_id){
+    $.ajax({
+        type: "POST",
+        url: '/user/remove_all_products_in_cart',
+        data: {user_id: $user_id},
+        headers: {
+            'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function () {
+            window.location = "/user/cart/"+$user_id;
+        },
+        error: function() {
+            console.log(data);
+        }
+    });
+}
+

@@ -6,7 +6,6 @@
 
 @section('content')
     <?php
-    session_start();
     if(App::getLocale()=='en'){
         $name = 'name_en';
         $category='category_name_en';
@@ -68,10 +67,7 @@
                                 <button type="submit" onclick="location.href='/user/login'" class="btn deep-purple">{{ trans('product.add_to_cart') }}</button>
                             @endauth
                     @endif
-                {{--<p>{{ trans('product.quantity') }} <button>-</button> 1 <button>+</button>--}}
-                    {{--<button type="button" class="btn deep-purple">{{ trans('product.add_to_cart') }}</button>--}}
-                {{--</p>--}}
-                <h5>{{ trans('product.price') }}: <span>{{$product_item->price}} </span><span>{{ trans('product.RUB') }}</span><span id="allRight{{$product_item->$id}}" style="color:red"></span></h5>
+                <h5>{{ trans('product.price') }}: <span>{{$product_item->price}} </span><span>{{ trans('product.RUB') }}</span><span id="allRight{{$product_item->id}}" style="color:red"></span></h5>
             </div>
             </div>
         </div>

@@ -318,7 +318,7 @@ class DatabaseSeeder extends Seeder
             'suggested_use_en'=>'Moisten face with warm water and gently massage a small amount of cleanser in circular motions onto cheeks, chin, forehead and neck, avoiding contact with eyes. Continue for approximately one minute, then rinse thoroughly with cool water. Follow this procedure twice daily.',
             'suggested_use_ru'=>'Умойте лицо теплой водой и нанесите массажными движениями небольшое количество очищающего средства на щеки, подбородок, лоб и шею, избегая попадания в глаза. Продолжайте втирать в течение минуты, затем тщательно смойте холодной водой. Проводите эту процедуру дважды в день.',
             'ingredients'=>'Castile soap (water (aqua), cocos nucifera (coconut) oil, tall oil, potassium hydroxide), glycerin, eco-harvest melaleuca alternifolia (tea tree) leaf oil, chamomilla recutita (matricaria) flower extract, hydrastis canadensis (goldenseal) root extract, hedychium coronarium root extract (awapuhi), fucus vesiculosus extract (bladderwrack), cymbopogon martini oil (palmarosa), citrus aurantium amara (bitter orange) peel oil, lavandula angustifolia (lavender) oil, chamomilla recutita (matricaria) flower oil, calendula officinalis flower oil, callitris introtropica wood oil (blue cypress).',
-            'price'=>'320',
+            'price'=>'700',
             'expiration_date'=>'01.01.2021',
             'quantity'=>'7',
             'image1'=>'https://s3.images-iherb.com/des/des22111/y/8.jpg',
@@ -398,7 +398,7 @@ class DatabaseSeeder extends Seeder
             'image1'=>'https://s3.images-iherb.com/pix/pix82351/y/1.jpg',
             'image2'=>'https://s3.images-iherb.com/pix/pix82351/y/2.jpg',
             'id_manufacturer'=>'4',
-            'id_category'=>'12',//Toners
+            'id_category'=>'12',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
@@ -417,7 +417,7 @@ class DatabaseSeeder extends Seeder
             'image1'=>'https://s3.images-iherb.com/wsb/wsb27005/y/3.jpg',
             'image2'=>'https://s3.images-iherb.com/wsb/wsb27005/y/5.jpg',
             'id_manufacturer'=>'5',
-            'id_category'=>'13',//Toners
+            'id_category'=>'13',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
@@ -435,7 +435,7 @@ class DatabaseSeeder extends Seeder
             'image1'=>'https://s3.images-iherb.com/wsb/wsb30060/y/7.jpg',
             'image2'=>'https://s3.images-iherb.com/wsb/wsb30060/y/9.jpg',
             'id_manufacturer'=>'5',
-            'id_category'=>'13',//Toners
+            'id_category'=>'13',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
@@ -454,7 +454,7 @@ class DatabaseSeeder extends Seeder
             'image1'=>'https://s3.images-iherb.com/tfs/tfs56540/y/0.jpg',
             'image2'=>'https://s3.images-iherb.com/tfs/tfs56540/y/1.jpg',
             'id_manufacturer'=>'6',
-            'id_category'=>'14',//Toners
+            'id_category'=>'14',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
@@ -472,7 +472,7 @@ class DatabaseSeeder extends Seeder
             'image1'=>'https://s3.images-iherb.com/tfs/tfs56536/y/0.jpg',
             'image2'=>'https://s3.images-iherb.com/tfs/tfs56536/y/1.jpg',
             'id_manufacturer'=>'6',
-            'id_category'=>'14',//Toners
+            'id_category'=>'14',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
@@ -491,7 +491,7 @@ class DatabaseSeeder extends Seeder
             'image1'=>'https://s3.images-iherb.com/wsb/wsb47405/y/13.jpg',
             'image2'=>'https://s3.images-iherb.com/wsb/wsb47405/y/14.jpg',
             'id_manufacturer'=>'5',
-            'id_category'=>'15',//Toners
+            'id_category'=>'15',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);
@@ -517,7 +517,7 @@ Organic Creme Brulee: Olive Oil*, Beeswax*, Flavor*, Sunflower Oil*, Non-GMO Vit
             'image1'=>'https://s3.images-iherb.com/mbe/mbe00962/y/3.jpg',
             'image2'=>'https://s3.images-iherb.com/mbe/mbe00962/y/4.jpg',
             'id_manufacturer'=>'4',
-            'id_category'=>'16',//Toners
+            'id_category'=>'16',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s'),
         ]);

@@ -14,5 +14,15 @@ return [
     'products' => 'Products',
     'price' => 'Price',
     'qty' => 'Quantity',
-    'total' => 'Total'
-    ];
+    'total' => 'Total',
+    'checkout' => 'Proceed to checkout',
+    'order' => 'Order',
+    'address'=> 'Address',
+    'toOrder' => 'To order',
+    'city' =>'City',
+    'index'=>'Index',
+    'street'=>'Street',
+    'house'=>'House',
+    'apartment'=>'Apartment',
+    'ifExist'=>'if exists',
+];

@@ -84,6 +84,8 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/delete_cart_item','CartController@delete_cart_item');
     Route::post('/minus_cart_item','CartController@minus_cart_item');
     Route::post('/plus_cart_item','CartController@plus_cart_item');
+    Route::post('/send_order','CartController@send_order');
+    Route::post('/remove_all_products_in_cart','CartController@remove_all_products_in_cart');
 
     Route::get('/register', 'UserAuth\RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'UserAuth\RegisterController@register');

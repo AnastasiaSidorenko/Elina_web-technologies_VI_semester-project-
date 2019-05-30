@@ -36,6 +36,7 @@ $(function() {
                 $('#articles-wrap').removeClass('hidden').addClass('show');
                 $('.alert').removeClass('show').addClass('hidden');
                 $("#TR"+id+"TD1").html(status);
+                window.location = "/admin/orders";
             },
             error: function (msg) {
                 alert('Ошибка');
