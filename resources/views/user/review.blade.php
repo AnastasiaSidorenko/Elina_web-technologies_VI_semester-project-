@@ -6,7 +6,8 @@
 
 @section('content')
     <?php
-    if(App::getLocale()=='en'){
+    $lang=App::getLocale();
+    if($lang=='en'){
         $name = 'name_en';
     }
     else{
@@ -30,7 +31,7 @@
             </h5>
             <textarea name="review-body" id="review-body" rows=10 cols=80 style="resize: none;"></textarea>
             <hr>
-            <button id="SubmitReview" onclick="post_review({{$product->id}},{{Auth::user()->id}})" type="button" class="btn" style="background-color:#f5b054;">{{trans('product.submit_review')}}</button>
+            <button id="SubmitReview" onclick="post_review({{$product->id}},{{Auth::user()->id}},'{{$lang}}')" type="button" class="btn" style="background-color:#f5b054;">{{trans('product.submit_review')}}</button>
             <span id="caption"></span>
         </div>
     </div>

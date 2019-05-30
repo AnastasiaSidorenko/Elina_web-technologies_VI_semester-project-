@@ -23,7 +23,7 @@
                         <table  id="dtHorizontalVerticalExample" class="table table-striped table-lg" cellspacing="0" width="100%">
                             <thead>
 
-                    @if($order_status == 2)
+                    @if($order_status == 1)
 
                             <tr><th>{{ trans('order.product_name') }}</th><th>{{ trans('order.image') }}</th><th>{{ trans('order.quantity') }}</th><th>{{ trans('order.price') }}</th><th>{{ trans('order.total') }}</th><th></th></tr>
                             </thead>

@@ -60,7 +60,7 @@
                     </div>
                         @auth
                             <div>
-                            <button id="addInCart" onclick="AddInCart({{$product->id}},{{Auth::user()->id}},{{$lang}})" type="button" class="btn btn btn-lg mb-auto d-inline-flex align-self-end deep-purple">{{ trans('product.add_to_cart') }}</button>
+                            <button id="addInCart" onclick="AddInCart({{$product->id}},{{Auth::user()->id}},'{{$lang}}')" type="button" class="btn btn btn-lg mb-auto d-inline-flex align-self-end deep-purple">{{ trans('product.add_to_cart') }}</button>
                             </div>
                                 <span id="countProduct" hidden> 1 </span>
                         @else

@@ -87,23 +87,22 @@
             <p>{{$product_item->ingredients}}</p>
         </div>
         <div class="product-item__reviews">
-            <h4 id="reviews">{{ trans('product.reviews') }}</h4>
+            <h4 id="reviews">{{ trans('product.Reviews') }}</h4>
             @if($reviews_quantity>0)
-                @foreach($reviews->chunk(10) as $product_reviews)
-                    @foreach($product_reviews as $review)
+                    @foreach($reviews as $review)
                         <hr>
-                        <div class="my-1 row col-10 justify-content-center">
+                        <div class="my-1 row col-11 justify-content-center">
                             <div class="col-2"><span>{{$review->fio}}</span></div>
                             <div class="col-10">
-                                <span class="posted-date">{{ trans('product.posted_on') }} {{$review->date}}</span>
-                                <p>{{$review->body}}</p>
+                                <span class="posted-date">{{ trans('product.posted_on') }} {{$review->date}}</span><br>
+                                <p class="mt-2">{{$review->text}}</p>
                             </div>
                         </div>
-                    @endforeach
                 @endforeach
                 {{$reviews->links()}}
+            </div>
             @else
-            <p class="m-3">{{ trans('product.no_reviews') }}</p>
+            <p>{{ trans('product.no_reviews') }}</p>
             @endif
         </div>
     </div>

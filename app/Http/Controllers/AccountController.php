@@ -8,9 +8,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feedback;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\User_feedback;
+use App\Models\Feedback_on_product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -60,7 +63,7 @@ class AccountController extends Controller
     public function write_review($product_id)
     {
         $if_product = Order::where('user_id',Auth::user()->id)
-            ->where('status',2)
+            ->where('status',1)
             ->leftJoin('product_in_orders','product_in_orders.id_order','=','orders.id')
             ->where('product_in_orders.id_product',$product_id)
             ->get();
@@ -82,7 +85,11 @@ class AccountController extends Controller
 
      public function post_review(Request $request){
          if($request->ajax()) {
+             $date=date('Y-m-d');
+             $feedback=Feedback::create(array('date'=>$date,'text'=>$request->review));
+             $feedback_id = $feedback->id;
+             $user_feedback = User_feedback::create(array('id_feedback'=>$feedback_id,'user_id'=>$request->user_id));
+             $feedback_on_product = Feedback_on_product::create(array('id_product'=>$request->product_id,'id_feedback'=>$feedback_id));
          }
      }
-
 }
