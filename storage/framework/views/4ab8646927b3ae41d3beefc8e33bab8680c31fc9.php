@@ -33,13 +33,6 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-    <!-- Managers -->
-
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
 
 
     <?php echo $__env->yieldContent('js'); ?>
@@ -79,7 +72,11 @@
     </div>
     
     <div class="main-menu__toggler admin__menu d-flex justify-content-around align-items-center">
-        <a href="managers"><?php echo e(trans('admin.content_managers')); ?></a>
+        <?php if(auth()->guard()->check()): ?>
+            <?php if(Auth::user()->role=='admin'): ?>
+                <a href="managers"><?php echo e(trans('admin.content_managers')); ?></a>
+            <?php endif; ?>
+        <?php endif; ?>
         <a href="products"><?php echo e(trans('admin.products')); ?></a>
         <a href="news"><?php echo e(trans('admin.news')); ?></a>
         <a href="orders"><?php echo e(trans('admin.orders')); ?></a>

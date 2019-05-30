@@ -37,19 +37,9 @@ class OrderController extends Controller
 
     public function order($id){
         if(Auth::user()->role=='admin' || Auth::user()->role=='manager'){
-<<<<<<< HEAD
-            //$entry = Order::find($id);
             $orders = DB::table('product_in_orders')->where('id_order',$id)
                 ->leftJoin('products', 'products.id', '=', 'product_in_orders.id_product')
                 ->select('product_in_orders.*','products.name_ru as name_ru','products.name_ru as name_en','products.image1 as image')
-=======
-            $entry = Order::find($id);
-            $orders = DB::table('orders')
-                ->leftJoin('product_in_orders', 'product_in_orders.id_order', '=', 'orders.id')
-                ->leftJoin('users', 'users.id', '=', 'orders.user_id')
-                ->leftJoin('products', 'products.id', '=', 'product_in_orders.id_product')
-                ->select('orders.*')
->>>>>>> origin/master
                 ->paginate();
             return view('admin.order_output', ['orders' => $orders,'id'=>$id]);
         }
