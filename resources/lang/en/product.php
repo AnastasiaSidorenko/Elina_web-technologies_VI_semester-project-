@@ -14,7 +14,8 @@ return [
     'by' => 'By ',
     'add_to_cart' => 'Add to Cart',
     'RUB' => 'RUB',
-    'reviews_q' => 'Reviews: ',
+    'reviews_q' => 'reviews',
+    'Reviews' => 'Reviews',
     'in_stock' => 'In Stock',
     'out_of_stock' => 'Out of Stock',
     'edit' => 'Edit',
@@ -22,5 +23,11 @@ return [
     'price:cheap' => 'Price: Cheapest',
     'price:expensive' => 'Price: Most exspensive',
     'no_new_products' => 'No new products now',
-    'newest' => 'Newest'
+    'no_products' => 'No products',
+    'no_reviews' => 'No reviews yet',
+    'newest' => 'Newest',
+    'posted_on' => 'Posted on',
+    'write a review' => 'Write a Review',
+    'back' => 'Back',
+    'submit_review' => 'Submit Review',
 ];

@@ -23,7 +23,8 @@ function Plus(quantity){
     }
 }
 
-function AddInCart(id_product,id_user){
+function AddInCart(id_product,id_user,lang){
+    console.log(lang);
     var countProduct=$("#countProduct");
     var span=$("#allRight"+id_product);
     var quant = countProduct.html();
@@ -35,10 +36,20 @@ function AddInCart(id_product,id_user){
             'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
         },
         success: function () {
-            span.html('Добавлено в корзину');
+            if(lang == 'en') {
+                span.html('Added to Cart');
+            }
+            else{
+                span.html('Добавлено в корзину');
+            }
         },
         error: function (msg) {
-            alert('Ошибка');
+            if(lang == 'en') {
+                alert('Error. Unable to add product in Cart')
+            }
+            else {
+                alert('Ошибка. Невозможно добавить товар в Корзину');
+            }
         }
     });
 }

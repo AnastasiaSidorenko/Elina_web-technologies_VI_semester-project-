@@ -48,9 +48,7 @@
             <hr class="col-12">
             <div class="p-1">
                 <p>{{ trans('product.by') }} {{$product_item->$manuf_name}}</p>
-                <p><a class="right">{{ trans('product.reviews_q') }}
-                        {{--{{$reviews_quantity}}--}}
-                    </a></p>
+                <p><a class="right" href="#reviews">{{$reviews_quantity}} {{ trans('product.reviews_q') }}</a></p>
 
                 @if($product_item->quantity > 0)
                     <p>{{ trans('product.in_stock') }}</p>
@@ -89,8 +87,24 @@
             <p>{{$product_item->ingredients}}</p>
         </div>
         <div class="product-item__reviews">
-            <h4>{{ trans('product.reviews') }}</h4>
-            <p>{{$product_item->ingredients}}</p>
+            <h4 id="reviews">{{ trans('product.reviews') }}</h4>
+            @if($reviews_quantity>0)
+                @foreach($reviews->chunk(10) as $product_reviews)
+                    @foreach($product_reviews as $review)
+                        <hr>
+                        <div class="my-1 row col-10 justify-content-center">
+                            <div class="col-2"><span>{{$review->fio}}</span></div>
+                            <div class="col-10">
+                                <span class="posted-date">{{ trans('product.posted_on') }} {{$review->date}}</span>
+                                <p>{{$review->body}}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                @endforeach
+                {{$reviews->links()}}
+            @else
+            <p class="m-3">{{ trans('product.no_reviews') }}</p>
+            @endif
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-@extends('admin.layout.auth')
+@extends('layouts.app')
 
 @section('js')
     <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
@@ -6,46 +6,63 @@
 
 @section('content')
     <?php
-        session_start();
-        if(App::getLocale()=='en'){
-            $name='name_en';
-        }
-        else{
-            $name='name_ru';
-        }
-        $manuf_name='manufacturers.name';
-        ?>
-
-    <div class="container">
+    if(App::getLocale()=='en'){
+        $name = 'name_en';
+    }
+    else{
+        $name = 'name_ru';
+    }
+    ?>
+    <div class="container" style="width:100vw">
         <div class="row justify-content-center">
-            <div class="col-md-11">
-                <div class="card">
+            <div class="flex">
                     <div class="card-header">
-                        <span>{{ trans('order.orders') }} ID={{$id}}</span>
+                        <span>{{ trans('admin.orders') }}</span>
                     </div>
                     <div class="card-body text-center">
-                        <table  id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                        <table  id="dtHorizontalVerticalExample" class="table table-striped table-lg" cellspacing="0" width="100%">
                             <thead>
-                            <tr><th>{{ trans('order.product_name') }}</th><th>{{ trans('order.image') }}</th><th>{{ trans('order.quantity') }}</th></tr>
+
+                    @if($order_status == 2)
+
+                            <tr><th>{{ trans('order.product_name') }}</th><th>{{ trans('order.image') }}</th><th>{{ trans('order.quantity') }}</th><th>{{ trans('order.price') }}</th><th>{{ trans('order.total') }}</th><th></th></tr>
                             </thead>
                             <tbody>
-                            {{--@if($m->id!=Auth::user()->id)--}}
-                            @foreach($order as $product)
-                                <tr>
-                                    <td>{{$product->manuf_name}},{{$m->name}}</td>
-                                    <td><img height=40px src="{{$m->image}}"></td>
-                                    <td>{{$m->quantity}}</td>
-                                    <td>{{$m->quantity}}*{{$m->order_product_price}}</td>
-                                </tr>
-                                {{--   @endif--}}
-                            @endforeach
-                            <p class="text-right">{{ trans('order.total_price') }} {{$m->total_price}}</p>
+                                    @foreach($order as $m)
+                                    <tr>
+                                        <td>{{$m->$name}}</td>
+                                        <td><img height=50px src="{{$m->image}}"></td>
+                                        <td>{{$m->quantity}}</td>
+                                        <td>{{$m->price}}</td>
+                                        <td>{{$m->quantity*$m->price}}</td>
+                                        <td><a style="color:darkorange" href="/user/product/{{$m->id_product}}/review">{{ trans('product.write a review') }}</a></td>
+                                    </tr>
+                                    @endforeach
                             </tbody>
+
+                        @else
+
+                                <tr><th>{{ trans('order.product_name') }}</th><th>{{ trans('order.image') }}</th><th>{{ trans('order.quantity') }}</th><th>{{ trans('order.price') }}</th><th>{{ trans('order.total') }}</th></tr>
+                                </thead>
+                                <tbody>
+                                @foreach($order as $m)
+                                    <tr>
+                                        <td>{{$m->$name}}</td>
+                                        <td><img height=50px src="{{$m->image}}"></td>
+                                        <td>{{$m->quantity}}</td>
+                                        <td>{{$m->price}}</td>
+                                        <td>{{$m->quantity*$m->price}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+
+
+                            @endif
+
                         </table>
                     </div>
-                    {{$orders->links()}}
+                    {{$order->links()}}
                 </div>
-            </div>
         </div>
     </div>
 @endsection

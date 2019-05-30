@@ -53,9 +53,8 @@ class ProductController extends Controller
                 'categories.id as category_id','products.name_en as name_en','products.name_ru as name_ru')
             //->$sort()
             ->paginate(8);
-        if(!isset($section_products[0])){
-            abort(404);
-            exit;
+        if($section_products->count() == 0){
+            $section_products=0;
         }
         return view('products',['products' => $section_products,'in_section'=> $section]);
     }
@@ -77,6 +76,9 @@ class ProductController extends Controller
                 'sections.name_en as section_name_en', 'sections.name_ru as section_name_ru',
                 'categories.id as category_id','products.name_en as name_en','products.name_ru as name_ru')
             ->paginate(8);
+        if($section_products->count() == 0){
+            $section_products=0;
+        }
     return view('products',['products' => $section_products,'in_section'=> $section]);
 }
 
@@ -92,9 +94,8 @@ class ProductController extends Controller
             ->paginate(8);
 //            ->select('product','categories.name as categName', 'categories.*', 'manufacturers.name as manufName', 'manufacturers.*')
 //            ->paginate(10);
-        if(!isset($category_products[0])){
-            abort(404);
-            exit;
+        if($category_products->count() == 0){
+            $category_products=0;
         }
         return view('products',['products' => $category_products,'in_category' => $category]);
     }
@@ -118,15 +119,13 @@ class ProductController extends Controller
         if(Auth::user())
             $userID=Auth::user()->id;
         else $userID=0;
-        //var_dump($product_item[0]);
-        /*$reviews = DB::table('feedback_on_products')
+        $reviews = DB::table('feedback_on_products')
             ->where('feedback_on_products.id_product', $id)
-            ->leftJoin('feedback', 'Feedback_on_products.id_feedback', '=', 'Feedbacks.id')
+            ->leftJoin('feedbacks', 'feedback_on_products.id_feedback', '=', 'feedbacks.id')
             ->leftJoin('user_feedbacks', 'feedbacks.id', '=', 'user_feedbacks.id_feedback')
-            ->leftJoin('user', 'user_feedbacks.user_id', '=', 'user.id')
-            ->leftJoin('feedback_on_products', 'feedback_on_products.id_product', '=', 'products.id')
-            ->select('user.fio','feedbacks.*');
-        $reviews_quantity = $reviews->count();*/
-       return view('product-item',['product_item' => $product_item,'userID'=>$userID/*'reviews'=> $reviews, 'reviews_quantity'=>$reviews_quantity*/]);
+            ->leftJoin('users', 'user_feedbacks.user_id', '=', 'users.id')
+            ->select('users.fio','feedbacks.*');
+        $reviews_quantity = $reviews->count();
+       return view('product-item',['product_item' => $product_item,'userID'=>$userID,'reviews'=> $reviews, 'reviews_quantity'=>$reviews_quantity]);
     }
 }
