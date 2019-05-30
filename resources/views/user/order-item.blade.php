@@ -1,5 +1,5 @@
 @extends('admin.layout.auth')
-
+@section('title',trans('title.order') )
 @section('js')
     <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
 @endsection
@@ -29,7 +29,6 @@
                             <tr><th>{{ trans('order.product_name') }}</th><th>{{ trans('order.image') }}</th><th>{{ trans('order.quantity') }}</th></tr>
                             </thead>
                             <tbody>
-                            {{--@if($m->id!=Auth::user()->id)--}}
                             @foreach($order as $product)
                                 <tr>
                                     <td>{{$product->manuf_name}},{{$m->name}}</td>
@@ -37,7 +36,6 @@
                                     <td>{{$m->quantity}}</td>
                                     <td>{{$m->quantity}}*{{$m->order_product_price}}</td>
                                 </tr>
-                                {{--   @endif--}}
                             @endforeach
                             <p class="text-right">{{ trans('order.total_price') }} {{$m->total_price}}</p>
                             </tbody>

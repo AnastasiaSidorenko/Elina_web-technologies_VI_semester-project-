@@ -50,7 +50,7 @@
 
                     @auth
                         <a class="mr-3" href="#">{{trans('top&middle_menu.you_are')}}{{ Auth::user()->name }}</a>
-                        <a href="{{ url('/user/logout') }}"
+                        <a href="{{ url('/admin/logout') }}"
                            onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                             {{ trans('login.logout') }}
@@ -74,14 +74,13 @@
             @if(Auth::user()->role=='admin')
                 <a href="managers">{{ trans('admin.content_managers') }}</a>
             @endif
-        @endauth
         <a href="products">{{ trans('admin.products') }}</a>
         <a href="news">{{ trans('admin.news') }}</a>
         <a href="orders">{{ trans('admin.orders') }}</a>
         <a href="manufacturers">{{ trans('admin.manufacturers') }}</a>
+        @endauth
     </div>
 </div>
-@include('common.errors')
 @yield('content')
 
 </body>

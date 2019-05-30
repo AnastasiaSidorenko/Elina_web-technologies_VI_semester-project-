@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','User Account')
+@section('title',trans('title.account') )
 {{--@section('js')
    --}}{{--smth--}}{{--
 @endsection--}}

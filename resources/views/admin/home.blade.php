@@ -1,4 +1,5 @@
 @extends('admin.layout.auth')
+@section('title',trans('title.home') )
 
 @section('content')
     <div class="image-center">

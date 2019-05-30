@@ -1,13 +1,25 @@
 @extends('admin.layout.auth')
+@section('title',trans('title.news') )
 
 @section('js')
     <script type="text/javascript" src="{{ asset('js/News.js') }}"></script>
 
     <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+    <script>
+        $( function() {
+            $( "#title" ).tabs();
+            $( "#body" ).tabs();
+            $( "#title2" ).tabs();
+            $( "#body2" ).tabs();
+        } );
+    </script>
 @endsection
 
 @section('content')
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -24,7 +36,6 @@
                                 <th>ID</th><th>{{ trans('news.title') }} RU</th><th>{{ trans('news.title') }} EN</th><th>{{ trans('news.body') }} RU</th><th>{{ trans('news.body') }} EN</th><th>{{ trans('news.date') }}</th><th>{{ trans('news.image') }}</th><th width="5%"><th width="5%"></tr>
                             </thead>
                             <tbody>@foreach($news as $n)
-                                {{--@if($m->id!=Auth::user()->id)--}}
                                 <tr id='TR{{$n->id}}'>
                                     <td>{{$n->id}}</td>
                                     <td id="TR{{$n->id}}TD1">{{$n->title_ru}}</td>
@@ -36,7 +47,6 @@
                                     <td><button id='{{$n->id}}' onclick='deleteNews({{$n->id}})'><i class="fas fa-trash-alt"></i></button></td>
                                     <td><button data-toggle="modal" data-target="#edit" onclick='editNews({{$n->id}})'><i class="fas fa-edit"></i></button></td>
                                 </tr>
-                                {{--   @endif--}}
                             @endforeach
                             </tbody>
                         </table>
@@ -46,6 +56,7 @@
             </div>
         </div>
     </div>
+
     <!-- Modal 1-->
     <div class="modal fade" id="addArticle" tabindex="-1" role="dialog" aria-labelledby="addArticleLabel">
         <div class="modal-dialog" role="document">
@@ -54,30 +65,37 @@
                     <h4 class="modal-title" id="addArticleLabel">{{ trans('admin.adding_news') }}</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
+
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="title_ru">{{ trans('news.title') }} RU</label>
-                        <input type="text" class="form-control" id="title_ru">
+                    <div id="title">
+                        <ul>
+                            <li><a href="#title_ru">{{ trans('news.title') }} RU</a></li>
+                            <li><a href="#title_en">{{ trans('news.title') }} EN</a></li>
+                        </ul>
+                        <div id="title_ru">
+                            <input type="text" class="form-control" id="title_ru">
+                         </div>
+                        <div id="title_en">
+                            <input type="text" class="form-control" id="title_en">
+                        </div>
                     </div>
                 </div>
+
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="title_en">{{ trans('news.title') }} EN</label>
-                        <input type="text" class="form-control" id="title_en">
+                    <div id="body">
+                        <ul>
+                            <li><a href="#body_ru">{{ trans('news.body') }} RU</a></li>
+                            <li><a href="#body_en">{{ trans('news.body') }} EN</a></li>
+                        </ul>
+                        <div id="body_ru">
+                            <textarea type="text" class="form-control" id="body_ru"></textarea>
+                        </div>
+                        <div id="body_en">
+                            <textarea type="text" class="form-control" id="body_en"></textarea>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="body_ru">{{ trans('news.body') }} RU</label>
-                        <textarea type="text" class="form-control" id="body_ru"></textarea>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="body_en">{{ trans('news.body') }} EN</label>
-                        <textarea type="text" class="form-control" id="body_en"></textarea>
-                    </div>
-                </div>
+
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="file">{{ trans('news.image') }}</label>
@@ -106,30 +124,37 @@
                         <input type="text" class="form-control" id="id_edit" readonly>
                     </div>
                 </div>
+
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="title_ru_edit">{{ trans('news.title') }} RU</label>
-                        <input type="text" class="form-control" id="title_ru_edit">
+                    <div id="title2">
+                        <ul>
+                            <li><a href="#title_ru2">{{ trans('news.title') }} RU</a></li>
+                            <li><a href="#title_en2">{{ trans('news.title') }} EN</a></li>
+                        </ul>
+                        <div id="title_ru2">
+                            <input type="text" class="form-control" id="title_ru_edit">
+                        </div>
+                        <div id="title_en2">
+                            <input type="text" class="form-control" id="title_en_edit">
+                        </div>
                     </div>
                 </div>
+
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="title_en_edit">{{ trans('news.title') }} EN</label>
-                        <input type="text" class="form-control" id="title_en_edit">
+                    <div id="body2">
+                        <ul>
+                            <li><a href="#body_ru2">{{ trans('news.body') }} RU</a></li>
+                            <li><a href="#body_en2">{{ trans('news.body') }} EN</a></li>
+                        </ul>
+                        <div id="body_ru2">
+                            <textarea type="text" class="form-control" id="body_ru_edit"></textarea>
+                        </div>
+                        <div id="body_en2">
+                            <textarea type="text" class="form-control" id="body_en_edit"></textarea>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="body_ru_edit">{{ trans('news.body') }} RU</label>
-                        <textarea type="text" class="form-control" id="body_ru_edit"></textarea>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="body_en_edit">{{ trans('news.body') }} EN</label>
-                        <textarea type="text" class="form-control" id="body_en_edit"></textarea>
-                    </div>
-                </div>
+
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-deep-orange" data-dismiss="modal">{{ trans('admin.close') }}</button>
                     <button id="save_edit" type="button" class="btn btn-pink">{{ trans('admin.save') }}</button>

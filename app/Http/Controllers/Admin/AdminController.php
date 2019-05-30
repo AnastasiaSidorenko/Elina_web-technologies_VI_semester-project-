@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin;
 use App\Models\Product;
+use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
 {
@@ -27,7 +28,7 @@ class AdminController extends Controller
                $managers = Admin::paginate();
                return view('admin.manage', ['managers' => $managers]);
         }
-       return redirect('admin/home');
+       return Redirect::back();
     }
 
     public function destroy($id){
@@ -35,7 +36,7 @@ class AdminController extends Controller
             $entry = Admin::find($id);
             $entry->delete();
         }
-        else return redirect('admin/home');
+        else return Redirect::back();
     }
 
     public function updateManager(Request $request){
@@ -48,7 +49,7 @@ class AdminController extends Controller
                 $entry->save();
             }
         }
-        else return redirect('admin/home');
+        else return Redirect::back();
     }
 
 }

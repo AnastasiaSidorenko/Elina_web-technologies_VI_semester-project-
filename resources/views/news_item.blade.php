@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Elina News')
+@section('title',trans('title.news') )
 
 @section('content')
     <?php

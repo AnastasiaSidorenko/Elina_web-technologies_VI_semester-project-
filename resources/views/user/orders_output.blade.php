@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title',trans('title.orders) )
 @section('js')
     <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
 @endsection

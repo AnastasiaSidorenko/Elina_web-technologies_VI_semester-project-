@@ -1,4 +1,5 @@
 @extends('admin.layout.auth')
+@section('title',trans('title.login') )
 
 @section('content')
     <div class="container">
