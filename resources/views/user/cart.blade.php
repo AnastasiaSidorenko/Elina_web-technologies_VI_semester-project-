@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('title',trans('title.cart') )
 @section('js')
-    <script type="text/javascript" src="{{ asset('js/Cart.js') }}"></script>
+    <script src="{{ asset('js/Cart.js') }}"></script>
 
-    <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
+    <script src="{{ asset('js/addons/datatables.min.js') }}"></script>
 
 @endsection
 @section('content')

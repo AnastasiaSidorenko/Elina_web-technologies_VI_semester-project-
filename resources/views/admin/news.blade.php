@@ -2,9 +2,9 @@
 @section('title',trans('title.news') )
 
 @section('js')
-    <script type="text/javascript" src="{{ asset('js/News.js') }}"></script>
+    <script src="{{ asset('js/News.js') }}"></script>
 
-    <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
+    <script src="{{ asset('js/addons/datatables.min.js') }}"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 

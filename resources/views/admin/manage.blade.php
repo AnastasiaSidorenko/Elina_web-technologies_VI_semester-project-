@@ -2,9 +2,9 @@
 @section('title',trans('title.manage') )
 
 @section('js')
-    <script type="text/javascript" src="{{ asset('js/contentManagers.js') }}"></script>
+    <script src="{{ asset('js/contentManagers.js') }}"></script>
 
-    <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
+    <script src="{{ asset('js/addons/datatables.min.js') }}"></script>
 @endsection
 
 @section('content')

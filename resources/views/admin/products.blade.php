@@ -2,8 +2,9 @@
 @section('title',trans('title.products') )
 
 @section('js')
-    <script type="text/javascript" src="{{ asset('js/Products.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
+
+    <script src="{{ asset('js/Products.js') }}"></script>
+    <script src="{{ asset('js/addons/datatables.min.js') }}"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -17,6 +18,7 @@
             $( "#suggst2" ).tabs();
         } );
     </script>
+>>>>>>> 4d60a3e3dea52ed6ec3961cecb9a0da59929dbd0
 @endsection
 
 @section('content')
