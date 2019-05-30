@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title',trans('title.home') )
 @section('content')
 <div class="container">
         <div class="col-md-8 col-md-offset-2">

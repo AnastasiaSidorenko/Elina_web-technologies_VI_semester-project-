@@ -1,9 +1,10 @@
 @extends('admin.layout.auth')
-
+@section('title',trans('title.manufacturers') )
 @section('js')
     <script type="text/javascript" src="{{ asset('js/Manufacturers.js') }}"></script>
 
     <script type="text/javascript" src="{{ asset('js/addons/datatables.min.js') }}"></script>
+
 @endsection
 
 @section('content')
@@ -23,14 +24,12 @@
                                 <th>ID</th><th>{{ trans('admin.name') }}</th><th width="5%"><th width="5%"></th></tr>
                             </thead>
                             <tbody>@foreach($manufacturers as $m)
-                                {{--@if($m->id!=Auth::user()->id)--}}
                                 <tr id='TR{{$m->id}}'>
                                     <td>{{$m->id}}</td>
                                     <td id="TR{{$m->id}}TD1">{{$m->name}}</td>
                                     <td><button id='{{$m->id}}' onclick='deleteManuf({{$m->id}})'><i class="fas fa-trash-alt"></i></button></td>
                                     <td><button data-toggle="modal" data-target="#edit" onclick='editManuf({{$m->id}})'><i class="fas fa-edit"></i></button></td>
                                 </tr>
-                                {{--   @endif--}}
                             @endforeach
                             </tbody>
                         </table>

@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 
 class ProductController extends Controller
@@ -35,16 +36,16 @@ class ProductController extends Controller
                 ->paginate();
             return view('admin.products', ['products' => $products,'manuf'=>$manuf,'category_en'=>$category_en,'category_ru'=>$category_ru]);
         }
-        return redirect('admin/home');
+        return Redirect::back();
     }
 
 
-    public function destroy($id){
-        if(Auth::user()->role=='admin' || Auth::user()->role=='manager'){
+    public function destroy($id)
+    {
+        if (Auth::user()->role == 'admin' || Auth::user()->role == 'manager') {
             $entry = Product::find($id);
             $entry->delete();
-        }
-        else return redirect('admin/home');
+        } else return Redirect::back();
     }
 
     public function store(Request $request){
@@ -74,7 +75,7 @@ class ProductController extends Controller
                 return $data;
             }
         }
-        else return redirect('admin/home');
+        else return Redirect::back();
     }
 
     public function update(Request $request){
@@ -96,7 +97,7 @@ class ProductController extends Controller
                 $entry->save();
             }
         }
-        else return redirect('admin/home');
+        else return Redirect::back();
     }
 
 }

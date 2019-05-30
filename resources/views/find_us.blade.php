@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Find us')
+@section('title',trans('title.find') )
 
 @section('content')
     <div id="divContent">

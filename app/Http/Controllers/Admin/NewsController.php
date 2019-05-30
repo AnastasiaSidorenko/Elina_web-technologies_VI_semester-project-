@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\News;
+use Illuminate\Support\Facades\Redirect;
 
 
 class NewsController extends Controller
@@ -27,7 +28,7 @@ class NewsController extends Controller
             $news = News::paginate();
             return view('admin.news', ['news' => $news]);
         }
-        return redirect('admin/home');
+        return Redirect::back();
     }
 
 
@@ -36,7 +37,7 @@ class NewsController extends Controller
             $entry = News::find($id);
             $entry->delete();
         }
-        else return redirect('admin/home');
+        else return Redirect::back();;
     }
 
     public function store(Request $request){
@@ -51,7 +52,7 @@ class NewsController extends Controller
                 return $data;
             }
         }
-        else return redirect('admin/home');
+        else return Redirect::back();
     }
 
     public function update(Request $request){
@@ -66,7 +67,7 @@ class NewsController extends Controller
                 $entry->save();
             }
         }
-        else return redirect('admin/home');
+        else return Redirect::back();
     }
 
 }
