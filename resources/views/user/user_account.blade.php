@@ -5,15 +5,18 @@
 @endsection--}}
 
 @section('content')
-<!--    --><?php
-//    session_start();
-//    if(App::getLocale()=='en'){
-//
-//    }
-//    else{
-//
-//    }
-//    ?>
+
+    <?php
+    session_start();
+    if(App::getLocale()=='en'){
+        $name='name_en';
+    }
+    else{
+        $name='name_ru';
+    }
+    $manuf_name='manufacturers.name';
+    ?>
+
 <div class="container">
     <h3 class="text-center">{{  trans('user.account') }}</h3>
     <h4>{{  trans('user.account_info') }}</h4>

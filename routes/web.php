@@ -84,6 +84,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/account/{id}/orders/{id_order}','AccountController@orders');
     Route::get('/account/{id}/reviews','AccountController@reviews');
     Route::get('/cart/{id}','CartController@cart');
+
     Route::post('/delete_cart_item','CartController@delete_cart_item');
     Route::post('/minus_cart_item','CartController@minus_cart_item');
     Route::post('/plus_cart_item','CartController@plus_cart_item');

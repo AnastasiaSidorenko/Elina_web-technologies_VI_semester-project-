@@ -7,4 +7,9 @@ return [
     'image'=>'Image',
     'price'=>'Price',
     'total' => 'Total',
+    'date' => 'Date',
+    'total_price' => 'Total price',
+    'address' => 'Address',
+    'status' => 'Status',
+    'orders' => 'Orders',
     ];

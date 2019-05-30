@@ -15,6 +15,7 @@ return [
     'price' => 'Price',
     'qty' => 'Quantity',
     'total' => 'Total',
+
     'checkout' => 'Proceed to checkout',
     'order' => 'Order',
     'address'=> 'Address',
@@ -25,4 +26,7 @@ return [
     'house'=>'House',
     'apartment'=>'Apartment',
     'ifExist'=>'if exists',
-];
+    'no_orders' => 'No orders yet',
+
+    ];
+
