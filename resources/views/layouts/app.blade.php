@@ -56,14 +56,11 @@
                         <a class="ml-1" href="/setlocale/ru">RU</a>
                         <a class="ml-1" href="/setlocale/en">EN</a>
                     </div>
-                    <div class="search-panel ml-auto form-inline mt-auto">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                        <i class="fas fa-search pl-1 pr-2"></i>
-                    </div>
+                    {{--<div class="search-panel ml-auto form-inline mt-auto">--}}
+                        {{--<input class="form-control" type="search" placeholder="Search" aria-label="Search">--}}
+                        {{--<i class="fas fa-search pl-1 pr-2"></i>--}}
+                    {{--</div>--}}
                     <div class="account-panel ml-auto mt-auto mb-2">
-                        {{--<a class="mr-2" href="{{ url('/user/register') }}">{{ trans('top&middle_menu.register') }}</a>--}}
-                        {{--<a class="mr-2" href="{{ url('/user/login') }}">{{ trans('top&middle_menu.login') }}</a>--}}
-
                     @auth
                         <a href="#">{{ Auth::user()->fio }}</a>
                         <a href="{{ url('/user/logout') }}"

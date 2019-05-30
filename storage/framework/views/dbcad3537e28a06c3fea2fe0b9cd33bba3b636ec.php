@@ -56,14 +56,11 @@
                         <a class="ml-1" href="/setlocale/ru">RU</a>
                         <a class="ml-1" href="/setlocale/en">EN</a>
                     </div>
-                    <div class="search-panel ml-auto form-inline mt-auto">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                        <i class="fas fa-search pl-1 pr-2"></i>
-                    </div>
+                    
+                        
+                        
+                    
                     <div class="account-panel ml-auto mt-auto mb-2">
-                        
-                        
-
                     <?php if(auth()->guard()->check()): ?>
                         <a href="#"><?php echo e(Auth::user()->fio); ?></a>
                         <a href="<?php echo e(url('/user/logout')); ?>"
@@ -115,7 +112,7 @@
                             <a class="dropdown-item" href="/products/category/15"><?php echo e(trans('face.sun_care')); ?></a>
                             <a class="dropdown-item" href="/products/category/16"><?php echo e(trans('face.lip_balms')); ?></a>
                         </div>
-                        </div>
+                        </div>t
                      </div>
             </div>
             <div class="main-menu__toggler">

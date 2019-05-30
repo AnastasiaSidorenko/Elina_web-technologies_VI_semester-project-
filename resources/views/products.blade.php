@@ -26,7 +26,7 @@
     @if($products)
     @if(isset($in_section))
         <div class="product-item__title ml-1 mt-2">
-            <p style="font-size:1.3em;" class="px-2 text-left"><a href="/products/{{$products[0]->$cat_id}}">{{$products[0]->$section_name}}</a>
+            <p style="font-size:1.3em;" class="px-2 text-left"><a href="/products/{{$products[0]->$sec_id}}">{{$products[0]->$section_name}}</a>
         </div>
     @elseif(isset($in_category))
         <div class="product-item__title ml-1 mt-2">
