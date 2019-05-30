@@ -526,21 +526,68 @@ Organic Creme Brulee: Olive Oil*, Beeswax*, Flavor*, Sunflower Oil*, Non-GMO Vit
         //NEWS
         DB::table('news')->insert([
             'id' => '1',
-            'title_en'=> 'Sales due opening our cosmetic store',
-            'title_ru'=> 'Акция в честь открытия интернет-магазина',
-            'body_en'=> 'Скидки начинаются. В данное время стоит выаловыаловыда ывоаловыалы ывавыа ывавыавы ывавыа ророр  роророро  оророро роророр ророро роророр р роророр 234 укуцк ы вавы а уц куцк   уцкуцкуцк уцк уцкуцкуц уцкпвыпдлц длодлод.',
-            'body_ru'=> 'Скидки начинаются. В данное время стоит выаловыаловыда ывоаловыалы ывавыа ывавыавы ывавыа ророр  роророро  оророро роророр ророро роророр р роророр 234 укуцк ы вавы а уц куцк   уцкуцкуцк уцк уцкуцкуц уцкпвыпдлц длодлод.',
+            'title_en'=> 'Opening our cosmetic store',
+            'title_ru'=> 'Открытие интернет-магазина',
+            'body_en'=> 'Our store is starting to work and accept order. We will add more products soon',
+            'body_ru'=> 'Наш интернет-магазин начал работать и принимать ваши заказы. Мы расширим скоро наш ассортимент',
             'date' => '24/5/2019',
-            'image'=> 'Ocean-Water-Wave-Art-Blue-Concept-Dark.jpg',
+            'image'=> 'iherb-haul-deep-steep-sierra-bees-triphala-acure.jpg',
         ]);
         DB::table('news')->insert([
             'id' => '2',
-            'title_en'=> 'Новость новость новость новость новость новость',
-            'title_ru'=> 'News news News news News news News news News news News news',
-            'body_en'=> 'English .Скидки начинаются. В данное время стоит выаловыаловыда ывоаловыалы ывавыа ывавыавы ывавыа ророр роророро оророро роророр ророро роророр р роророр 234 укуцк ы вавы а уц куцк уцкуцкуцк уцк уцкуцкуц уцкпвыпдлц длодлод.',
-            'body_ru'=> 'Russian. Скидки начинаются. В данное время стоит выаловыаловыда ывоаловыалы ывавыа ывавыавы ывавыа ророр роророро оророро роророр ророро роророр р роророр 234 укуцк ы вавы а уц куцк уцкуцкуцк уцк уцкуцкуц уцкпвыпдлц длодлод.',
+            'title_en'=> 'Here a new brands come. Greet Desert Essence ',
+            'title_ru'=> 'Появление нового бренда',
+            'body_en'=> "We\'ve got a new contract with Desert Essence suppliers, and next week you will see new product by Desert Essence",
+            'body_ru'=> 'Мы заключили контракт с поставщиками средств производителя Desert Essence,и уже на следующей неделе вы увидите новые продукты этого производителя',
             'date' => '25/5/2019',
-            'image'=> 'cherry_PNG635.png',
+            'image'=> 'DSC5971.jpg',
+        ]);
+
+
+        DB::table('feedbacks')->insert([
+            'id' => '1',
+            'date' => '2019-05-30',
+            'text' => 'Замечательные бальзамчики!! 
+Мой любимый - мятный, он охлаждает, увлажняет и питает губы. С маслом ши немного комочками из-за масла, а чайного дерева пахнет эфирным маслом...',
+        ]);
+        DB::table('feedback_on_products')->insert([
+            'id'=>'1',
+            'id_product' => '12',
+            'id_feedback' => '1'
+        ]);
+        DB::table('users')->insert([
+            'id' => '1',
+            'fio' => 'Сирнова Вика Александровна',
+            'email' => 'ssnasty@mail.ru',
+            'phone' => '+79787222112',
+            'password' => 'qwertyui'
+        ]);
+        DB::table('user_feedbacks')->insert([
+            'id'=>'1',
+            'id_feedback' => '1',
+            'user_id' => '1'
+        ]);
+        DB::table('orders')->insert([
+            'id'=>'1',
+            'date'=> '2019-05-26',
+            'total_price' => '1300.00',
+            'address' => 'Ноябрьск;Изыскателей;3;65;629810;',
+            'status'=>'1',
+            'user_id'=>'1',
+        ]);
+        DB::table('product_in_orders')->insert([
+            'id'=>'1',
+            'quantity'=>'2',
+            'price' => '600',
+            'id_order' => '1',
+            'id_product' => '12'
+        ]);
+        DB::table('product_in_orders')->insert([
+            'id'=>'2',
+            'quantity'=>'1',
+            'price' => '700',
+            'id_order' => '1',
+            'id_product' => '2'
         ]);
     }
 }

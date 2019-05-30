@@ -8,8 +8,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feedback;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\User;
+use App\Models\User_feedback;
+use App\Models\Feedback_on_product;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -41,13 +46,50 @@ class AccountController extends Controller
         else return redirect('/user/home');
     }
 
-    public function orders($id,$id_order){
+    public function order($id,$id_order){
         if($id==Auth::user()->id) {
-            $orders = DB::table('product_in_orders')->where('id_order',$id_order)
+            $order_items = DB::table('product_in_orders')->where('id_order',$id_order)
                 ->leftJoin('products', 'products.id', '=', 'product_in_orders.id_product')
-                ->select('product_in_orders.*','products.name_ru as name_ru','products.name_ru as name_en','products.image1 as image')
+                ->select('product_in_orders.*','products.name_ru as name_ru','products.name_en as name_en','products.image1 as image')
+                ->orderBy('created_at', 'desc')
                 ->paginate();
+
+            $order_status = Order::find($id_order)->status;
+
         }
-        return view('user.orders_output', ['orders' => $orders]);
+        return view('user.order-item', ['order' => $order_items,'order_status' => $order_status]);
     }
+
+    public function write_review($product_id)
+    {
+        $if_product = Order::where('user_id',Auth::user()->id)
+            ->where('status',1)
+            ->leftJoin('product_in_orders','product_in_orders.id_order','=','orders.id')
+            ->where('product_in_orders.id_product',$product_id)
+            ->get();
+        if($if_product->count()>0){
+
+        $product = Product::where('products.id',$product_id)
+            ->leftJoin('manufacturers', 'manufacturers.id', '=', 'products.id_manufacturer')
+            ->select('products.*','manufacturers.name as manuf_name')->first();
+
+            if (!isset($product)) {
+                abort(404);
+                exit;
+            }
+
+            return view('user.review', ['product' => $product]);
+         }
+         else return redirect('/user/home');
+     }
+
+     public function post_review(Request $request){
+         if($request->ajax()) {
+             $date=date('Y-m-d');
+             $feedback=Feedback::create(array('date'=>$date,'text'=>$request->review));
+             $feedback_id = $feedback->id;
+             $user_feedback = User_feedback::create(array('id_feedback'=>$feedback_id,'user_id'=>$request->user_id));
+             $feedback_on_product = Feedback_on_product::create(array('id_product'=>$request->product_id,'id_feedback'=>$feedback_id));
+         }
+     }
 }

@@ -81,9 +81,12 @@ Route::group(['prefix' => 'user'], function () {
 
     Route::get('/account/{id}','AccountController@index');
     Route::get('/account/{id}/orders','AccountController@orders_output');
-    Route::get('/account/{id}/orders/{id_order}','AccountController@orders');
+    Route::get('/account/{id}/orders/{id_order}','AccountController@order');
     Route::get('/account/{id}/reviews','AccountController@reviews');
     Route::get('/cart/{id}','CartController@cart');
+
+    Route::get('/product/{id}/review','AccountController@write_review');
+    Route::post('/product/{id}/review', 'AccountController@post_review');
 
     Route::post('/delete_cart_item','CartController@delete_cart_item');
     Route::post('/minus_cart_item','CartController@minus_cart_item');

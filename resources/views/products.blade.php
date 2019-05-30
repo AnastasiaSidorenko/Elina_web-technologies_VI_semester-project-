@@ -20,9 +20,10 @@
     $cat_id = 'category_id';
     $sec_id = 'section_id';
     $manuf_name = 'manufacturer_name';
+    $lang = App::getLocale();
     ?>
 
-    @if(isset($products[0]))
+    @if($products)
     @if(isset($in_section))
         <div class="product-item__title ml-1 mt-2">
             <p style="font-size:1.3em;" class="px-2 text-left"><a href="/products/{{$products[0]->$cat_id}}">{{$products[0]->$section_name}}</a>
@@ -59,7 +60,7 @@
                     </div>
                         @auth
                             <div>
-                            <button id="addInCart" onclick="AddInCart({{$product->id}},{{Auth::user()->id}})" type="button" class="btn btn btn-lg mb-auto d-inline-flex align-self-end deep-purple">{{ trans('product.add_to_cart') }}</button>
+                            <button id="addInCart" onclick="AddInCart({{$product->id}},{{Auth::user()->id}},'{{$lang}}')" type="button" class="btn btn btn-lg mb-auto d-inline-flex align-self-end deep-purple">{{ trans('product.add_to_cart') }}</button>
                             </div>
                                 <span id="countProduct" hidden> 1 </span>
                         @else
@@ -76,6 +77,6 @@
         </div>
     </div>
     @else
-        <h5 class="text-center">{{trans('product.no_new_products')}}</h5>
+        <div class="d-flex justify-content-center" style="height:50vh;"><h3 class="align-self-center">{{trans('product.no_products')}}</h3></div>
     @endif
 @endsection
