@@ -112,7 +112,7 @@
                             <a class="dropdown-item" href="/products/category/15">{{ trans('face.sun_care') }}</a>
                             <a class="dropdown-item" href="/products/category/16">{{ trans('face.lip_balms') }}</a>
                         </div>
-                        </div>t
+                        </div>
                      </div>
             </div>
             <div class="main-menu__toggler">
