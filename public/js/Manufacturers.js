@@ -27,8 +27,8 @@ $(function() {
                 $('.alert').removeClass('show').addClass('hidden');
                 var str = '<tr id="TR'+data['id']+'"><td>' + data['id'] +
                     '<td id="TR'+data['id']+'TD1">'+data['name']+'</div></td>'+
-                    '<td><button id=' + data['id'] + ' onclick="deleteManuf(' + data['id'] + ')"><i class="fas fa-trash-alt"></i></button></td></tr>'+
-                    '<td><button data-toggle="modal" data-target="#edit" onclick="editManuf(' + data['id'] + ')"><i class="fas fa-edit"></i></button></td>';
+                    '<td><button id=' + data['id'] + ' onclick="deleteManuf(' + data['id'] + ')"><i class="fas fa-trash-alt"></i></button></td>'+
+                    '<td><button data-toggle="modal" data-target="#edit" onclick="editManuf(' + data['id'] + ')"><i class="fas fa-edit"></i></button></td></tr>';
                 $('.table > tbody:last').append(str);
                 $('#name').val('');
             },

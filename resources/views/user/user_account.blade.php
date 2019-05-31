@@ -35,12 +35,12 @@
     <div class="Orders_reviews">
         <div class="orders__preview">
             <hr>
-            <h4><a href="/user/account/1/orders">{{ trans('user.orders') }}</a></h4>
+            <h4><a href="/user/account/{{$user->id}}/orders">{{ trans('user.orders') }}</a></h4>
         </div>
-        <div>
+        {{--<div>
             <hr>
             <h4><a href="/user/account/1/reviews">{{ trans('user.reviews') }}</a></h4>
-        </div>
+        </div>--}}
     </div>
 </div>
 @endsection

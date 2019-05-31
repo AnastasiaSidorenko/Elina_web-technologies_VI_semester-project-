@@ -37,7 +37,7 @@ class AccountController extends Controller
 
     public function orders_output($id){
         if($id==Auth::user()->id) {
-            $orders = DB::table('orders')
+            $orders = DB::table('orders')->where('user_id',$id)
                 ->leftJoin('users', 'users.id', '=', 'orders.user_id')
                 ->select('orders.*','users.fio as userFIO')
                 ->paginate();
