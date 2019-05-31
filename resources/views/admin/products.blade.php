@@ -18,7 +18,7 @@
             $( "#suggst2" ).tabs();
         } );
     </script>
->>>>>>> 4d60a3e3dea52ed6ec3961cecb9a0da59929dbd0
+
 @endsection
 
 @section('content')
